@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             menuStrip1 = new MenuStrip();
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            openToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStripStatusLabel2 = new ToolStripStatusLabel();
             splitContainer1 = new SplitContainer();
             treeView1 = new TreeView();
-            fileToolStripMenuItem = new ToolStripMenuItem();
-            openToolStripMenuItem = new ToolStripMenuItem();
             openFileDialog1 = new OpenFileDialog();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -53,6 +53,23 @@
             menuStrip1.Size = new Size(800, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem });
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(54, 29);
+            fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            openToolStripMenuItem.Name = "openToolStripMenuItem";
+            openToolStripMenuItem.ShortcutKeyDisplayString = "";
+            openToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.O;
+            openToolStripMenuItem.Size = new Size(218, 34);
+            openToolStripMenuItem.Text = "Open";
+            openToolStripMenuItem.ToolTipText = "Open a file";
+            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // statusStrip1
             // 
@@ -98,26 +115,14 @@
             treeView1.Size = new Size(266, 385);
             treeView1.TabIndex = 0;
             // 
-            // fileToolStripMenuItem
-            // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem });
-            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new Size(54, 29);
-            fileToolStripMenuItem.Text = "File";
-            // 
-            // openToolStripMenuItem
-            // 
-            openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.ShortcutKeyDisplayString = "";
-            openToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.O;
-            openToolStripMenuItem.Size = new Size(270, 34);
-            openToolStripMenuItem.Text = "Open";
-            openToolStripMenuItem.ToolTipText = "Open a file";
-            openToolStripMenuItem.Click += openToolStripMenuItem_Click;
-            // 
             // openFileDialog1
             // 
-            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.AddExtension = false;
+            openFileDialog1.FileName = "campaign.xml";
+            openFileDialog1.Filter = "Starsector save|campaign.xml";
+            openFileDialog1.OkRequiresInteraction = true;
+            openFileDialog1.ReadOnlyChecked = true;
+            openFileDialog1.ShowPreview = true;
             // 
             // Form1
             // 

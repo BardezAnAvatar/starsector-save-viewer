@@ -18,5 +18,10 @@ namespace SystemFinder
                 var results = CampaignIO.ReadSave(file);
             }
         }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
     }
 }
