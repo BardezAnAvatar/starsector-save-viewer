@@ -11,10 +11,12 @@ namespace SystemFinder
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
-            Stream file = openFileDialog1.OpenFile();
-
-            var results = CampaignIO.ReadSave(file);
+            var dialogResult = openFileDialog1.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                Stream file = openFileDialog1.OpenFile();
+                var results = CampaignIO.ReadSave(file);
+            }
         }
     }
 }
