@@ -80,6 +80,7 @@
             statusStrip1.Size = new Size(800, 32);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
+            statusStrip1.Visible = false;
             // 
             // toolStripStatusLabel1
             // 
@@ -103,7 +104,7 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(treeView1);
-            splitContainer1.Size = new Size(800, 385);
+            splitContainer1.Size = new Size(800, 417);
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 2;
             // 
@@ -112,7 +113,7 @@
             treeView1.Dock = DockStyle.Fill;
             treeView1.Location = new Point(0, 0);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(266, 385);
+            treeView1.Size = new Size(266, 417);
             treeView1.TabIndex = 0;
             // 
             // openFileDialog1

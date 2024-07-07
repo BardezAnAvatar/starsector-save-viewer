@@ -8,8 +8,7 @@ namespace SystemFinder.Logic
     {
         public static List<StarSystem> ReadSave(Stream file)
         {
-            using XmlReader reader = XmlReader.Create(file);
-            XNode root = XDocument.ReadFrom(reader);
+            XNode root = XDocument.Load(file);
 
             //TODO: Code
 

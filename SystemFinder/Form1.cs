@@ -14,14 +14,11 @@ namespace SystemFinder
             var dialogResult = openFileDialog1.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
+                toolStripStatusLabel2.Text = openFileDialog1.FileName;
+                statusStrip1.Visible = true;
                 Stream file = openFileDialog1.OpenFile();
                 var results = CampaignIO.ReadSave(file);
             }
-        }
-
-        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-
         }
     }
 }
