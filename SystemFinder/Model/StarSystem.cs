@@ -9,7 +9,7 @@ namespace SystemFinder.Model
 {
     internal class StarSystem
     {
-        public int ZIndex { get; init; }
+        public string Ref { get; init; } = string.Empty;
 
         public List<Planet> Planets { get; init; } = [];
 
