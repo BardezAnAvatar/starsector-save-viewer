@@ -10,12 +10,12 @@ namespace SystemFinder.Logic.CampaignIO
             var s = current.Element("s");
             var f = current.Element("f");
 
-            if (s != null)
+            if (s is not null)
             {
                 sReader.Read(s, data);
             }
 
-            if (f != null)
+            if (f is not null)
             {
                 fReader.Read(f, data);
             }
