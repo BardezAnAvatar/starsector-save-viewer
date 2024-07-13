@@ -6,7 +6,7 @@ using SystemFinder.Model;
 
 namespace SystemFinder.Logic
 {
-    internal class CampaignIO
+    internal class CampaignIoLogic
     {
         public static List<StarSystem> ReadSave(Stream file)
         {
