@@ -33,6 +33,9 @@
 ## Fleet
     /Flt[3]/dL/RouteManager/r/RouteData[185]/m/primaryEntity/orbit/f/cL
     /Flt[1]/sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
+---------------------------------------------
+    /Flt[n]/dL/
+    /Flt[n]/sc/
 
 ## Market
     /market/economy/
@@ -52,6 +55,13 @@
     ./f/cL
     ./f/cL/o/saved
 	./f/orbit/f/cL/o/saved #Recursive!!
+
+# `dL`
+	./dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+    ./dL/RouteManager/r/RouteData[185]/m/primaryEntity/orbit/f/cL
+---------------------------------------------
+	./dL/RouteManager/
+    ./dL/RouteManager/
 	
 # Script (`sc`)
     /Flt[1]/sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
@@ -65,7 +75,7 @@
 - [X] ./CCEnt
 - [X] ./Flt
 - [ ] ./f/
-- [ ] Market
+- [ ] ./market
 - [ ]
 - [ ]
 - [ ]
