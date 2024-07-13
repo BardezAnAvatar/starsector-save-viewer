@@ -3,10 +3,22 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO
 {
-    public class f_Reader
+    public class f_Reader(OrbitReader orbitReader, cL_Reader clReader)
     {
         public void Read(XElement current, GalaxyData data)
         {
+            var cL = current.Element("cL");
+            var orbit = current.Element("orbit");
+
+            if (cL is not null)
+            {
+                clReader.Read(cL, data);
+            }
+
+            if (orbit is not null)
+            {
+                orbitReader.Read(orbit, data);
+            }
         }
     }
 }
