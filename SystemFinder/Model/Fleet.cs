@@ -1,6 +1,6 @@
 ﻿namespace SystemFinder.Model
 {
-    public class Planet
+    public class Fleet
     {
     }
 }
