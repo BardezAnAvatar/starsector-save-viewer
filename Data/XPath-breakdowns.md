@@ -4,7 +4,7 @@
 ## Location Token
     /LocationToken[1]/orbit/s/o/saved
 ---------------------------------------------
-    /LocationToken[n]/orbit
+    /LocationToken[n]/orbit/
 
 ## Orbits
 	/orbit/f/cL
@@ -41,8 +41,14 @@
 	./dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
     ./dL/RouteManager/r/RouteData[185]/m/primaryEntity/orbit/f/cL
 ---------------------------------------------
-	./dL/RouteManager/
-    ./dL/RouteManager/
+	./dL/RouteManager/r/RouteData[n]/
+
+## RouteData
+	./RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+    ./RouteData[185]/m/primaryEntity/orbit/f/cL
+---------------------------------------------
+	./RouteData[n]/e/
+    ./RouteData[n]/m/
 
 ## Market
     /market/economy/
@@ -66,12 +72,6 @@
 ## Script (`sc`)
     /Flt[1]/sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
 
-## RouteData
-	./RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
-    ./RouteData[185]/m/primaryEntity/orbit/f/cL
----------------------------------------------
-	./RouteData[n]/e/
-    ./RouteData[n]/m/
 
 
 # Readers
@@ -81,10 +81,11 @@
 - [X] ./Plnt
 - [X] ./CCEnt
 - [X] ./Flt
+- [X] ./dL
 - [ ] ./f/
 - [ ] ./market
-- [ ]
-- [ ]
-- [ ]
+- [ ] ./RouteData
+- [ ] ./e/
+- [ ] ./sc/
 - [ ]
 - [ ]
