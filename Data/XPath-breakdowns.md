@@ -37,6 +37,13 @@
     /Flt[n]/dL/
     /Flt[n]/sc/
 
+## `dL`
+	./dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+    ./dL/RouteManager/r/RouteData[185]/m/primaryEntity/orbit/f/cL
+---------------------------------------------
+	./dL/RouteManager/
+    ./dL/RouteManager/
+
 ## Market
     /market/economy/
     /market/commDirectory/entries/CommDirectoryEntry[n]/entryData/
@@ -44,27 +51,27 @@
 	/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
     /market/primaryEntity/orbit/f/orbit/f/cL/o/saved
 
-# Entry (`e`)
+## Entry (`e`)
 	./e[n]/OfficerManagerEvent/
 	./e[n]/Market/primaryEntity/orbit/f/cL/o/saved
     ./e[n]/kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/orbit/f/orbit/f/cL/o/saved
     ./e[n]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
     ./e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
 
-# `f`
+## `f`
     ./f/cL
     ./f/cL/o/saved
 	./f/orbit/f/cL/o/saved #Recursive!!
-
-# `dL`
-	./dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
-    ./dL/RouteManager/r/RouteData[185]/m/primaryEntity/orbit/f/cL
----------------------------------------------
-	./dL/RouteManager/
-    ./dL/RouteManager/
 	
-# Script (`sc`)
+## Script (`sc`)
     /Flt[1]/sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
+
+## RouteData
+	./RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+    ./RouteData[185]/m/primaryEntity/orbit/f/cL
+---------------------------------------------
+	./RouteData[n]/e/
+    ./RouteData[n]/m/
 
 
 # Readers
