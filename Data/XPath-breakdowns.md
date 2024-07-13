@@ -3,18 +3,71 @@
 
 ## Location Token
     /LocationToken[1]/orbit/s/o/saved
+---------------------------------------------
+    /LocationToken[n]/orbit
+
+## Orbits
+	/orbit/f/cL
+	/orbit/f/cL/o/saved
+	/orbit/f/orbit/f/cL/o/saved #Recursive!!
+---------------------------------------------
+	/orbit/s/
+	/orbit/f/
 	
+## Planet
+    /Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+	/Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
+---------------------------------------------
+    /Plnt[n]/market/
+
 ## CCEnt
     /CCEnt[2]/market/economy/stepper/econ/markets/Market[2]/primaryEntity/orbit/f/cL/o/saved
     /CCEnt[4]/market/commDirectory/entries/CommDirectoryEntry[5]/entryData/m/d/e[4]/OfficerManagerEvent/available/AvailableOfficer[3]/person/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
     /CCEnt[1]/market/commDirectory/entries/CommDirectoryEntry[4]/entryData/m/d/e[3]/OfficerManagerEvent/available/AvailableOfficer[2]/person/market/primaryEntity/orbit/f/orbit/f/cL/o/saved
     /CCEnt[4]/market/immigrationModifiers/ColonyMngr/npcConstructionQueues/e[1]/Market/primaryEntity/orbit/f/cL/o/saved
     /CCEnt[5]/me/d/e[4]/kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/orbit/f/orbit/f/cL/o/saved
-
-## Fleet	
+---------------------------------------------
+    /CCEnt[n]/market/
+    /CCEnt[n]/me/
+	
+## Fleet
     /Flt[3]/dL/RouteManager/r/RouteData[185]/m/primaryEntity/orbit/f/cL
     /Flt[1]/sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
 
-## Planet
-    /Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
-	/Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
+## Market
+    /market/economy/
+    /market/commDirectory/entries/CommDirectoryEntry[n]/entryData/
+	/market/immigrationModifiers/ColonyMngr/npcConstructionQueues/e[1]/Market/primaryEntity/orbit/f/cL/o/saved
+	/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
+    /market/primaryEntity/orbit/f/orbit/f/cL/o/saved
+
+# Entry (`e`)
+	./e[n]/OfficerManagerEvent/
+	./e[n]/Market/primaryEntity/orbit/f/cL/o/saved
+    ./e[n]/kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/orbit/f/orbit/f/cL/o/saved
+    ./e[n]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
+    ./e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+
+# `f`
+    ./f/cL
+    ./f/cL/o/saved
+	./f/orbit/f/cL/o/saved #Recursive!!
+	
+# Script (`sc`)
+    /Flt[1]/sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
+
+
+# Readers
+- [X] ./o/saved/
+- [X] ./orbit
+- [X] ./LocationToken
+- [X] ./Plnt
+- [X] ./CCEnt
+- [X] ./Flt
+- [ ] ./f/
+- [ ] Market
+- [ ]
+- [ ]
+- [ ]
+- [ ]
+- [ ]
