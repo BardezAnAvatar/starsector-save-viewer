@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.IO;
-using System.Reflection.Metadata;
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO
