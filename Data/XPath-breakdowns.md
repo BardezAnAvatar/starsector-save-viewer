@@ -137,6 +137,8 @@
 
 ## kentington.diyplanets.GenesisStationIntel
     ./kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/orbit/f/orbit/f/cL/o/saved
+---------------------------------------------
+    ./kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/*
 
 ## WarSimScript
     ./WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
@@ -175,7 +177,7 @@
 - [X] ./immigrationModifiers/*
 - [X] ./industries/*
 - [X] ./primaryEntity/*
-- [ ] ./kentington.diyplanets.GenesisStationIntel/*
+- [X] ./kentington.diyplanets.GenesisStationIntel/*
 - [ ] ./WarSimScript/*
 - [ ] ./entryData/*
 - [ ] ./cL
