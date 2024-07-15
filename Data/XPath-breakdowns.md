@@ -191,5 +191,8 @@
 - [X] ./kentington.diyplanets.GenesisStationIntel/*
 - [X] ./WarSimScript/*
 - [ ] ./entryData/*
+- [ ] ./m/*
+- [ ] ./me/*
+- [ ] ./RouteManager/*
 - [ ] ./Sstm/*
 - [ ] ./cL
