@@ -8,14 +8,11 @@ namespace SystemFinder.Logic
 {
     public class CampaignIoLogic(ICampaignEngineReader reader) : ICampaignIoLogic
     {
-        public List<StarSystem> ReadSave(Stream file)
+        public GalaxyData ReadSave(Stream file)
         {
             XDocument root = XDocument.Load(file);
-
-            //TODO: Code
-            var systems = TraverseSave(root);
-
-            return [];
+            var data = TraverseSave(root);
+            return data;
         }
 
         private GalaxyData TraverseSave(XDocument root)

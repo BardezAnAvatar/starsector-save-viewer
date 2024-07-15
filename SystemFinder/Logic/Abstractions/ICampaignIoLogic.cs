@@ -1,9 +1,9 @@
-﻿using SystemFinder.Model;
+﻿using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.Abstractions
 {
     public interface ICampaignIoLogic
     {
-        List<StarSystem> ReadSave(Stream file);
+        GalaxyData ReadSave(Stream file);
     }
 }
