@@ -1,9 +1,10 @@
 ﻿using System.Xml.Linq;
+using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class CentReader(MarketReader marketReader, MetadataReader meReader)
+    public class CentReader(MarketReader marketReader, MetadataReader meReader) : ICentReader
     {
         public void Read(XElement current, GalaxyData data)
         {

@@ -1,9 +1,10 @@
 ﻿using System.Xml.Linq;
+using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class m_Reader(e_Reader eReader, PrimaryEntityReader primaryEntityReader)
+    public class m_Reader(e_Reader eReader, PrimaryEntityReader primaryEntityReader) : Im_Reader
     {
         public void Read(XElement current, GalaxyData data)
         {

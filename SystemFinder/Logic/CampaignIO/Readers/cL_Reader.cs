@@ -1,10 +1,11 @@
 ﻿using System.Xml.Linq;
+using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Logic.CampaignIO.Readers.Model;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class cL_Reader(ConReader conReader, SavedObjectReader osavedReader, StarSystemReader sstmReader)
+    public class cL_Reader(ConReader conReader, SavedObjectReader osavedReader, StarSystemReader sstmReader) : IcL_Reader
     {
         public void Read(XElement current, GalaxyData data)
         {
