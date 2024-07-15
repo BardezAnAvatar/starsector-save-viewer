@@ -100,6 +100,11 @@
 ---------------------------------------------
     ./t/cL/*
 
+## RtSeg
+    ./RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
+---------------------------------------------
+	./RtSeg[n]/t/*
+
 ## Script (`sc`)
     ./sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
 
@@ -123,9 +128,6 @@
 
 ## WarSimScript
     ./WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
-
-## RtSeg
-    ./RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
 
 ## `cL`
     ./cL
@@ -153,6 +155,7 @@
 - [X] ./market/*
 - [X] ./e/*
 - [X] ./t/*
+- [X] ./RtSeg/*
 - [ ] ./sc/*
 - [ ] ./Market/*
 - [ ] ./economy/*
@@ -162,5 +165,4 @@
 - [ ] ./primaryEntity/*
 - [ ] ./kentington.diyplanets.GenesisStationIntel/*
 - [ ] ./WarSimScript/*
-- [ ] ./RtSeg/*
 - [ ] ./cL
