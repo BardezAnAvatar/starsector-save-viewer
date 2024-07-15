@@ -9,8 +9,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="assets\asteroid-belt.png" />
+    <None Remove="assets\galaxy.png" />
+    <None Remove="assets\gate-scanned.png" />
+    <None Remove="assets\gate-unscanned.png" />
+    <None Remove="assets\planet.png" />
+    <None Remove="assets\ship.png" />
+    <None Remove="assets\star-system.png" />
+    <None Remove="assets\star.png" />
+    <None Remove="assets\station.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="assets\asteroid-belt.png" />
+    <EmbeddedResource Include="assets\galaxy.png" />
+    <EmbeddedResource Include="assets\gate-scanned.png" />
+    <EmbeddedResource Include="assets\gate-unscanned.png" />
+    <EmbeddedResource Include="assets\planet.png" />
+    <EmbeddedResource Include="assets\ship.png" />
+    <EmbeddedResource Include="assets\star-system.png" />
+    <EmbeddedResource Include="assets\star.png" />
+    <EmbeddedResource Include="assets\station.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.7" />
   </ItemGroup>
 
 </Project>

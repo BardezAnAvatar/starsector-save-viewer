@@ -36,7 +36,7 @@
             toolStripStatusLabel1 = new ToolStripStatusLabel();
             toolStripStatusLabel2 = new ToolStripStatusLabel();
             splitContainer1 = new SplitContainer();
-            treeView1 = new TreeView();
+            treeViewSystems = new TreeView();
             openFileDialog1 = new OpenFileDialog();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -104,18 +104,18 @@
             // 
             // splitContainer1.Panel1
             // 
-            splitContainer1.Panel1.Controls.Add(treeView1);
+            splitContainer1.Panel1.Controls.Add(treeViewSystems);
             splitContainer1.Size = new Size(800, 417);
             splitContainer1.SplitterDistance = 266;
             splitContainer1.TabIndex = 2;
             // 
-            // treeView1
+            // treeViewSystems
             // 
-            treeView1.Dock = DockStyle.Fill;
-            treeView1.Location = new Point(0, 0);
-            treeView1.Name = "treeView1";
-            treeView1.Size = new Size(266, 417);
-            treeView1.TabIndex = 0;
+            treeViewSystems.Dock = DockStyle.Fill;
+            treeViewSystems.Location = new Point(0, 0);
+            treeViewSystems.Name = "treeViewSystems";
+            treeViewSystems.Size = new Size(266, 417);
+            treeViewSystems.TabIndex = 0;
             // 
             // openFileDialog1
             // 
@@ -156,7 +156,7 @@
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripStatusLabel toolStripStatusLabel2;
         private SplitContainer splitContainer1;
-        private TreeView treeView1;
+        private TreeView treeViewSystems;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripMenuItem openToolStripMenuItem;
         private OpenFileDialog openFileDialog1;
