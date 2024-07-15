@@ -8,18 +8,16 @@ namespace SystemFinder.Logic.CampaignIO.Readers
     {
         public void Read(XElement current, GalaxyData data)
         {
-            var saved =
-                current
-                .Element("o")!
-                .Element("saved")!
+            var saved = current
+                .Element("saved")
                 ;
 
-            var locationTokens = saved.Elements("LocationToken");
-            var cents = saved.Elements("CCEnt");
-            var fleets = saved.Elements("Flt");
-            var planets = saved.Elements("Plnt");
+            var locationTokens = saved?.Elements("LocationToken");
+            var cents = saved?.Elements("CCEnt");
+            var fleets = saved?.Elements("Flt");
+            var planets = saved?.Elements("Plnt");
 
-            if (locationTokens.Any())
+            if (locationTokens is not null && locationTokens.Any())
             {
                 foreach (var element in locationTokens)
                 {
@@ -27,7 +25,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 }
             }
 
-            if (cents.Any())
+            if (cents is not null && cents.Any())
             {
                 foreach (var element in cents)
                 {
@@ -35,7 +33,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 }
             }
 
-            if (fleets.Any())
+            if (fleets is not null && fleets.Any())
             {
                 foreach (var element in cents)
                 {
@@ -43,7 +41,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 }
             }
 
-            if (planets.Any())
+            if (planets is not null && planets.Any())
             {
                 foreach (var element in cents)
                 {
