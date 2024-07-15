@@ -145,6 +145,14 @@
 ---------------------------------------------
     ./WarSimScript/queue/Sstm[n]/*
 
+## `entryData`
+    ./entryData/m/d/e[4]/OfficerManagerEvent/available/AvailableOfficer[3]/person/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved/*
+    ./entryData/m/d/e[3]/OfficerManagerEvent/available/AvailableOfficer[2]/person/market/primaryEntity/orbit/f/orbit/f/cL/o/saved/*
+    ./entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
+---------------------------------------------
+    ./entryData/m/*
+    ./entryData/stats/fleet/*
+
 ## Sstm
     ./Sstm[22]/con/systems/Sstm[1]/o/saved/*
     ./Sstm[1]/o/saved/*
@@ -190,7 +198,7 @@
 - [X] ./primaryEntity/*
 - [X] ./kentington.diyplanets.GenesisStationIntel/*
 - [X] ./WarSimScript/*
-- [ ] ./entryData/*
+- [X] ./entryData/*
 - [ ] ./m/*
 - [ ] ./me/*
 - [ ] ./RouteManager/*
