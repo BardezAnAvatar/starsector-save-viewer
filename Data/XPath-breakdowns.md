@@ -151,7 +151,7 @@
 - [X] ./OfficerManagerEvent/*
 - [X] ./person/*
 - [X] ./market/*
-- [ ] ./e/*
+- [X] ./e/*
 - [ ] ./sc/*
 - [ ] ./Market/*
 - [ ] ./economy/*
