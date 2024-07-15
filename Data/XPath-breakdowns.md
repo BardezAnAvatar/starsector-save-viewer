@@ -126,8 +126,7 @@
 - [X] ./dL/*
 - [X] ./RouteData/*
 - [X] ./f/*
-- [ ] ./cL
-- [ ] ./OfficerManagerEvent/*
+- [X] ./OfficerManagerEvent/*
 - [ ] ./e/*
 - [ ] ./sc/*
 - [ ] ./market/*
@@ -140,3 +139,4 @@
 - [ ] ./kentington.diyplanets.GenesisStationIntel/*
 - [ ] ./WarSimScript/*
 - [ ] ./RtSeg/*
+- [ ] ./cL
