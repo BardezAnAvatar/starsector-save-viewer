@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class PrimaryEntityReader(IOrbitReader orbitReader) : IPrimaryEntityReader
+    public class PrimaryEntityReader(Lazy<IOrbitReader> orbitReader) : IPrimaryEntityReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -14,7 +14,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (orbit is not null)
             {
-                orbitReader.Read(orbit, data);
+                orbitReader.Value.Read(orbit, data);
             }
         }
     }

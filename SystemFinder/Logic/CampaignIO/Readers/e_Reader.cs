@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class e_Reader(IGenesisStationIntelReader genesisReader, IMarketReader marketReader,
+    public class e_Reader(IGenesisStationIntelReader genesisReader, Lazy<IMarketReader> marketReader,
         IOfficerManagerEventReader officerReader, IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
         : Ie_Reader
     {
@@ -23,7 +23,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (market is not null)
             {
-                marketReader.Read(market, data);
+                marketReader.Value.Read(market, data);
             }
 
             if (officerManagerEvent is not null)

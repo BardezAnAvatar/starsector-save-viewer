@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class CentReader(IMarketReader marketReader, IMetadataReader meReader) : ICentReader
+    public class CentReader(Lazy<IMarketReader> marketReader, IMetadataReader meReader) : ICentReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -13,7 +13,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (market is not null)
             {
-                marketReader.Read(market, data);
+                marketReader.Value.Read(market, data);
             }
 
             if (me is not null)

@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SystemFinder.DependencyRegistration;
 using SystemFinder.Logic;
 
 namespace SystemFinder
@@ -27,6 +28,7 @@ namespace SystemFinder
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
+                    services.AddLazyResolution();
                     services.AddXmlReaders();
                     services.AddTransient<Form1>();
                 });

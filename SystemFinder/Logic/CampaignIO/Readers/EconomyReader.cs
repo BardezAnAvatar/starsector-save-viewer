@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class EconomyReader(IMarketReader marketReader) : IEconomyReader
+    public class EconomyReader(Lazy<IMarketReader> marketReader) : IEconomyReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -19,7 +19,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             {
                 foreach (var element in e)
                 {
-                    marketReader.Read(element, data);
+                    marketReader.Value.Read(element, data);
                 }
             }
         }

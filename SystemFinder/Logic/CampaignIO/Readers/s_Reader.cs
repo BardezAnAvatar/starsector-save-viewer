@@ -5,7 +5,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class s_Reader(IConReader conReader, ISavedObjectReader osavedReader, IStarSystemReader sstmReader)
+    public class s_Reader(IConReader conReader, Lazy<ISavedObjectReader> osavedReader, IStarSystemReader sstmReader)
         : Is_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -30,7 +30,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (o is not null)
             {
-                osavedReader.Read(o, data);
+                osavedReader.Value.Read(o, data);
             }
         }
     }
