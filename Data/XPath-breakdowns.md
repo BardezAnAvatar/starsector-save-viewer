@@ -216,8 +216,8 @@
 - [X] ./entryData/*
 - [X] ./m/*
 - [X] ./me/*
-- [ ] ./Sstm/*
-- [ ] ./cL
+- [X] ./Sstm/*
+- [X] ./cL
 
 
 # Results
