@@ -112,6 +112,8 @@
 
 ## economy
     ./economy/stepper/econ/markets/Market[2]/primaryEntity/orbit/f/cL/o/saved
+---------------------------------------------
+    ./economy/stepper/econ/markets/Market[n]/*
 
 ## commDirectory
     ./commDirectory/entries/CommDirectoryEntry[n]/entryData/
@@ -160,7 +162,7 @@
 - [X] ./t/*
 - [X] ./RtSeg/*
 - [X] ./sc/*
-- [ ] ./economy/*
+- [X] ./economy/*
 - [ ] ./commDirectory/*
 - [ ] ./immigrationModifiers/*
 - [ ] ./industries/*
