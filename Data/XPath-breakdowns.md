@@ -143,7 +143,7 @@
 ## WarSimScript
     ./WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
 ---------------------------------------------
-    ./WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
+    ./WarSimScript/queue/Sstm[n]/*
 
 ## Sstm
     ./Sstm[22]/con/systems/Sstm[1]/o/saved
@@ -185,7 +185,7 @@
 - [X] ./industries/*
 - [X] ./primaryEntity/*
 - [X] ./kentington.diyplanets.GenesisStationIntel/*
-- [ ] ./WarSimScript/*
+- [X] ./WarSimScript/*
 - [ ] ./Sstm/*
 - [ ] ./entryData/*
 - [ ] ./cL
