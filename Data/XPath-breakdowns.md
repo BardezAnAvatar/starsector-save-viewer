@@ -76,6 +76,12 @@
 	/market/immigrationModifiers/ColonyMngr/npcConstructionQueues/e[1]/Market/primaryEntity/orbit/f/cL/o/saved
 	/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
     /market/primaryEntity/orbit/f/orbit/f/cL/o/saved
+---------------------------------------------
+    /market/economy/
+    /market/commDirectory/entries/CommDirectoryEntry[n]/entryData/
+	/market/immigrationModifiers/ColonyMngr/npcConstructionQueues/e[1]/Market/primaryEntity/orbit/f/cL/o/saved
+	/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
+    /market/primaryEntity/orbit/f/orbit/f/cL/o/saved
 
 ## Entry (`e`)
 	./e[n]/OfficerManagerEvent/
@@ -134,7 +140,7 @@
 - [X] ./f/*
 - [X] ./OfficerManagerEvent/*
 - [X] ./person/*
-- [] ./market/*
+- [X] ./market/*
 - [ ] ./e/*
 - [ ] ./sc/*
 - [ ] ./Market/*
