@@ -163,7 +163,7 @@
 - [X] ./RtSeg/*
 - [X] ./sc/*
 - [X] ./economy/*
-- [ ] ./commDirectory/*
+- [X] ./commDirectory/*
 - [ ] ./immigrationModifiers/*
 - [ ] ./industries/*
 - [ ] ./primaryEntity/*
