@@ -132,6 +132,8 @@
 
 ## primaryEntity
     ./primaryEntity/orbit/f/orbit/f/cL/o/saved
+---------------------------------------------
+    ./primaryEntity/orbit/*
 
 ## kentington.diyplanets.GenesisStationIntel
     ./kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/orbit/f/orbit/f/cL/o/saved
@@ -172,7 +174,7 @@
 - [X] ./commDirectory/*
 - [X] ./immigrationModifiers/*
 - [X] ./industries/*
-- [ ] ./primaryEntity/*
+- [X] ./primaryEntity/*
 - [ ] ./kentington.diyplanets.GenesisStationIntel/*
 - [ ] ./WarSimScript/*
 - [ ] ./entryData/*
