@@ -214,6 +214,5 @@
 - [X] ./entryData/*
 - [X] ./m/*
 - [X] ./me/*
-- [ ] ./RouteManager/*
 - [ ] ./Sstm/*
 - [ ] ./cL
