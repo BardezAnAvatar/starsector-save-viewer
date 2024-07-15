@@ -28,7 +28,7 @@ namespace SystemFinder
             return Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
-                    services.AddLazyResolution();
+                    services.AddLazyResolution();   //used to avoid circular references during construction
                     services.AddXmlReaders();
                     services.AddTransient<Form1>();
                 });
