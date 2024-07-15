@@ -155,11 +155,11 @@
 - [X] ./OfficerManagerEvent/*
 - [X] ./person/*
 - [X] ./market/*
+    - [X] ./Market/* (implied? looks like the same class, with a different casing)
 - [X] ./e/*
 - [X] ./t/*
 - [X] ./RtSeg/*
 - [X] ./sc/*
-- [ ] ./Market/*
 - [ ] ./economy/*
 - [ ] ./commDirectory/*
 - [ ] ./immigrationModifiers/*
