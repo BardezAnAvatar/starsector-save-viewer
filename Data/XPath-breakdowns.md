@@ -107,6 +107,8 @@
 
 ## Script (`sc`)
     ./sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
+---------------------------------------------
+    ./sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[n]/*
 
 ## economy
     ./economy/stepper/econ/markets/Market[2]/primaryEntity/orbit/f/cL/o/saved
@@ -156,7 +158,7 @@
 - [X] ./e/*
 - [X] ./t/*
 - [X] ./RtSeg/*
-- [ ] ./sc/*
+- [X] ./sc/*
 - [ ] ./Market/*
 - [ ] ./economy/*
 - [ ] ./commDirectory/*
