@@ -15,7 +15,7 @@
 	./orbit/f/*
 
 ## Planet
-    ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+    ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
 	./Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
 ---------------------------------------------
     ./Plnt[n]/market/*
@@ -38,13 +38,13 @@
     ./Flt[n]/sc/*
 
 ## `dL`
-	./dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+	./dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
     ./dL/RouteManager/r/RouteData[185]/m/primaryEntity/orbit/f/cL
 ---------------------------------------------
 	./dL/RouteManager/r/RouteData[n]/*
 
 ## RouteData
-	./RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+	./RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
     ./RouteData[185]/m/primaryEntity/orbit/f/cL
 ---------------------------------------------
 	./RouteData[n]/e/*
@@ -88,7 +88,12 @@
 	./e[n]/Market/primaryEntity/orbit/f/cL/o/saved
     ./e[n]/kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/orbit/f/orbit/f/cL/o/saved
     ./e[n]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
-    ./e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+    ./e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
+---------------------------------------------
+	./e[n]/Market/primaryEntity/orbit/f/cL/o/saved
+    ./e[n]/kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/orbit/f/orbit/f/cL/o/saved
+    ./e[n]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
+    ./e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
 
 ## Script (`sc`)
     ./sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
@@ -152,4 +157,5 @@
 - [ ] ./kentington.diyplanets.GenesisStationIntel/*
 - [ ] ./WarSimScript/*
 - [ ] ./RtSeg/*
+- [ ] ./t/*
 - [ ] ./cL
