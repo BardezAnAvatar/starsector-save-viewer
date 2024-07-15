@@ -152,6 +152,7 @@
 - [X] ./person/*
 - [X] ./market/*
 - [X] ./e/*
+- [X] ./t/*
 - [ ] ./sc/*
 - [ ] ./Market/*
 - [ ] ./economy/*
@@ -162,5 +163,4 @@
 - [ ] ./kentington.diyplanets.GenesisStationIntel/*
 - [ ] ./WarSimScript/*
 - [ ] ./RtSeg/*
-- [ ] ./t/*
 - [ ] ./cL
