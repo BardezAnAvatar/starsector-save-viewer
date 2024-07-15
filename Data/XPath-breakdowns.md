@@ -117,9 +117,13 @@
 
 ## commDirectory
     ./commDirectory/entries/CommDirectoryEntry[n]/entryData/*
+---------------------------------------------
+    ./commDirectory/entries/CommDirectoryEntry[n]/entryData/*
 
 ## immigrationModifiers
     ./immigrationModifiers/ColonyMngr/npcConstructionQueues/e[1]/Market/primaryEntity/orbit/f/cL/o/saved
+---------------------------------------------
+    ./immigrationModifiers/ColonyMngr/npcConstructionQueues/e[n]/*
 
 ## industries
 	./industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
@@ -164,7 +168,7 @@
 - [X] ./sc/*
 - [X] ./economy/*
 - [X] ./commDirectory/*
-- [ ] ./immigrationModifiers/*
+- [X] ./immigrationModifiers/*
 - [ ] ./industries/*
 - [ ] ./primaryEntity/*
 - [ ] ./kentington.diyplanets.GenesisStationIntel/*
