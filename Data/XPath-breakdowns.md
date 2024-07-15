@@ -127,6 +127,8 @@
 
 ## industries
 	./industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
+---------------------------------------------
+	./industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/*
 
 ## primaryEntity
     ./primaryEntity/orbit/f/orbit/f/cL/o/saved
@@ -169,7 +171,7 @@
 - [X] ./economy/*
 - [X] ./commDirectory/*
 - [X] ./immigrationModifiers/*
-- [ ] ./industries/*
+- [X] ./industries/*
 - [ ] ./primaryEntity/*
 - [ ] ./kentington.diyplanets.GenesisStationIntel/*
 - [ ] ./WarSimScript/*
