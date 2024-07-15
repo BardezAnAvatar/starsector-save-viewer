@@ -64,6 +64,12 @@
 ---------------------------------------------
     ./OfficerManagerEvent/available/AvailableOfficer[n]/person/market/*
 
+## person
+    ./person/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
+    ./person/market/primaryEntity/orbit/f/orbit/f/cL/o/saved
+---------------------------------------------
+    ./person/market/*
+
 ## market
     /market/economy/
     /market/commDirectory/entries/CommDirectoryEntry[n]/entryData/
@@ -127,9 +133,10 @@
 - [X] ./RouteData/*
 - [X] ./f/*
 - [X] ./OfficerManagerEvent/*
+- [X] ./person/*
+- [] ./market/*
 - [ ] ./e/*
 - [ ] ./sc/*
-- [ ] ./market/*
 - [ ] ./Market/*
 - [ ] ./economy/*
 - [ ] ./commDirectory/*
