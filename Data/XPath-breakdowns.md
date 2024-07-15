@@ -161,6 +161,11 @@
     ./m/d/e[n]/*
     ./m/primaryEntity/*
 
+## `me`
+    ./me/d/e[4]/kentington.diyplanets.GenesisStationIntel/event/shownAt/primaryEntity/orbit/f/orbit/f/cL/o/saved/*
+---------------------------------------------
+    ./me/d/e[n]/*
+
 ## Sstm
     ./Sstm[22]/con/systems/Sstm[1]/o/saved/*
     ./Sstm[1]/o/saved/*
@@ -208,7 +213,7 @@
 - [X] ./WarSimScript/*
 - [X] ./entryData/*
 - [X] ./m/*
-- [ ] ./me/*
+- [X] ./me/*
 - [ ] ./RouteManager/*
 - [ ] ./Sstm/*
 - [ ] ./cL
