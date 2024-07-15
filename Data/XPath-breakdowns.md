@@ -153,6 +153,14 @@
     ./entryData/m/*
     ./entryData/stats/fleet/*
 
+## `m`
+    ./m/d/e[4]/OfficerManagerEvent/available/AvailableOfficer[3]/person/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved/*
+    ./m/d/e[3]/OfficerManagerEvent/available/AvailableOfficer[2]/person/market/primaryEntity/orbit/f/orbit/f/cL/o/saved/*
+    ./m/primaryEntity/orbit/f/cL
+---------------------------------------------
+    ./m/d/e[n]/*
+    ./m/primaryEntity/*
+
 ## Sstm
     ./Sstm[22]/con/systems/Sstm[1]/o/saved/*
     ./Sstm[1]/o/saved/*
@@ -199,7 +207,7 @@
 - [X] ./kentington.diyplanets.GenesisStationIntel/*
 - [X] ./WarSimScript/*
 - [X] ./entryData/*
-- [ ] ./m/*
+- [X] ./m/*
 - [ ] ./me/*
 - [ ] ./RouteManager/*
 - [ ] ./Sstm/*
