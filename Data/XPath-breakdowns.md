@@ -149,6 +149,10 @@
     ./Sstm[22]/con/systems/Sstm[1]/o/saved/*
     ./Sstm[1]/o/saved/*
     ./Sstm[4]/@bN
+---------------------------------------------
+    ./Sstm[n]/con/systems/Sstm[1]/o/saved/*
+    ./Sstm[n]/o/saved/*
+    ./Sstm[n]/@bN
 
 ## `cL`
     ./cL
@@ -186,6 +190,6 @@
 - [X] ./primaryEntity/*
 - [X] ./kentington.diyplanets.GenesisStationIntel/*
 - [X] ./WarSimScript/*
-- [ ] ./Sstm/*
 - [ ] ./entryData/*
+- [ ] ./Sstm/*
 - [ ] ./cL
