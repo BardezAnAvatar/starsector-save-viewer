@@ -170,11 +170,12 @@
     ./Sstm[22]/con/systems/Sstm[1]/o/saved/*
     ./Sstm[1]/o/saved/*
     ./Sstm[4]/@bN
-	/CampaignEngine/hyperspace/o/saved/LocationToken[1]/orbit/s/o/saved/CCEnt[2]/market/economy/stepper/econ/markets/Market[2]/primaryEntity/orbit/f/cL/o/saved/CCEnt[4]/market/immigrationModifiers/ColonyMngr/npcConstructionQueues/e[1]/Market/primaryEntity/orbit/f/cL/o/saved/CCEnt[1]/market/commDirectory/entries/CommDirectoryEntry[4]/entryData/m/d/e[3]/OfficerManagerEvent/available/AvailableOfficer[2]/person/market/primaryEntity/orbit/f/orbit/f/cL/o/saved/Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved/Flt[1]/sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[1]/@z
+	./Sstm[1]/@z
 ---------------------------------------------
     ./Sstm[n]/con/systems/Sstm[1]/o/saved/*
     ./Sstm[n]/o/saved/*
     ./Sstm[n]/@bN
+    ./Sstm[n]/@z
 
 ## `cL`
     ./cL
