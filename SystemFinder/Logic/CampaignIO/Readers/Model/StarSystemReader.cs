@@ -23,6 +23,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
                 };
 
                 data.StarSystems.Add(uid.Value, system);
-            }        }
+            }
+        }
     }
 }
