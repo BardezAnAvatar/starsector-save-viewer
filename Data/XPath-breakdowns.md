@@ -95,6 +95,11 @@
     ./e[n]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
     ./e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
 
+## `t`
+    ./e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
+---------------------------------------------
+    ./t/cL/*
+
 ## Script (`sc`)
     ./sc/MissionFleetAutoDespawn/mission/triggers/MissionTrigger/actions/com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers_-SetMemoryValueAction/memory/d/e[33]/WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
 
