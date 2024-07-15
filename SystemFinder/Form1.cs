@@ -4,9 +4,12 @@ namespace SystemFinder
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private CampaignIoLogic _campaignIo;
+
+        public Form1(CampaignIoLogic campaignIo)
         {
             InitializeComponent();
+            _campaignIo = campaignIo;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -17,7 +20,7 @@ namespace SystemFinder
                 toolStripStatusLabel2.Text = openFileDialog1.FileName;
                 statusStrip1.Visible = true;
                 Stream file = openFileDialog1.OpenFile();
-                var results = CampaignIoLogic.ReadSave(file);
+                var results = _campaignIo.ReadSave(file);
             }
         }
     }

@@ -1,3 +1,7 @@
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using SystemFinder.Logic;
+
 namespace SystemFinder
 {
     internal static class Program
@@ -8,10 +12,24 @@ namespace SystemFinder
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            var host = CreateHostBuilder().Build();
+            var serviceProvider = host.Services;
+
+            Application.Run(serviceProvider.GetRequiredService<Form1>());
+        }
+
+        static IHostBuilder CreateHostBuilder()
+        {
+            return Host.CreateDefaultBuilder()
+                .ConfigureServices((context, services) =>
+                {
+                    services.AddXmlReaders();
+                    services.AddTransient<Form1>();
+                });
         }
     }
 }
