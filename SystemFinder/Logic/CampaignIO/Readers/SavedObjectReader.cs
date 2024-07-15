@@ -8,8 +8,6 @@ namespace SystemFinder.Logic.CampaignIO.Readers
     {
         public void Read(XElement current, GalaxyData data)
         {
-            //Get the whacky systems location:
-
             var saved =
                 current
                 .Element("o")!
