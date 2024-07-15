@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class ConReader(SstmReader sstmReader) : IConReader
+    public class ConReader(ISstmReader sstmReader) : IConReader
     {
         public void Read(XElement current, GalaxyData data)
         {

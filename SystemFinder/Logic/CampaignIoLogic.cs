@@ -1,11 +1,12 @@
 ﻿using System.Xml.Linq;
-using SystemFinder.Logic.CampaignIO.Readers;
+using SystemFinder.Logic.Abstractions;
+using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic
 {
-    public class CampaignIoLogic(CampaignEngineReader reader)
+    public class CampaignIoLogic(ICampaignEngineReader reader) : ICampaignIoLogic
     {
         public List<StarSystem> ReadSave(Stream file)
         {

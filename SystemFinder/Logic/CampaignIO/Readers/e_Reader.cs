@@ -4,8 +4,9 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class e_Reader(GenesisStationIntelReader genesisReader, MarketReader marketReader,
-        OfficerManagerEventReader officerReader, RtSegReader rtSegReader, WarSimScriptReader warSimScriptReader) : Ie_Reader
+    public class e_Reader(IGenesisStationIntelReader genesisReader, IMarketReader marketReader,
+        IOfficerManagerEventReader officerReader, IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
+        : Ie_Reader
     {
         public void Read(XElement current, GalaxyData data)
         {

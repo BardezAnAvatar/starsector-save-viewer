@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class WarSimScriptReader(SstmReader systemReader) : IWarSimScriptReader
+    public class WarSimScriptReader(ISstmReader systemReader) : IWarSimScriptReader
     {
         public void Read(XElement current, GalaxyData data)
         {

@@ -4,7 +4,8 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class CampaignEngineReader(HyperspaceReader hyperspaceReader, StarSystemsReader starSystemsReader) : ICampaignEngineReader
+    public class CampaignEngineReader(IHyperspaceReader hyperspaceReader, IStarSystemsReader starSystemsReader)
+        : ICampaignEngineReader
     {
         public void Read(XDocument root, GalaxyData data)
         {

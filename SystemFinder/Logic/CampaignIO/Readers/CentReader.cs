@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class CentReader(MarketReader marketReader, MetadataReader meReader) : ICentReader
+    public class CentReader(IMarketReader marketReader, IMetadataReader meReader) : ICentReader
     {
         public void Read(XElement current, GalaxyData data)
         {

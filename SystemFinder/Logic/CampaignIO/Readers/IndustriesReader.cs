@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class IndustriesReader(FleetReader fleetReader) : IIndustriesReader
+    public class IndustriesReader(IFleetReader fleetReader) : IIndustriesReader
     {
         public void Read(XElement current, GalaxyData data)
         {

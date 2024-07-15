@@ -1,6 +1,4 @@
-﻿using System.Numerics;
-
-namespace SystemFinder.Model
+﻿namespace SystemFinder.Model
 {
     public class StarSystem
     {

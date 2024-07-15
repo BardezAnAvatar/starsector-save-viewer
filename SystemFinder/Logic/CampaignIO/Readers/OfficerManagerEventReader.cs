@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class OfficerManagerEventReader(PersonReader personReader) : IOfficerManagerEventReader
+    public class OfficerManagerEventReader(IPersonReader personReader) : IOfficerManagerEventReader
     {
         public void Read(XElement current, GalaxyData data)
         {

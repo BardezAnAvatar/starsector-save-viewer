@@ -1,12 +1,13 @@
 using SystemFinder.Logic;
+using SystemFinder.Logic.Abstractions;
 
 namespace SystemFinder
 {
     public partial class Form1 : Form
     {
-        private CampaignIoLogic _campaignIo;
+        private ICampaignIoLogic _campaignIo;
 
-        public Form1(CampaignIoLogic campaignIo)
+        public Form1(ICampaignIoLogic campaignIo)
         {
             InitializeComponent();
             _campaignIo = campaignIo;

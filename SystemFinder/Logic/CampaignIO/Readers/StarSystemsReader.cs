@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class StarSystemsReader(SstmReader sstmReader) : IStarSystemsReader
+    public class StarSystemsReader(ISstmReader sstmReader) : IStarSystemsReader
     {
         public void Read(XElement current, GalaxyData data)
         {

@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class ImmigrationModifiersReader(e_Reader eReader) : IImmigrationModifiersReader
+    public class ImmigrationModifiersReader(Ie_Reader eReader) : IImmigrationModifiersReader
     {
         public void Read(XElement current, GalaxyData data)
         {

@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class HyperspaceReader(SavedObjectReader osavedReader) : IHyperspaceReader
+    public class HyperspaceReader(ISavedObjectReader osavedReader) : IHyperspaceReader
     {
         public void Read(XElement current, GalaxyData data)
         {

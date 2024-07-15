@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class LocationTokenReader(OrbitReader orbitReader) : ILocationTokenReader
+    public class LocationTokenReader(IOrbitReader orbitReader) : ILocationTokenReader
     {
         public void Read(XElement current, GalaxyData data)
         {
