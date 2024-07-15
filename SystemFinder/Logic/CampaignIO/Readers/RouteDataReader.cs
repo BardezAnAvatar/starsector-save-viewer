@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.CampaignIO
+namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class RouteDataReader(e_Reader eReader, m_Reader mReader)
     {

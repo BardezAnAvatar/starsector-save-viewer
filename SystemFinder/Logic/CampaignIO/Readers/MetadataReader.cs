@@ -1,9 +1,9 @@
 ﻿using System.Xml.Linq;
 using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.CampaignIO
+namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class ScriptReader
+    public class MetadataReader
     {
         public void Read(XElement current, GalaxyData data)
         {

@@ -1,17 +1,23 @@
 ﻿using System.Xml.Linq;
 using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.CampaignIO
+namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class PlanetReader(MarketReader marketReader)
+    public class CentReader(MarketReader marketReader, MetadataReader meReader)
     {
         public void Read(XElement current, GalaxyData data)
         {
             var market = current.Element("market");
+            var me = current.Element("me");
 
             if (market is not null)
             {
                 marketReader.Read(market, data);
+            }
+
+            if (me is not null)
+            {
+                meReader.Read(me, data);
             }
         }
     }

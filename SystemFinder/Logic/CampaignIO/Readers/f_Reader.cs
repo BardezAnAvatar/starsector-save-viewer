@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.CampaignIO
+namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class f_Reader(OrbitReader orbitReader, cL_Reader clReader)
     {

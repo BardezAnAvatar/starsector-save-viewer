@@ -58,15 +58,6 @@
     ./f/cL
 	./f/orbit/*
 
-## `cL`
-    ./cL
-	./cL/o/saved
-    ./cL/con/systems/Sstm[4]/@bN
----------------------------------------------
-    ./cL
-	./cL/o/saved/*
-    ./cL/con/*
-
 ## OfficerManagerEvent
     ./OfficerManagerEvent/available/AvailableOfficer[3]/person/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved
     ./OfficerManagerEvent/available/AvailableOfficer[2]/person/market/primaryEntity/orbit/f/orbit/f/cL/o/saved
@@ -112,7 +103,16 @@
     ./WarSimScript/queue/Sstm[22]/con/systems/Sstm[1]/o/saved
 
 ## RtSeg
-    ./RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN`
+    ./RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
+
+## `cL`
+    ./cL
+	./cL/o/saved
+    ./cL/con/systems/Sstm[4]/@bN
+---------------------------------------------
+    ./cL
+	./cL/o/saved/*
+    ./cL/con/*
 
 
 

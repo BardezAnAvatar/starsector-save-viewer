@@ -7,7 +7,7 @@ using System.Xml.Linq;
 using SystemFinder.Model;
 using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.CampaignIO
+namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class LocationTokenReader(OrbitReader orbitReader)
     {
