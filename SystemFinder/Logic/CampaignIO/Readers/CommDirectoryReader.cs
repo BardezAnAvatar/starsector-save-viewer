@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class CommDirectoryReader(IEntryReader entryReader) : ICommDirectoryReader
+    public class CommDirectoryReader(ICommDirectoryEntryReader commDirectoryEntryReader) : ICommDirectoryReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -17,7 +17,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             {
                 foreach (var element in commDirectoryEntries)
                 {
-                    entryReader.Read(element, data);
+                    commDirectoryEntryReader.Read(element, data);
                 }
             }
         }
