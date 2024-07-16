@@ -19,5 +19,12 @@ namespace SystemFinder.Utilities
             var outFilePath = Path.Combine(_outPath, outFile);
             document.Save(outFilePath);
         }
+
+        internal static void WriteXPathsForSystems(XDocument document)
+        {
+            var outFile = "Systems_XPath.xml";
+            var outFilePath = Path.Combine(_outPath, outFile);
+            document.Save(outFilePath);
+        }
     }
 }
