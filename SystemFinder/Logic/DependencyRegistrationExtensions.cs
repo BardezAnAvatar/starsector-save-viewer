@@ -16,12 +16,18 @@ namespace SystemFinder.Logic
             services.AddSingleton<ICampaignEngineReader, CampaignEngineReader>();
             services.AddSingleton<ICentReader, CentReader>();
             services.AddSingleton<IcL_Reader, cL_Reader>();
+            services.AddSingleton<ICommanderReader, CommanderReader>();
+            services.AddSingleton<ICommDirectoryEntryReader, CommDirectoryEntryReader>();
             services.AddSingleton<ICommDirectoryReader, CommDirectoryReader>();
+            services.AddSingleton<IConditionsReader, ConditionsReader>();
+            services.AddSingleton<ICryosanctumReader, CryosanctumReader>();
             services.AddSingleton<IConReader, ConReader>();
             services.AddSingleton<IdL_Reader, dL_Reader>();
             services.AddSingleton<Ie_Reader, e_Reader>();
             services.AddSingleton<IEconomyReader, EconomyReader>();
+            services.AddSingleton<IEntryDataReader, EntryDataReader>();
             services.AddSingleton<IEntryReader, EntryReader>();
+            services.AddSingleton<IEventReader, EventReader>();
             services.AddSingleton<If_Reader, f_Reader>();
             services.AddSingleton<IFleetReader, FleetReader>();
             services.AddSingleton<IGenesisStationIntelReader, GenesisStationIntelReader>();
@@ -33,9 +39,12 @@ namespace SystemFinder.Logic
             services.AddSingleton<IMarketReader, MarketReader>();
             services.AddSingleton<IMetadataReader, MetadataReader>();
             services.AddSingleton<IOfficerManagerEventReader, OfficerManagerEventReader>();
+            services.AddSingleton<IOrbitalStationReader, OrbitalStationReader>();
             services.AddSingleton<IOrbitReader, OrbitReader>();
+            services.AddSingleton<Ip_Reader, p_Reader>();
             services.AddSingleton<IPersonReader, PersonReader>();
             services.AddSingleton<IPlanetReader, PlanetReader>();
+            services.AddSingleton<IPlanetaryShieldIntelReader, PlanetaryShieldIntelReader>();
             services.AddSingleton<IPrimaryEntityReader, PrimaryEntityReader>();
             services.AddSingleton<IRouteDataReader, RouteDataReader>();
             services.AddSingleton<IRtSegReader, RtSegReader>();
@@ -43,9 +52,13 @@ namespace SystemFinder.Logic
             services.AddSingleton<ISavedObjectReader, SavedObjectReader>();
             services.AddSingleton<IScriptReader, ScriptReader>();
             services.AddSingleton<ISstmReader, SstmReader>();
+            services.AddSingleton<IStagesReader, StagesReader>();
             services.AddSingleton<IStarSystemsReader, StarSystemsReader>();
+            services.AddSingleton<IStatsReader, StatsReader>();
             services.AddSingleton<It_Reader, t_Reader>();
+            services.AddSingleton<ITargetReader, TargetReader>();
             services.AddSingleton<IWarSimScriptReader, WarSimScriptReader>();
+            services.AddSingleton<IWhereReader, WhereReader>();
 
             services.AddSingleton<IStarSystemReader, StarSystemReader>();
         }
