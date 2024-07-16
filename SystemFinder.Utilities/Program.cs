@@ -6,7 +6,7 @@ var root = XDocumentReader.OpenDocument();
 var systems = XDocumentCreator.IsolateSstm(root);
 XDocumentWriter.WriteSstm(systems);
 var notQuiteSystems = XDocumentCreator.IsolateNonSstmSystems(root);
-XDocumentWriter.WriteSstm(notQuiteSystems);
+XDocumentWriter.WriteNonSstmSystems(notQuiteSystems);
 
 Console.WriteLine("Done!");
 Console.Beep();
