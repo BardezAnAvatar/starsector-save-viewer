@@ -3,7 +3,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class d_Reader
+    public class ConditionsReader
     {
         public void Read(XElement current, GalaxyData data)
         {
