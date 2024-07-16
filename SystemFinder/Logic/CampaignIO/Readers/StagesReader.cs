@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class StagesReader(IMarketReader marketReader, IOrbitReader orbitReader) : IStagesReader
+    public class StagesReader(Lazy<IMarketReader> marketReader, IOrbitReader orbitReader) : IStagesReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -13,7 +13,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (market is not null)
             {
-                marketReader.Read(market, data);
+                marketReader.Value.Read(market, data);
             }
 
             if (orbit is not null)
