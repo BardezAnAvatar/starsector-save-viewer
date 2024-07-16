@@ -11,7 +11,6 @@ on:
     - ready_for_review
     - review_requested
     - synchronize
-    # - edited #updating PR title, body, state or base?
   pull_request_review:
     types:
     - dismissed
@@ -73,4 +72,6 @@ jobs:
         name: Auto-Approval
         env:
           review-message: "Bot auto-approved PR"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          # Error: Unprocessable Entity: "GitHub Actions is not permitted to approve pull requests.".
+          # try this instead: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests
+          #github-token: ${{ secrets.GITHUB_TOKEN }}
