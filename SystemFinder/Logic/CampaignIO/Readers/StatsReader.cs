@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class StatsReader(IFleetReader fleetReader) : IStatsReader
+    public class StatsReader(Lazy<IFleetReader> fleetReader) : IStatsReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -12,7 +12,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (fleet is not null)
             {
-                fleetReader.Read(fleet, data);
+                fleetReader.Value.Read(fleet, data);
             }
         }
     }
