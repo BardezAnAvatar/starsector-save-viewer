@@ -15,6 +15,17 @@ on:
   pull_request_review:
     types:
     - dismissed
+  pull_request_target:
+    types:
+    - labeled
+    - unlabeled
+    - edited
+    - opened
+    - reopened
+    - ready_for_review
+    - review_requested
+    - synchronize
+
 
 permissions:
   contents: read
