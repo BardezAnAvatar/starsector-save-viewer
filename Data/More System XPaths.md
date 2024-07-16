@@ -386,7 +386,7 @@ New:
 - [X] `./p/*`
 - [X] `./commander/*`
 - [X] `./stats/*`
-- [ ] `./stages/*`
+- [X] `./stages/*`
 - [ ] `./t/*`
 - [ ] `./CommDirectoryEntry/*`
 - [ ] `./entryData/*`
