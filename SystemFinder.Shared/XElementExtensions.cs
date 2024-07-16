@@ -1,12 +1,12 @@
 ﻿using System.Xml.Linq;
 
-namespace SystemFinder.Utilities
+namespace SystemFinder.Shared
 {
     /// <summary>
     ///     Extension methods for <see cref="XElement" />
     /// </summary>
     /// <remarks>See: https://stackoverflow.com/questions/451950/get-the-xpath-to-an-xelement</remarks>
-    internal static class XElementExtensions
+    public static class XElementExtensions
     {
         /// <summary>
         /// Get the absolute XPath to a given XElement

@@ -38,4 +38,8 @@
     <PackageReference Include="System.Drawing.Common" Version="8.0.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SystemFinder.Shared\SystemFinder.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

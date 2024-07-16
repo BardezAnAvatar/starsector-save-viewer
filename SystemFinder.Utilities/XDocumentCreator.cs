@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Utilities
 {
