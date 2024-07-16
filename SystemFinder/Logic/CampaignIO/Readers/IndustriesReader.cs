@@ -4,20 +4,16 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class IndustriesReader(IFleetReader fleetReader) : IIndustriesReader
+    public class IndustriesReader(ICryosanctumReader cryosanctumReader) : IIndustriesReader
     {
         public void Read(XElement current, GalaxyData data)
         {
-            var fleet = current
-                .Element("boggled.campaign.econ.industries.Boggled__Cryosanctum")
-                ?.Element("thisIndustry")
-                ?.Element("ctx")
-                ?.Element("fleet")
-                ;
+            var cryosanctum = current
+                .Element("boggled.campaign.econ.industries.Boggled__Cryosanctum");
 
-            if (fleet is not null)
+            if (cryosanctum is not null)
             {
-                fleetReader.Read(fleet, data);
+                cryosanctumReader.Read(cryosanctum, data);
             }
         }
     }
