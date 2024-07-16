@@ -304,7 +304,7 @@ New:
 ./OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
 ./OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Plnt[3]/market/conditions/MCon[15]/p/i/sm/m/primaryEntity/orbit/f/orbit/f/cL
 ------------------------------
-./OrbitalStation/sF/*
+./OrbitalStation/sF/dL*
 
 
 ## `sF` Reader
@@ -405,11 +405,11 @@ New:
 - [X] `./where`
 - [X] `./target`
 - [X] `./industries/OrbitalStation/*`
-- [ ] `./t/*`
+- [X] `./t/*`
+- [X] `./OrbitalStation/*`
 - [ ] `./CommDirectoryEntry/*`
 - [ ] `./entryData/*`
 - [ ] `./event/*`
-- [ ] `./OrbitalStation/*`
 - [ ] `./RouteData/*`
 - [ ] `./RtSeg/*`
 - [ ] `./sF/*`

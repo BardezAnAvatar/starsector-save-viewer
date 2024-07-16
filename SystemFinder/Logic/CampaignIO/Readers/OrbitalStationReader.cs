@@ -8,6 +8,15 @@ namespace SystemFinder.Logic.CampaignIO.Readers
     {
         public void Read(XElement current, GalaxyData data)
         {
+            var dl = current
+                .Element("sf")
+                ?.Element("dL")
+                ;
+
+            if (dl is not null)
+            {
+                dlReader.Read(dl, data);
+            }
         }
     }
 }
