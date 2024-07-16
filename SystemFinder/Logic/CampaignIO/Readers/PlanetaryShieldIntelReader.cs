@@ -5,6 +5,7 @@ using SystemFinder.Model.Data;
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class PlanetaryShieldIntelReader(IEventReader eventReader, IPlanetReader planetReader)
+        : IPlanetaryShieldIntelReader
     {
         public void Read(XElement current, GalaxyData data)
         {
