@@ -48,7 +48,12 @@ namespace SystemFinder
         private void AddImagesToTreeView()
         {
             treeViewSystems.ImageList = new ImageList();
-            treeViewSystems.ImageList.Images.Add(EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), "star-system.png"));
+            var starSystem = EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), "star-system.png");
+
+            if (starSystem is not null)
+            {
+                treeViewSystems.ImageList.Images.Add(starSystem);
+            }
         }
     }
 }
