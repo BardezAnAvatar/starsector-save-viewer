@@ -307,10 +307,10 @@ New:
 ./OrbitalStation/sF/dL*
 
 
-## `sF` Reader
-./sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
+## `dL` Reader Extension
+./dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 ------------------------------
-./sF/dL/*
+./dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 
 
 ## `exerelin.campaign.intel.bases.NexPirateBaseIntel` Reader
@@ -407,13 +407,12 @@ New:
 - [X] `./industries/OrbitalStation/*`
 - [X] `./t/*`
 - [X] `./OrbitalStation/*`
+- [X] `./dL/*`
+- [X] `./exerelin.campaign.intel.bases.NexPirateBaseIntel/*`
 - [ ] `./CommDirectoryEntry/*`
 - [ ] `./entryData/*`
 - [ ] `./event/*`
 - [ ] `./RouteData/*`
 - [ ] `./RtSeg/*`
-- [ ] `./sF/*`
-- [ ] `./dL/*`
-- [ ] `./exerelin.campaign.intel.bases.NexPirateBaseIntel/*`
 - [ ] `./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/*`
 - [ ] `./s`

@@ -4,7 +4,7 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class dL_Reader(IRouteDataReader routeDataReader) : IdL_Reader
+    public class dL_Reader(IRouteDataReader routeDataReader, ITargetReader targetReader) : IdL_Reader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -22,6 +22,14 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                         routeDataReader.Read(element, data);
                     }
                 }
+            }
+
+            var target = current
+                .Element("exerelin.campaign.intel.bases.NexPirateBaseIntel")
+                ?.Element("target");
+            if (target is not null)
+            {
+                targetReader.Read(target, data);
             }
         }
     }
