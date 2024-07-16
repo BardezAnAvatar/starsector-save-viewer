@@ -21,7 +21,18 @@ namespace SystemFinder.Utilities
                 container.Add(element);
             }
 
-            var container2 = new XElement("SystemsButNotExactly");
+            var newDoc = new XDocument();
+
+            var containerMain = new XElement("Snippets");
+            containerMain.Add(container);
+            newDoc.Add(containerMain);
+
+            return newDoc;
+        }
+        
+        internal static XDocument IsolateNonSstmSystems(XDocument root)
+        {
+            var container = new XElement("SystemsButNotExactly");
 
             var filter = root
                 .Descendants()
@@ -31,14 +42,13 @@ namespace SystemFinder.Utilities
             var count = filter.Count();
             foreach (var element in filter)
             {
-                container2.Add(element);
+                container.Add(element);
             }
 
             var newDoc = new XDocument();
 
             var containerMain = new XElement("Snippets");
             containerMain.Add(container);
-            containerMain.Add(container2);
             newDoc.Add(containerMain);
 
             return newDoc;
