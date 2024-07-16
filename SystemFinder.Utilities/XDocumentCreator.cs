@@ -27,6 +27,8 @@ namespace SystemFinder.Utilities
                 .Descendants()
                 .Where(d => d.Attribute("z") is not null && d.Attribute("cl")?.Value == "Sstm")
                 ;
+
+            var count = filter.Count();
             foreach (var element in filter)
             {
                 container2.Add(element);
