@@ -419,6 +419,6 @@ New:
 - [X] `./CommDirectoryEntry/*`
 - [X] `./event/*`
 - [X] `./RouteData/*`
-- [ ] `./RtSeg/*`
+- [X] `./RtSeg/*`
 - [ ] `./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/*`
 - [ ] `./s`
