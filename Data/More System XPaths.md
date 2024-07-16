@@ -260,6 +260,36 @@ New:
 ./stages/NexTrvlStg/to/*
 
 
+## `target` Reader
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Plnt[3]/market/conditions/MCon[15]/p/i/sm/m/primaryEntity/orbit/f/orbit/f/cL
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
+---------------------------------
+./target/o/saved/*
+./target
+
+
+## `where` Reader
+./where
+./where
+---------------------------------
+./where
+./where/*
+
+
+## `t` Expansion
+./t/orbit/f/cL
+./t/orbit/f/orbit/f/cL
+./t/orbit/f/cL
+./t/orbit/f/orbit/f/cL
+./t/where
+--------------------------------------
+./t/orbit*
+./t/where*
+
+
 ## Industries Expansion
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
@@ -356,24 +386,7 @@ New:
 ./RtSeg/f/*
 
 
-## `t` Expansion
-./t/orbit/f/cL
-./t/orbit/f/orbit/f/cL
-./t/orbit/f/cL
-./t/orbit/f/orbit/f/cL
-./t/where
---------------------------------------
-./t/orbit*
-./t/where*
-
-
-## `target` Reader
-
-
 ## `s` Reader
-
-
-## `where` Reader
 
 
 
@@ -387,6 +400,8 @@ New:
 - [X] `./commander/*`
 - [X] `./stats/*`
 - [X] `./stages/*`
+- [X] `./where`
+- [X] `./target`
 - [ ] `./t/*`
 - [ ] `./CommDirectoryEntry/*`
 - [ ] `./entryData/*`
@@ -399,6 +414,4 @@ New:
 - [ ] `./dL/*`
 - [ ] `./exerelin.campaign.intel.bases.NexPirateBaseIntel/*`
 - [ ] `./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/*`
-- [ ] `./target`
 - [ ] `./s`
-- [ ] `./where`
