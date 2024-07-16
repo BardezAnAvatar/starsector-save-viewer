@@ -21,8 +21,23 @@ namespace SystemFinder.Utilities
                 container.Add(element);
             }
 
+            var container2 = new XElement("SystemsButNotExactly");
+
+            var filter = root
+                .Descendants()
+                .Where(d => d.Attribute("z") is not null && d.Attribute("cl")?.Value == "Sstm")
+                ;
+            foreach (var element in filter)
+            {
+                container2.Add(element);
+            }
+
             var newDoc = new XDocument();
-            newDoc.Add(container);
+
+            var containerMain = new XElement("Snippets");
+            containerMain.Add(container);
+            containerMain.Add(container2);
+            newDoc.Add(containerMain);
 
             return newDoc;
         }
