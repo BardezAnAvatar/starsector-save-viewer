@@ -231,6 +231,35 @@
 ./p/stages/*
 
 
+## `commander` Reader
+./commander/fl/iT/orbit/sP/orbit/s
+./commander/stats/fleet/cL
+./commander/stats/fleet/cL/o/saved/CCEnt[1]/market/conditions/MCon[15]/p/raids/NexRaidIntl/stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
+./commander/stats/fleet/iT/orbit/sP/orbit/s
+./commander/stats/fleet/orbit/focus/orbit/f/cL
+------------------------------
+./commander/stats/fleet/cL
+
+
+## stats reader
+MISSED:
+    ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
+New:
+    ./commander/stats/fleet/cL
+------------------------------
+    ./stats/fleet/*
+
+
+## `stages` Reader
+./stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
+./stages/NexTrvlStg/to/orbit/f/cL
+./stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
+./stages/NexTrvlStg/to/orbit/f/cL
+---------------------------------
+./stages/NexOrgStg/*
+./stages/NexTrvlStg/to/*
+
+
 ## Industries Expansion
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
@@ -270,16 +299,6 @@
 ./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/planet/*
 
 
-## `commander` Reader
-./p/commander/fl/iT/orbit/sP/orbit/s
-./p/commander/stats/fleet/cL
-./p/commander/stats/fleet/cL/o/saved/CCEnt[1]/market/conditions/MCon[15]/p/raids/NexRaidIntl/stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
-./p/commander/stats/fleet/iT/orbit/sP/orbit/s
-./p/commander/stats/fleet/orbit/focus/orbit/f/cL
-------------------------------
-./p/commander/stats/fleet/cL
-
-
 ## entryData reader
 MISSED:
     ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
@@ -291,14 +310,6 @@ New:
     ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
 	./Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved/*
 
-
-## stats reader
-MISSED:
-    ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
-New:
-    ./commander/stats/fleet/cL
-------------------------------
-    ./stats/fleet/*
 	
 	
 ## `CommDirectoryEntry`
@@ -373,12 +384,12 @@ New:
 - [X] `./market/conditions/*`
 - [X] `./conditions/*`
 - [X] `./p/*`
+- [X] `./commander/*`
+- [ ] `./stats/*`
 - [ ] `./stages/*`
-- [ ] `./commander/*`
 - [ ] `./t/*`
 - [ ] `./CommDirectoryEntry/*`
 - [ ] `./entryData/*`
-- [ ] `./stats/*`
 - [ ] `./event/*`
 - [ ] `./industries/OrbitalStation/*`
 - [ ] `./OrbitalStation/*`
