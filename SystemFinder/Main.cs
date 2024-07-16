@@ -27,6 +27,8 @@ namespace SystemFinder
                 {
                     using Stream file = openFileDialog1.OpenFile();
                     var results = _campaignIo.ReadSave(file);
+
+                    treeViewSystems.SuspendLayout();
                     treeViewSystems.Nodes.Clear();
                     treeViewSystems.ImageList?.Images?.Clear();
                     AddImagesToTreeView();
@@ -37,6 +39,7 @@ namespace SystemFinder
                         TreeNode system = new TreeNode(starSystem.Value.Name, 0, 0);
                         treeViewSystems.Nodes.Add(system);
                     }
+                    treeViewSystems.ResumeLayout();
                 }
                 catch (Exception ex)
                 {
