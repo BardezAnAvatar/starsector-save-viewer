@@ -126,7 +126,7 @@
             openFileDialog1.ReadOnlyChecked = true;
             openFileDialog1.ShowPreview = true;
             // 
-            // Form1
+            // Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -136,8 +136,8 @@
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Main";
+            Text = "Starsector Save Viewer";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);
