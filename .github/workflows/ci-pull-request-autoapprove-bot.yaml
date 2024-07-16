@@ -26,7 +26,6 @@ on:
     - review_requested
     - synchronize
 
-
 permissions:
   contents: read
   pull-requests: write
