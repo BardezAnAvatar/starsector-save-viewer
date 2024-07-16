@@ -217,6 +217,20 @@
 ./conditions/MCon[n]/p/*
 
 
+## `p` Reader
+./p/i/s
+./p/commander/fl/iT/orbit/sP/orbit/s
+./p/commander/stats/fleet/cL
+./p/commander/stats/fleet/cL/o/saved/CCEnt[1]/market/conditions/MCon[15]/p/raids/NexRaidIntl/stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
+./p/commander/stats/fleet/iT/orbit/sP/orbit/s
+./p/commander/stats/fleet/orbit/focus/orbit/f/cL
+./p/stages/NexTrvlStg/to/orbit/f/cL
+------------------------------
+./p/i/s
+./p/commander/*
+./p/stages/*
+
+
 ## Industries Expansion
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
@@ -254,20 +268,6 @@
 ------------------------------
 ./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/event/*
 ./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/planet/*
-
-
-## `p` Reader
-./p/i/s
-./p/commander/fl/iT/orbit/sP/orbit/s
-./p/commander/stats/fleet/cL
-./p/commander/stats/fleet/cL/o/saved/CCEnt[1]/market/conditions/MCon[15]/p/raids/NexRaidIntl/stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
-./p/commander/stats/fleet/iT/orbit/sP/orbit/s
-./p/commander/stats/fleet/orbit/focus/orbit/f/cL
-./p/stages/NexTrvlStg/to/orbit/f/cL
-------------------------------
-./p/i/s
-./p/commander/*
-./p/stages/*
 
 
 ## `commander` Reader
@@ -371,10 +371,10 @@ New:
 --------------------------------------
 # Checklist
 - [X] `./market/conditions/*`
+- [X] `./conditions/*`
 - [ ] `./p/*`
 - [ ] `./t/*`
 - [ ] `./CommDirectoryEntry/*`
-- [ ] `./conditions/*`
 - [ ] `./commander/*`
 - [ ] `./entryData/*`
 - [ ] `./stats/*`
