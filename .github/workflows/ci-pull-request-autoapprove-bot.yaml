@@ -63,3 +63,4 @@ jobs:
         name: Auto-Approval
         env:
           review-message: "Bot auto-approved PR"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
