@@ -372,10 +372,11 @@ New:
 # Checklist
 - [X] `./market/conditions/*`
 - [X] `./conditions/*`
-- [ ] `./p/*`
+- [X] `./p/*`
+- [ ] `./stages/*`
+- [ ] `./commander/*`
 - [ ] `./t/*`
 - [ ] `./CommDirectoryEntry/*`
-- [ ] `./commander/*`
 - [ ] `./entryData/*`
 - [ ] `./stats/*`
 - [ ] `./event/*`
