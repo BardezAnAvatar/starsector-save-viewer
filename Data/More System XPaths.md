@@ -334,13 +334,12 @@ New:
 ## entryData reader
 MISSED:
     ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
-	./Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved/*
 New:
 	./Systems/Sstm[n]/o/saved/CCEnt[n]/market/commDirectory/entries/CommDirectoryEntry[4]/entryData/m/d/e[5]/com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/event/shownAt/primaryEntity/orbit/f/cL
 	./Systems/Sstm[n]/o/saved/CCEnt[n]/market/commDirectory/entries/CommDirectoryEntry[4]/entryData/m/d/e[5]/com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/planet/orbit/f/cL
 ------------------------------
-    ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
-	./Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved/*
+    ./entryData/stats/*
+	./entryData/m/*
 
 	
 	
@@ -410,8 +409,8 @@ New:
 - [X] `./dL/*`
 - [X] `./exerelin.campaign.intel.bases.NexPirateBaseIntel/*`
 - [X] `./e/exerelin.campaign.intel.bases.NexPirateBaseIntel*`
+- [X] `./entryData/*`
 - [ ] `./CommDirectoryEntry/*`
-- [ ] `./entryData/*`
 - [ ] `./event/*`
 - [ ] `./RouteData/*`
 - [ ] `./RtSeg/*`
