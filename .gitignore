@@ -8,6 +8,9 @@
 .#*
 \#*#
 
+# User-specific files
+**/*.csproj.user
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
@@ -264,3 +267,6 @@ __pycache__/
 
 
 Assemblies/0Harmony.dll
+
+# Ignore test data:
+/Data/**/*.xml
