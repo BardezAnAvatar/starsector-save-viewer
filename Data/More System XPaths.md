@@ -352,6 +352,12 @@ New:
 ./CommDirectoryEntry/entryData/*
 
 
+## `event` Reader
+./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/event/shownAt/primaryEntity/orbit/f/cL
+------------------------------
+./event/shownAt/primaryEntity*
+
+
 ## `RouteData` Expansion
 ./RouteData/e/RtSeg[n]/f/cL
 ./RouteData/e/RtSeg[n]/f/orbit/f/orbit/f/cL
@@ -411,7 +417,7 @@ New:
 - [X] `./e/exerelin.campaign.intel.bases.NexPirateBaseIntel*`
 - [X] `./entryData/*`
 - [X] `./CommDirectoryEntry/*`
-- [ ] `./event/*`
+- [X] `./event/*`
 - [ ] `./RouteData/*`
 - [ ] `./RtSeg/*`
 - [ ] `./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/*`
