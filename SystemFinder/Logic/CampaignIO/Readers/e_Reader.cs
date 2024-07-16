@@ -16,7 +16,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var officerManagerEvent = current.Element("OfficerManagerEvent");
             var rtSegs = current.Elements("rtSegReader");
             var warSimScript = current.Element("WarSimScript");
-            var nexPirateBaseIntel = current.Element("exerelin.campaign.intel.bases.NexPirateBaseIntel");
+            var planetaryShieldIntel = current.Element("com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel");
 
             if (genesis is not null)
             {
@@ -46,9 +46,9 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 warSimScriptReader.Read(warSimScript, data);
             }
 
-            if (nexPirateBaseIntel is not null)
+            if (planetaryShieldIntel is not null)
             {
-                planetaryShieldIntelReader.Read(nexPirateBaseIntel, data);
+                planetaryShieldIntelReader.Read(planetaryShieldIntel, data);
             }
         }
     }

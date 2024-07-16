@@ -420,5 +420,5 @@ New:
 - [X] `./event/*`
 - [X] `./RouteData/*`
 - [X] `./RtSeg/*`
-- [ ] `./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/*`
-- [ ] `./s`
+- [X] `./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/*`
+- [X] `./s`
