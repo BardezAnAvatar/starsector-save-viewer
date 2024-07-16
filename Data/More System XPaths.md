@@ -409,6 +409,7 @@ New:
 - [X] `./OrbitalStation/*`
 - [X] `./dL/*`
 - [X] `./exerelin.campaign.intel.bases.NexPirateBaseIntel/*`
+- [X] `./e/exerelin.campaign.intel.bases.NexPirateBaseIntel*`
 - [ ] `./CommDirectoryEntry/*`
 - [ ] `./entryData/*`
 - [ ] `./event/*`

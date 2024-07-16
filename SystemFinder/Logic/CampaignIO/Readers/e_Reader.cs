@@ -5,7 +5,8 @@ using SystemFinder.Model.Data;
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class e_Reader(IGenesisStationIntelReader genesisReader, Lazy<IMarketReader> marketReader,
-        IOfficerManagerEventReader officerReader, IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
+        IOfficerManagerEventReader officerReader, IPlanetaryShieldIntelReader planetaryShieldIntelReader, 
+        IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
         : Ie_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -15,6 +16,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var officerManagerEvent = current.Element("OfficerManagerEvent");
             var rtSegs = current.Elements("rtSegReader");
             var warSimScript = current.Element("WarSimScript");
+            var nexPirateBaseIntel = current.Element("exerelin.campaign.intel.bases.NexPirateBaseIntel");
 
             if (genesis is not null)
             {
@@ -42,6 +44,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (warSimScript is not null)
             {
                 warSimScriptReader.Read(warSimScript, data);
+            }
+
+            if (nexPirateBaseIntel is not null)
+            {
+                planetaryShieldIntelReader.Read(nexPirateBaseIntel, data);
             }
         }
     }
