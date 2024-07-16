@@ -4,6 +4,14 @@ namespace SystemFinder.Utilities
 {
     internal static class XDocumentCreator
     {
+        internal static int CountUniqueElements(XDocument root)
+        {
+            var distinct = root.Descendants().Select(e => e.Name).Distinct();
+
+            return distinct.Count();
+        }
+
+
         internal static XDocument IsolateSstm(XDocument root)
         {
             var sstm = root.Descendants("Sstm");
