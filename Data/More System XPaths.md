@@ -294,6 +294,8 @@ New:
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Plnt[3]/market/conditions/MCon[15]/p/i/sm/m/primaryEntity/orbit/f/orbit/f/cL
+--------------------------------------
+./industries/OrbitalStation/*
 
 
 ## `OrbitalStation`
@@ -402,11 +404,11 @@ New:
 - [X] `./stages/*`
 - [X] `./where`
 - [X] `./target`
+- [X] `./industries/OrbitalStation/*`
 - [ ] `./t/*`
 - [ ] `./CommDirectoryEntry/*`
 - [ ] `./entryData/*`
 - [ ] `./event/*`
-- [ ] `./industries/OrbitalStation/*`
 - [ ] `./OrbitalStation/*`
 - [ ] `./RouteData/*`
 - [ ] `./RtSeg/*`
