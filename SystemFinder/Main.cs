@@ -5,11 +5,11 @@ using SystemFinder.View;
 
 namespace SystemFinder
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         private ICampaignIoLogic _campaignIo;
 
-        public Form1(ICampaignIoLogic campaignIo)
+        public Main(ICampaignIoLogic campaignIo)
         {
             InitializeComponent();
             _campaignIo = campaignIo;

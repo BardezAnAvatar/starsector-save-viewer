@@ -20,7 +20,7 @@ namespace SystemFinder
             var host = CreateHostBuilder().Build();
             var serviceProvider = host.Services;
 
-            Application.Run(serviceProvider.GetRequiredService<Form1>());
+            Application.Run(serviceProvider.GetRequiredService<Main>());
         }
 
         static IHostBuilder CreateHostBuilder()
@@ -30,7 +30,7 @@ namespace SystemFinder
                 {
                     services.AddLazyResolution();   //used to avoid circular references during construction
                     services.AddXmlReaders();
-                    services.AddTransient<Form1>();
+                    services.AddTransient<Main>();
                 });
         }
     }
