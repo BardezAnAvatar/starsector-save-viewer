@@ -410,7 +410,7 @@ New:
 - [X] `./exerelin.campaign.intel.bases.NexPirateBaseIntel/*`
 - [X] `./e/exerelin.campaign.intel.bases.NexPirateBaseIntel*`
 - [X] `./entryData/*`
-- [ ] `./CommDirectoryEntry/*`
+- [X] `./CommDirectoryEntry/*`
 - [ ] `./event/*`
 - [ ] `./RouteData/*`
 - [ ] `./RtSeg/*`
