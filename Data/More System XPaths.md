@@ -205,14 +205,6 @@
 --------------------------------------------------------
 
 
-## `me` Expansion
-./me/d/*
-
-
-## `d` Reader
-./d/e[n]/*
-
-
 ## Market Expansion
 ./market/conditions/MCon[14]/p/i/s
 ------------------------------
@@ -378,10 +370,8 @@ New:
 
 --------------------------------------
 # Checklist
-- [ ] `./d/*`
 - [ ] `./p/*`
 - [ ] `./t/*`
-- [ ] `./me/*`
 - [ ] `./CommDirectoryEntry/*`
 - [ ] `./conditions/*`
 - [ ] `./commander/*`
