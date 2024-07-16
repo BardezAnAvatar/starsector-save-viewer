@@ -370,6 +370,7 @@ New:
 
 --------------------------------------
 # Checklist
+- [X] `./market/conditions/*`
 - [ ] `./p/*`
 - [ ] `./t/*`
 - [ ] `./CommDirectoryEntry/*`
@@ -377,7 +378,6 @@ New:
 - [ ] `./commander/*`
 - [ ] `./entryData/*`
 - [ ] `./stats/*`
-- [ ] `./market/conditions/*`
 - [ ] `./event/*`
 - [ ] `./industries/OrbitalStation/*`
 - [ ] `./OrbitalStation/*`

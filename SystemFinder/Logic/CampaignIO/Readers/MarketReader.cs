@@ -4,9 +4,9 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class MarketReader(ICommDirectoryReader commReader, IEconomyReader economyReader,
-        IImmigrationModifiersReader immigrationModifiersReader, IIndustriesReader industriesReader,
-        IPrimaryEntityReader primaryEntityReader) : IMarketReader
+    public class MarketReader(ICommDirectoryReader commReader, IConditionsReader conditionsReader,
+        IEconomyReader economyReader, IImmigrationModifiersReader immigrationModifiersReader,
+        IIndustriesReader industriesReader, IPrimaryEntityReader primaryEntityReader) : IMarketReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -15,6 +15,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var immigrationModifiers = current.Element("immigrationModifiers");
             var industries = current.Element("industries");
             var primaryEntity = current.Element("primaryEntity");
+            var conditions = current.Element("conditions");
 
             if (commDirectory is not null)
             {
@@ -39,6 +40,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (primaryEntity is not null)
             {
                 primaryEntityReader.Read(primaryEntity, data);
+            }
+
+            if (conditions is not null)
+            {
+                conditionsReader.Read(conditions, data);
             }
         }
     }
