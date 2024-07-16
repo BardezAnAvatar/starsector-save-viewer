@@ -1,0 +1,38 @@
+name: Build (.NET Framework)
+description: Build the solution using MSBuild
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v2
+
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.x.x'
+      
+    - name: Navigate to Workspace
+      shell: PowerShell
+      run: cd ${{ github.workspace }}
+
+    - name: Create Build Directory
+      shell: PowerShell
+      run: mkdir ${{ github.workspace }}/_build
+      
+    - name: Restore Packages
+      shell: PowerShell
+      run: dotnet restore "SystemFinder.sln"
+
+    - name: Build Solution
+      shell: PowerShell
+      run: |
+        commit=$(git rev-parse HEAD)
+        branch=$(git branch --show-current)
+        dotnet build "SystemFinder.sln" `
+           --configuration Release `
+           --no-restore `
+           --output "${{ github.workspace }}/_build" `
+           -p:RepositoryCommit="$commit" `
+           -p:RepositoryBranch="$branch" `
+           -p:EnableWindowsTargeting=true
