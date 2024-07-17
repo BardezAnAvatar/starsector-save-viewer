@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SystemFinder.Logic.Abstractions;
+using SystemFinder.Logic.CampaignIO;
+using SystemFinder.Logic.CampaignIO.Abstractions;
 using SystemFinder.Logic.CampaignIO.Readers;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions.Model;
@@ -13,8 +15,10 @@ namespace SystemFinder.Logic
         {
             services.AddSingleton<ICampaignIoLogic, CampaignIoLogic>();
 
-            services.AddSingleton<IAvailableOfficerReader, AvailableOfficerReader>();
             services.AddSingleton<ICampaignEngineReader, CampaignEngineReader>();
+
+            services.AddSingleton<IAbyssDataReader, AbyssDataReader>();
+            services.AddSingleton<IAvailableOfficerReader, AvailableOfficerReader>();
             services.AddSingleton<ICentReader, CentReader>();
             services.AddSingleton<IcL_Reader, cL_Reader>();
             services.AddSingleton<ICommanderReader, CommanderReader>();

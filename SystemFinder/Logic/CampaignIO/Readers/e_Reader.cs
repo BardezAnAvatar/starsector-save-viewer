@@ -6,10 +6,10 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class e_Reader(ILogger<e_Reader> logger, IGenesisStationIntelReader genesisReader,
-        Lazy<IMarketReader> marketReader, IOfficerManagerEventReader officerReader,
-        IPlanetaryShieldIntelReader planetaryShieldIntelReader,  IRtSegReader rtSegReader,
-        IWarSimScriptReader warSimScriptReader)
+    public class e_Reader(ILogger<e_Reader> logger, IAbyssDataReader abyssDataReader,
+        IGenesisStationIntelReader genesisReader, Lazy<IMarketReader> marketReader,
+        IOfficerManagerEventReader officerReader, IPlanetaryShieldIntelReader planetaryShieldIntelReader,
+        IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
         : Ie_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -22,6 +22,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var rtSegs = current.Elements("rtSegReader");
             var warSimScript = current.Element("WarSimScript");
             var planetaryShieldIntel = current.Element("com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel");
+            var abyssData = current.Element("assortment__of__things.abyss.procgen.AbyssData");
 
             if (genesis is not null)
             {
@@ -54,6 +55,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (planetaryShieldIntel is not null)
             {
                 planetaryShieldIntelReader.Read(planetaryShieldIntel, data);
+            }
+
+            if (abyssData is not null)
+            {
+                abyssDataReader.Read(abyssData, data);
             }
         }
     }
