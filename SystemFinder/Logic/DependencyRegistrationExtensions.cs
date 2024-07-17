@@ -13,6 +13,7 @@ namespace SystemFinder.Logic
         {
             services.AddSingleton<ICampaignIoLogic, CampaignIoLogic>();
 
+            services.AddSingleton<IAvailableOfficerReader, AvailableOfficerReader>();
             services.AddSingleton<ICampaignEngineReader, CampaignEngineReader>();
             services.AddSingleton<ICentReader, CentReader>();
             services.AddSingleton<IcL_Reader, cL_Reader>();
