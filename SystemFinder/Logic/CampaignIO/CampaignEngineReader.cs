@@ -1,12 +1,13 @@
 ﻿using System.Xml.Linq;
 using Microsoft.Extensions.Logging;
 using Serilog.Core;
+using SystemFinder.Logic.CampaignIO.Abstractions;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.CampaignIO.Readers
+namespace SystemFinder.Logic.CampaignIO
 {
-    public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IHyperspaceReader hyperspaceReader, 
+    public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IHyperspaceReader hyperspaceReader,
         IStarSystemsReader starSystemsReader)
         : ICampaignEngineReader
     {
