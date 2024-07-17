@@ -7,7 +7,7 @@ using SystemFinder.Shared;
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class FleetReader(ILogger<FleetReader> logger, IcL_Reader clReader, IdL_Reader dlReader,
-        IScriptReader scReader)
+        IOrbitReader orbitReader, IScriptReader scReader)
         : IFleetReader
     {
         public void Read(XElement current, GalaxyData data)
@@ -16,6 +16,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             var cL = current.Element("cL");
             var dL = current.Element("dL");
+            var itOrbit = current.Element("iT")?.Element("orbit");
             var sc = current.Element("sc");
 
             if (cL is not null)
@@ -26,6 +27,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (dL is not null)
             {
                 dlReader.Read(dL, data);
+            }
+
+            if (itOrbit is not null)
+            {
+                orbitReader.Read(itOrbit, data);
             }
 
             if (sc is not null)
