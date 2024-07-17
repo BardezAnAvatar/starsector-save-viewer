@@ -41,6 +41,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<Ii_Reader, i_Reader>();
             services.AddSingleton<IImmigrationModifiersReader, ImmigrationModifiersReader>();
             services.AddSingleton<IIndustriesReader, IndustriesReader>();
+            services.AddSingleton<IiT_Reader, iT_Reader>();
             services.AddSingleton<ILocationTokenReader, LocationTokenReader>();
             services.AddSingleton<Im_Reader, m_Reader>();
             services.AddSingleton<IMarketReader, MarketReader>();
