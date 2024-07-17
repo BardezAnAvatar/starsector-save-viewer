@@ -23,7 +23,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                     var p = element.Element("p");
                     if (p is not null)
                     {
-                        pReader.Read(element, data);
+                        pReader.Read(p, data);
                     }
                 }
             }
