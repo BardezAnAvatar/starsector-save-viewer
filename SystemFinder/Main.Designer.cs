@@ -66,8 +66,8 @@
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeyDisplayString = "";
-            openToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.O;
-            openToolStripMenuItem.Size = new Size(218, 34);
+            openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
+            openToolStripMenuItem.Size = new Size(270, 34);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.ToolTipText = "Open a file";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
