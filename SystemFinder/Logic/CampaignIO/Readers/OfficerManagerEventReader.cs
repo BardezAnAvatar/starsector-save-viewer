@@ -6,7 +6,8 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class OfficerManagerEventReader(ILogger<OfficerManagerEventReader> logger, IPersonReader personReader)
+    public class OfficerManagerEventReader(ILogger<OfficerManagerEventReader> logger,
+        IAvailableOfficerReader availableOfficerReader)
         : IOfficerManagerEventReader
     {
         public void Read(XElement current, GalaxyData data)
@@ -22,11 +23,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             {
                 var officers = available.Elements("AvailableOfficer");
 
-                if (officers.Any())
+                if (officers is not null && officers.Any())
                 {
                     foreach (var element in officers)
                     {
-                        personReader.Read(element, data);
+                        availableOfficerReader.Read(element, data);
                     }
                 }
             }
