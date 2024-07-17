@@ -6,7 +6,8 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class FleetReader(ILogger<FleetReader> logger, IdL_Reader dlReader, IScriptReader scReader)
+    public class FleetReader(ILogger<FleetReader> logger, IcL_Reader clReader, IdL_Reader dlReader,
+        IScriptReader scReader)
         : IFleetReader
     {
         public void Read(XElement current, GalaxyData data)
@@ -15,6 +16,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             var dL = current.Element("dL");
             var sc = current.Element("sc");
+            var cL = current.Element("cL");
 
             if (dL is not null)
             {
@@ -24,6 +26,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (sc is not null)
             {
                 scReader.Read(sc, data);
+            }
+
+            if (cL is not null)
+            {
+                clReader.Read(cL, data);
             }
         }
     }
