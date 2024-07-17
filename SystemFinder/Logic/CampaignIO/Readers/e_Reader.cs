@@ -21,7 +21,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var genesis = current.Element("kentington.diyplanets.GenesisStationIntel");
             var market = current.Element("Market");
             var officerManagerEvent = current.Element("OfficerManagerEvent");
-            var rtSegs = current.Elements("rtSegReader");
+            var rtSegs = current.Elements("RtSeg");
             var warSimScript = current.Element("WarSimScript");
 
             if (abyssData is not null)
