@@ -6,7 +6,7 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class m_Reader(ILogger<m_Reader> logger, Ie_Reader eReader, IPrimaryEntityReader primaryEntityReader)
+    public class m_Reader(ILogger<m_Reader> logger, Lazy<Ie_Reader> eReader, IPrimaryEntityReader primaryEntityReader)
         : Im_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -22,7 +22,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             {
                 foreach (var element in e)
                 {
-                    eReader.Read(element, data);
+                    eReader.Value.Read(element, data);
                 }
             }
 
