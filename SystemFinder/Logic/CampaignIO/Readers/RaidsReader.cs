@@ -13,8 +13,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
             var stages = current
-                .Element("raids")
-                ?.Element("NexRaidIntl")
+                .Element("NexRaidIntl")
                 ?.Element("stages")
                 ;
 
