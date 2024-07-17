@@ -25,6 +25,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<ICommDirectoryEntryReader, CommDirectoryEntryReader>();
             services.AddSingleton<ICommDirectoryReader, CommDirectoryReader>();
             services.AddSingleton<IConditionsReader, ConditionsReader>();
+            services.AddSingleton<IConnectedEntityReader, ConnectedEntityReader>();
             services.AddSingleton<ICryosanctumReader, CryosanctumReader>();
             services.AddSingleton<IConReader, ConReader>();
             services.AddSingleton<IdL_Reader, dL_Reader>();
