@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using SystemFinder.DependencyRegistration;
 using SystemFinder.Logic;
 
@@ -25,13 +26,18 @@ namespace SystemFinder
 
         static IHostBuilder CreateHostBuilder()
         {
-            return Host.CreateDefaultBuilder()
+            var builder = Host.CreateDefaultBuilder()
                 .ConfigureServices((context, services) =>
                 {
                     services.AddLazyResolution();   //used to avoid circular references during construction
                     services.AddXmlReaders();
                     services.AddTransient<Main>();
                 });
+
+            builder.UseSerilog((context, configuration) =>
+                configuration.ReadFrom.Configuration(context.Configuration));
+
+            return builder;
         }
     }
 }
