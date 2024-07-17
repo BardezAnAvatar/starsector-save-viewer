@@ -41,9 +41,11 @@ namespace SystemFinder
                     }
                     treeViewSystems.ResumeLayout();
                 }
-                catch (Exception ex)
+                //catch (Exception ex)
+                //{
+                //}
+                finally
                 {
-
                 }
             }
         }
