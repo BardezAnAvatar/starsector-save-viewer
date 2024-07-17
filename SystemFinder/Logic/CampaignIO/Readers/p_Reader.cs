@@ -1,13 +1,18 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class p_Reader(ICommanderReader commanderReader, IStagesReader stagesReader, Is_Reader sReader) : Ip_Reader
+    public class p_Reader(ILogger<p_Reader> logger, ICommanderReader commanderReader, IStagesReader stagesReader,
+        Is_Reader sReader) : Ip_Reader
     {
         public void Read(XElement current, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+
             var s = current
                 .Element("i")
                 ?.Element("s");

@@ -1,13 +1,17 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class ScriptReader(Ie_Reader eReader) : IScriptReader
+    public class ScriptReader(ILogger<ScriptReader> logger, Ie_Reader eReader) : IScriptReader
     {
         public void Read(XElement current, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+
             var e = current
                 .Element("MissionFleetAutoDespawn")
                 ?.Element("mission")

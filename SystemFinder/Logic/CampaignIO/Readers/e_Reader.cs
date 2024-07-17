@@ -1,16 +1,21 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class e_Reader(IGenesisStationIntelReader genesisReader, Lazy<IMarketReader> marketReader,
-        IOfficerManagerEventReader officerReader, IPlanetaryShieldIntelReader planetaryShieldIntelReader, 
-        IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
+    public class e_Reader(ILogger<e_Reader> logger, IGenesisStationIntelReader genesisReader,
+        Lazy<IMarketReader> marketReader, IOfficerManagerEventReader officerReader,
+        IPlanetaryShieldIntelReader planetaryShieldIntelReader,  IRtSegReader rtSegReader,
+        IWarSimScriptReader warSimScriptReader)
         : Ie_Reader
     {
         public void Read(XElement current, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+
             var genesis = current.Element("kentington.diyplanets.GenesisStationIntel");
             var market = current.Element("Market");
             var officerManagerEvent = current.Element("OfficerManagerEvent");

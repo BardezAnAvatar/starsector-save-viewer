@@ -1,14 +1,18 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class SavedObjectReader(ILocationTokenReader locReader, ICentReader centReader,
-        Lazy<IFleetReader> fltReader, IPlanetReader plntReader) : ISavedObjectReader
+    public class SavedObjectReader(ILogger<SavedObjectReader> logger, ILocationTokenReader locReader,
+        ICentReader centReader, Lazy<IFleetReader> fltReader, IPlanetReader plntReader) : ISavedObjectReader
     {
         public void Read(XElement current, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+
             var saved = current.Element("saved");
 
             var locationTokens = saved?.Elements("LocationToken");
