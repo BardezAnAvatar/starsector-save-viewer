@@ -14,6 +14,14 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
             var routeManager = current.Element("RouteManager");
+            var target = current
+                .Element("exerelin.campaign.intel.bases.NexPirateBaseIntel")
+                ?.Element("target");
+
+            if (target is not null)
+            {
+                targetReader.Read(target, data);
+            }
 
             if (routeManager is not null)
             {
@@ -26,14 +34,6 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                         routeDataReader.Read(element, data);
                     }
                 }
-            }
-
-            var target = current
-                .Element("exerelin.campaign.intel.bases.NexPirateBaseIntel")
-                ?.Element("target");
-            if (target is not null)
-            {
-                targetReader.Read(target, data);
             }
         }
     }

@@ -13,25 +13,17 @@ namespace SystemFinder.Logic.CampaignIO.Readers
         {
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
-            var fleet =
-                current
-                .Element("stats")
-                ?.Element("fleet")
-                ;
-
-            var m =
-                current
-                .Element("m")
-                ;
-
-            if (fleet is not null)
-            {
-                fleetReader.Read(fleet, data);
-            }
+            var m = current.Element("m");
+            var fleet = current.Element("stats")?.Element("fleet");
 
             if (m is not null)
             {
                 mReader.Read(m, data);
+            }
+
+            if (fleet is not null)
+            {
+                fleetReader.Read(fleet, data);
             }
         }
     }

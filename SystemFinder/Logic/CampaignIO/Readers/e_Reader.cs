@@ -16,13 +16,23 @@ namespace SystemFinder.Logic.CampaignIO.Readers
         {
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
+            var abyssData = current.Element("assortment__of__things.abyss.procgen.AbyssData");
+            var planetaryShieldIntel = current.Element("com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel");
             var genesis = current.Element("kentington.diyplanets.GenesisStationIntel");
             var market = current.Element("Market");
             var officerManagerEvent = current.Element("OfficerManagerEvent");
             var rtSegs = current.Elements("rtSegReader");
             var warSimScript = current.Element("WarSimScript");
-            var planetaryShieldIntel = current.Element("com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel");
-            var abyssData = current.Element("assortment__of__things.abyss.procgen.AbyssData");
+
+            if (abyssData is not null)
+            {
+                abyssDataReader.Read(abyssData, data);
+            }
+
+            if (planetaryShieldIntel is not null)
+            {
+                planetaryShieldIntelReader.Read(planetaryShieldIntel, data);
+            }
 
             if (genesis is not null)
             {
@@ -50,16 +60,6 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (warSimScript is not null)
             {
                 warSimScriptReader.Read(warSimScript, data);
-            }
-
-            if (planetaryShieldIntel is not null)
-            {
-                planetaryShieldIntelReader.Read(planetaryShieldIntel, data);
-            }
-
-            if (abyssData is not null)
-            {
-                abyssDataReader.Read(abyssData, data);
             }
         }
     }

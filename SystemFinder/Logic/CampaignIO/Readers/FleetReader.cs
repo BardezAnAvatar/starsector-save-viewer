@@ -14,9 +14,14 @@ namespace SystemFinder.Logic.CampaignIO.Readers
         {
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
+            var cL = current.Element("cL");
             var dL = current.Element("dL");
             var sc = current.Element("sc");
-            var cL = current.Element("cL");
+
+            if (cL is not null)
+            {
+                clReader.Read(cL, data);
+            }
 
             if (dL is not null)
             {
@@ -26,11 +31,6 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (sc is not null)
             {
                 scReader.Read(sc, data);
-            }
-
-            if (cL is not null)
-            {
-                clReader.Read(cL, data);
             }
         }
     }

@@ -12,17 +12,17 @@ namespace SystemFinder.Logic.CampaignIO.Readers
         {
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
-            var s = current.Element("s");
             var f = current.Element("f");
-
-            if (s is not null)
-            {
-                sReader.Read(s, data);
-            }
+            var s = current.Element("s");
 
             if (f is not null)
             {
                 fReader.Read(f, data);
+            }
+
+            if (s is not null)
+            {
+                sReader.Read(s, data);
             }
         }
     }

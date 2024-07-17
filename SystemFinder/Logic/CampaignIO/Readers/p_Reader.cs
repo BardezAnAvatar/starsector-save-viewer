@@ -14,17 +14,12 @@ namespace SystemFinder.Logic.CampaignIO.Readers
         {
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
+            var commander = current.Element("commander");
+            var connectedEntity = current.Element("connectedEntity");
             var s = current
                 .Element("i")
                 ?.Element("s");
-            var commander = current.Element("commander");
             var stages = current.Element("stages");
-            var connectedEntity = current.Element("connectedEntity");
-
-            if (s is not null)
-            {
-                sReader.Read(s, data);
-            }
 
             if (commander is not null)
             {
@@ -34,6 +29,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (connectedEntity is not null)
             {
                 connectedEntityReader.Read(connectedEntity, data);
+            }
+
+            if (s is not null)
+            {
+                sReader.Read(s, data);
             }
 
             if (stages is not null)

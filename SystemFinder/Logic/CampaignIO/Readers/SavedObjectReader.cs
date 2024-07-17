@@ -15,18 +15,10 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             var saved = current.Element("saved");
 
-            var locationTokens = saved?.Elements("LocationToken");
             var cents = saved?.Elements("CCEnt");
             var fleets = saved?.Elements("Flt");
+            var locationTokens = saved?.Elements("LocationToken");
             var planets = saved?.Elements("Plnt");
-
-            if (locationTokens is not null && locationTokens.Any())
-            {
-                foreach (var element in locationTokens)
-                {
-                    locReader.Read(element, data);
-                }
-            }
 
             if (cents is not null && cents.Any())
             {
@@ -41,6 +33,14 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 foreach (var element in fleets)
                 {
                     fltReader.Value.Read(element, data);
+                }
+            }
+
+            if (locationTokens is not null && locationTokens.Any())
+            {
+                foreach (var element in locationTokens)
+                {
+                    locReader.Read(element, data);
                 }
             }
 

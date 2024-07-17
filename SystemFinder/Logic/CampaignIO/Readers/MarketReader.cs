@@ -17,15 +17,20 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
             var commDirectory = current.Element("commDirectory");
+            var conditions = current.Element("conditions");
             var economy = current.Element("economy");
             var immigrationModifiers = current.Element("immigrationModifiers");
             var industries = current.Element("industries");
             var primaryEntity = current.Element("primaryEntity");
-            var conditions = current.Element("conditions");
 
             if (commDirectory is not null)
             {
                 commReader.Read(commDirectory, data);
+            }
+
+            if (conditions is not null)
+            {
+                conditionsReader.Read(conditions, data);
             }
 
             if (economy is not null)
@@ -46,11 +51,6 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (primaryEntity is not null)
             {
                 primaryEntityReader.Read(primaryEntity, data);
-            }
-
-            if (conditions is not null)
-            {
-                conditionsReader.Read(conditions, data);
             }
         }
     }
