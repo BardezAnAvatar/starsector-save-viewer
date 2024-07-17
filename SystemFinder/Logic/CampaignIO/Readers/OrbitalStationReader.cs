@@ -14,7 +14,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
             var dl = current
-                .Element("sf")
+                .Element("sF")
                 ?.Element("dL")
                 ;
 
