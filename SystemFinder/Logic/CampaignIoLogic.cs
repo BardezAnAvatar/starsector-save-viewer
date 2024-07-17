@@ -8,9 +8,9 @@ namespace SystemFinder.Logic
 {
     public class CampaignIoLogic(ICampaignEngineReader reader) : ICampaignIoLogic
     {
-        public GalaxyData ReadSave(Stream file)
+        public async Task<GalaxyData> ReadSave(Stream file, CancellationToken cancellation)
         {
-            XDocument root = XDocument.Load(file);
+            XDocument root = await XDocument.LoadAsync(file, LoadOptions.None, cancellation);
             var data = TraverseSave(root);
             return data;
         }
