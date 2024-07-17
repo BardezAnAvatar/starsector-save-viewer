@@ -11,7 +11,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
     {
         public void Read(XElement current, XAttribute uid, GalaxyData data)
         {
-            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+            logger.Log(LogLevel.Debug, $"Reading System: {current.GetAbsoluteXPath()}");
 
             //NOTE: there appears to be some duplicate serialization for `cL` and maybe `s`, so check first
             if (!data.StarSystems.ContainsKey(uid.Value))
