@@ -14,12 +14,18 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
             var f = current.Element("f");
+            var focusOrbit = current.Element("focus")?.Element("orbit");
             var s = current.Element("s");
             var spOrbit = current.Element("sP")?.Element("orbit");
 
             if (f is not null)
             {
                 fReader.Read(f, data);
+            }
+
+            if (focusOrbit is not null)
+            {
+                Read(focusOrbit, data);
             }
 
             if (s is not null)
