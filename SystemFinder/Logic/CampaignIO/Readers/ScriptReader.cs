@@ -6,7 +6,8 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class ScriptReader(ILogger<ScriptReader> logger, Ie_Reader eReader) : IScriptReader
+    public class ScriptReader(ILogger<ScriptReader> logger, Ie_Reader eReader,
+        IResearchFleetRouteManagerReader researchFleetRouteManagerReader) : IScriptReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -27,7 +28,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (dataResearchFleetRouteManager is not null)
             {
-                dlReader.Read(dataResearchFleetRouteManager, data);
+                researchFleetRouteManagerReader.Read(dataResearchFleetRouteManager, data);
             }
 
             if (e is not null && e.Any())
