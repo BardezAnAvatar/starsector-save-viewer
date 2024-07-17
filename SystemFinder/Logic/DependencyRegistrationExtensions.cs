@@ -52,6 +52,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<IPlanetReader, PlanetReader>();
             services.AddSingleton<IPlanetaryShieldIntelReader, PlanetaryShieldIntelReader>();
             services.AddSingleton<IPrimaryEntityReader, PrimaryEntityReader>();
+            services.AddSingleton<IResearchFleetRouteManagerReader, ResearchFleetRouteManagerReader>();
             services.AddSingleton<IRouteDataReader, RouteDataReader>();
             services.AddSingleton<IRtSegReader, RtSegReader>();
             services.AddSingleton<Is_Reader, s_Reader>();

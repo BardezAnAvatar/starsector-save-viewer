@@ -12,6 +12,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
         {
             logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
+            var dataResearchFleetRouteManager = current.Element("data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager");
             var e = current
                 .Element("MissionFleetAutoDespawn")
                 ?.Element("mission")
@@ -23,6 +24,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 ?.Element("d")
                 ?.Elements("e")
                 ;
+
+            if (dataResearchFleetRouteManager is not null)
+            {
+                dlReader.Read(dataResearchFleetRouteManager, data);
+            }
 
             if (e is not null && e.Any())
             {
