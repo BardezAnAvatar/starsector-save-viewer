@@ -26,12 +26,21 @@ namespace SystemFinder.Shared
 
                 // If the element is the root, no index is required
 
-                return (index == -1) ? "/" + name : string.Format
-                (
-                    "/{0}[{1}]",
-                    name,
-                    index.ToString()
-                );
+                var path = string.Empty;
+                if (index == -1)
+                {
+                    path = "/" + name;
+                }
+                else if (e.Parent?.Elements(name).Count() < 2)
+                {
+                    path = "/" + name;
+                }
+                else
+                {
+                    path = $"/{name}[{index.ToString()}]";
+                }
+
+                return path;
             };
 
             var ancestors = from e in element.Ancestors()
@@ -73,8 +82,7 @@ namespace SystemFinder.Shared
                 i++;
             }
 
-            throw new InvalidOperationException
-                ("element has been removed from its parent.");
+            throw new InvalidOperationException("element has been removed from its parent.");
         }
     }
 }
