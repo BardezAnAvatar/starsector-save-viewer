@@ -8,7 +8,7 @@ using SystemFinder.Shared;
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class TargetReader(ILogger<TargetReader> logger, IConReader conReader,
-        Lazy<ISavedObjectReader> osavedReader, IStarSystemReader sstmReader)
+        Lazy<ISavedObjectReader> osavedReader, IOrbitReader orbitReader, IStarSystemReader sstmReader)
         : ITargetReader
     {
         public void Read(XElement current, GalaxyData data)
@@ -27,6 +27,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             //now go through children
             var con = current.Element("con");
             var o = current.Element("o");
+            var orbit = current.Element("orbit");
 
             if (con is not null)
             {
@@ -36,6 +37,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (o is not null)
             {
                 osavedReader.Value.Read(o, data);
+            }
+
+            if (orbit is not null)
+            {
+                orbitReader.Read(orbit, data);
             }
         }
     }
