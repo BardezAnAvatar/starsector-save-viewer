@@ -17,10 +17,9 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (routeManager is not null)
             {
-                var r = routeManager.Element("r")!;
-                var routeData = r.Elements("RouteData");
+                var routeData = routeManager.Element("r")?.Elements("RouteData");
 
-                if (routeData.Any())
+                if (routeData is not null && routeData.Any())
                 {
                     foreach (var element in routeData)
                     {
