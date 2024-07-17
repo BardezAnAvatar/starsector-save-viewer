@@ -38,6 +38,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<IFleetReader, FleetReader>();
             services.AddSingleton<IGenesisStationIntelReader, GenesisStationIntelReader>();
             services.AddSingleton<IHyperspaceReader, HyperspaceReader>();
+            services.AddSingleton<Ii_Reader, i_Reader>();
             services.AddSingleton<IImmigrationModifiersReader, ImmigrationModifiersReader>();
             services.AddSingleton<IIndustriesReader, IndustriesReader>();
             services.AddSingleton<ILocationTokenReader, LocationTokenReader>();

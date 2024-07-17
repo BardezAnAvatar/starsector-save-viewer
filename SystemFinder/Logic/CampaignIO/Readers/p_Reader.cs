@@ -7,7 +7,7 @@ using SystemFinder.Shared;
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class p_Reader(ILogger<p_Reader> logger, ICommanderReader commanderReader,
-        IConnectedEntityReader connectedEntityReader, Im_Reader mReader, IStagesReader stagesReader)
+        IConnectedEntityReader connectedEntityReader, Ii_Reader iReader, IStagesReader stagesReader)
         : Ip_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -16,10 +16,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             var commander = current.Element("commander");
             var connectedEntity = current.Element("connectedEntity");
-            var m = current
-                .Element("i")
-                ?.Element("sm")
-                ?.Element("m");
+            var i = current.Element("i");
             var stages = current.Element("stages");
 
             if (commander is not null)
@@ -32,9 +29,9 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 connectedEntityReader.Read(connectedEntity, data);
             }
 
-            if (m is not null)
+            if (i is not null)
             {
-                mReader.Read(m, data);
+                iReader.Read(i, data);
             }
 
             if (stages is not null)
