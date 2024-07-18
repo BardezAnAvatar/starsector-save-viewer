@@ -12,7 +12,7 @@ namespace SystemFinder.View
 
             //NOTE: Order matters, here. Follow View/EmbeddedBitmapLoader.cs for order
             AddIconToImageList(imageList, "star-system.png");
-            AddIconToImageList(imageList, "star.png");
+            AddIconToImageList(imageList, "sun.png");
             AddIconToImageList(imageList, "planet.png");
             AddIconToImageList(imageList, "gate-unscanned.png");
             AddIconToImageList(imageList, "gate-scanned.png");
