@@ -1,5 +1,6 @@
 using System.Reflection;
 using SystemFinder.Abstractions.Logic;
+using SystemFinder.Exceptions;
 using SystemFinder.Logic;
 using SystemFinder.Model.Data;
 using SystemFinder.View;
@@ -78,13 +79,29 @@ namespace SystemFinder
 
         private void AddImagesToTreeView()
         {
-            treeViewSystems.ImageList = new ImageList();
-            var starSystem = EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), "star-system.png");
+            var imageList = new ImageList();
 
-            if (starSystem is not null)
+            //NOTE: Order matters, here. Follow View/EmbeddedBitmapLoader.cs for order
+            AddIconToImageList(imageList, "star-system.png");
+            AddIconToImageList(imageList, "star.png");
+            AddIconToImageList(imageList, "planet.png");
+            AddIconToImageList(imageList, "gate-unscanned.png");
+            AddIconToImageList(imageList, "gate-scanned.png");
+            AddIconToImageList(imageList, "station.png");
+
+            treeViewSystems.ImageList = imageList;
+        }
+
+        private void AddIconToImageList(ImageList imageList, string assetName)
+        {
+            var starSystem = EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), assetName);
+
+            if (starSystem is null)
             {
-                treeViewSystems.ImageList.Images.Add(starSystem);
+                throw new TreeViewIconException($"Could not locate {assetName}");
             }
+
+            imageList.Images.Add(starSystem);
         }
 
         private void Main_Load(object sender, EventArgs e)
