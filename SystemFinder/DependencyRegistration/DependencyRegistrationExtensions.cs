@@ -18,6 +18,7 @@ namespace SystemFinder.DependencyRegistration
 
             services.AddSingleton<ICampaignEngineReader, CampaignEngineReader>();
 
+            services.AddSingleton<IStarReader, StarReader>();
             services.AddSingleton<IStarSystemReader, StarSystemReader>();
         }
 
