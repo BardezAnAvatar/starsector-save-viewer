@@ -67,7 +67,7 @@
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeyDisplayString = "";
             openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
-            openToolStripMenuItem.Size = new Size(270, 34);
+            openToolStripMenuItem.Size = new Size(223, 34);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.ToolTipText = "Open a file";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
@@ -138,6 +138,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Main";
             Text = "Starsector Save Viewer";
+            Load += Main_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);
