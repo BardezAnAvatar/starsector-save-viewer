@@ -102,11 +102,16 @@ namespace SystemFinder.Logic.CampaignIO
                 }
             }
 
+            /*
             //exception if we don't have matching counts?
             if (data.Stars.Count() < sanityCheckSystemCount)
             {
                 throw new StarParsingException($"Expected at least {sanityCheckSystemCount} stars, but found {data.Stars.Count()}.");
             }
+            */
+
+            var sorted = data.Stars.OrderBy(x => x.Value.ToString());
+            var missingStars = data.StarSystems.Where(ss => data.Stars.Where(s => s.Value.StarSystemId == ss.Key).Count() == 0);
         }
     }
 }
