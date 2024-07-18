@@ -7,10 +7,10 @@ using SystemFinder.Shared;
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class e_Reader(ILogger<e_Reader> logger, IAbyssDataReader abyssDataReader,
-        IGenesisStationIntelReader genesisReader, Lazy<IMarketReader> marketReader,
-        IOfficerManagerEventReader officerReader, IPersonBountyManagerReader personBountyManagerReader,
-        IPlanetaryShieldIntelReader planetaryShieldIntelReader, IRtSegReader rtSegReader,
-        IWarSimScriptReader warSimScriptReader)
+        IGenericMissionManagerReader genericMissionManagerReader, IGenesisStationIntelReader genesisReader,
+        Lazy<IMarketReader> marketReader, IOfficerManagerEventReader officerReader, 
+        IPersonBountyManagerReader personBountyManagerReader, IPlanetaryShieldIntelReader planetaryShieldIntelReader,
+        IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
         : Ie_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -19,6 +19,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             var abyssData = current.Element("assortment__of__things.abyss.procgen.AbyssData");
             var planetaryShieldIntel = current.Element("com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel");
+            var genericMissionManager = current.Element("GenericMissionManager");
             var genesis = current.Element("kentington.diyplanets.GenesisStationIntel");
             var market = current.Element("Market");
             var officerManagerEvent = current.Element("OfficerManagerEvent");
@@ -34,6 +35,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (planetaryShieldIntel is not null)
             {
                 planetaryShieldIntelReader.Read(planetaryShieldIntel, data);
+            }
+
+            if (genericMissionManager is not null)
+            {
+                genericMissionManagerReader.Read(genericMissionManager, data);
             }
 
             if (genesis is not null)
