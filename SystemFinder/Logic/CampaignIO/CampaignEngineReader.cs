@@ -69,7 +69,14 @@ namespace SystemFinder.Logic.CampaignIO
             logger.Log(LogLevel.Debug, "Searching for Stars ...");
             var stars = root
                 .Descendants()
-                .Where(d => d.Attribute("cl")?.Value == "Plnt" && d.Attribute("z") is not null) //Planets because of course
+                .Where(d =>
+                {
+                    //Stars are Planets because of course
+                    var planet = d.Name == "Plnt" && d.Attribute("z") is not null;
+                    var nonPlanet = d.Attribute("cl")?.Value == "Plnt" && d.Attribute("z") is not null;
+
+                    return planet || nonPlanet;
+                })
                 .Where(d =>
                 {
                     var star = false;
