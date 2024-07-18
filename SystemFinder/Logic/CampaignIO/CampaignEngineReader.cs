@@ -110,8 +110,15 @@ namespace SystemFinder.Logic.CampaignIO
             }
             */
 
-            var sorted = data.Stars.OrderBy(x => x.Value.ToString());
-            var missingStars = data.StarSystems.Where(ss => data.Stars.Where(s => s.Value.StarSystemId == ss.Key).Count() == 0);
+            var sorted = data.Stars
+                .OrderBy(x => x.Value.ToString());
+            var missingStars = data.StarSystems
+                .Where(
+                    ss => data.Stars
+                        .Where(s => s.Value.StarSystemId == ss.Key)
+                        .Count() == 0
+                )
+                .Select(kvp => kvp.Value);
         }
     }
 }
