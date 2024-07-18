@@ -65,12 +65,12 @@ namespace SystemFinder
             statusStrip1.Visible = true;
             treeViewSystems.SuspendLayout();
             treeViewSystems.BeginUpdate();
-            treeViewSystems.Nodes.Clear();
 
+            treeViewSystems.Nodes.Clear();
             //since we are handling star systems, use that
             foreach (var starSystem in results.StarSystems)
             {
-                TreeNode system = new TreeNode(starSystem.Value.Name, 0, 0);
+                TreeNode system = new TreeNode(starSystem.Value.Name, (int)TreeViewIconIndexes.StarSystem, (int)TreeViewIconIndexes.StarSystem);
                 treeViewSystems.Nodes.Add(system);
             }
             treeViewSystems.EndUpdate();
