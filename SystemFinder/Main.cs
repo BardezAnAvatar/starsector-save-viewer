@@ -1,7 +1,5 @@
-using System.Reflection;
 using SystemFinder.Abstractions.Logic;
-using SystemFinder.Exceptions;
-using SystemFinder.Logic;
+using SystemFinder.Abstractions.View;
 using SystemFinder.Model.Data;
 using SystemFinder.View;
 using MethodInvoker = System.Windows.Forms.MethodInvoker;
@@ -11,11 +9,13 @@ namespace SystemFinder
     public partial class Main : Form
     {
         private ICampaignIoLogic _campaignIo;
+        private ITreeViewIconLoader _treeViewIconLoader;
 
-        public Main(ICampaignIoLogic campaignIo)
+        public Main(ICampaignIoLogic campaignIo, ITreeViewIconLoader treeViewIconLoader)
         {
             InitializeComponent();
             _campaignIo = campaignIo;
+            _treeViewIconLoader = treeViewIconLoader;
         }
 
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,8 +54,11 @@ namespace SystemFinder
         {
             treeViewSystems.BeginUpdate();
             treeViewSystems.SuspendLayout();
+            
             treeViewSystems.ImageList?.Images?.Clear();
-            AddImagesToTreeView();
+            var imageList = _treeViewIconLoader.LoadTreeViewIcons();
+            treeViewSystems.ImageList = imageList;
+
             treeViewSystems.EndUpdate();
             treeViewSystems.ResumeLayout();
         }
@@ -75,33 +78,6 @@ namespace SystemFinder
             }
             treeViewSystems.EndUpdate();
             treeViewSystems.ResumeLayout();
-        }
-
-        private void AddImagesToTreeView()
-        {
-            var imageList = new ImageList();
-
-            //NOTE: Order matters, here. Follow View/EmbeddedBitmapLoader.cs for order
-            AddIconToImageList(imageList, "star-system.png");
-            AddIconToImageList(imageList, "star.png");
-            AddIconToImageList(imageList, "planet.png");
-            AddIconToImageList(imageList, "gate-unscanned.png");
-            AddIconToImageList(imageList, "gate-scanned.png");
-            AddIconToImageList(imageList, "station.png");
-
-            treeViewSystems.ImageList = imageList;
-        }
-
-        private void AddIconToImageList(ImageList imageList, string assetName)
-        {
-            var starSystem = EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), assetName);
-
-            if (starSystem is null)
-            {
-                throw new TreeViewIconException($"Could not locate {assetName}");
-            }
-
-            imageList.Images.Add(starSystem);
         }
 
         private void Main_Load(object sender, EventArgs e)
