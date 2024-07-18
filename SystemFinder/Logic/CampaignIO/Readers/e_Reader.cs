@@ -10,7 +10,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
         IGenericMissionManagerReader genericMissionManagerReader, IGenesisStationIntelReader genesisReader,
         Lazy<IMarketReader> marketReader, IOfficerManagerEventReader officerReader, 
         IPersonBountyManagerReader personBountyManagerReader, IPlanetaryShieldIntelReader planetaryShieldIntelReader,
-        IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
+        IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader, IWormholeManagerReader wormholeManagerReader)
         : Ie_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -19,6 +19,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             var abyssData = current.Element("assortment__of__things.abyss.procgen.AbyssData");
             var planetaryShieldIntel = current.Element("com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel");
+            var comWormHoleReader = current.Element("com.fs.starfarer.api.impl.campaign.shared.WormholeManager");
             var genericMissionManager = current.Element("GenericMissionManager");
             var genesis = current.Element("kentington.diyplanets.GenesisStationIntel");
             var market = current.Element("Market");
@@ -35,6 +36,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (planetaryShieldIntel is not null)
             {
                 planetaryShieldIntelReader.Read(planetaryShieldIntel, data);
+            }
+
+            if (comWormHoleReader is not null)
+            {
+                wormholeManagerReader.Read(comWormHoleReader, data);
             }
 
             if (genericMissionManager is not null)
