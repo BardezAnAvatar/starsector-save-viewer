@@ -14,6 +14,7 @@ namespace SystemFinder.Logic.CampaignIO
         public void Read(XDocument root, GalaxyData data)
         {
             FindSystems(root, data);
+            FindStars(root, data);
         }
 
         public void FindSystems(XDocument root, GalaxyData data)
