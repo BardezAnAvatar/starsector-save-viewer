@@ -8,8 +8,9 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class e_Reader(ILogger<e_Reader> logger, IAbyssDataReader abyssDataReader,
         IGenesisStationIntelReader genesisReader, Lazy<IMarketReader> marketReader,
-        IOfficerManagerEventReader officerReader, IPlanetaryShieldIntelReader planetaryShieldIntelReader,
-        IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader)
+        IOfficerManagerEventReader officerReader, IPersonBountyManagerReader personBountyManagerReader,
+        IPlanetaryShieldIntelReader planetaryShieldIntelReader, IRtSegReader rtSegReader,
+        IWarSimScriptReader warSimScriptReader)
         : Ie_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -21,6 +22,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var genesis = current.Element("kentington.diyplanets.GenesisStationIntel");
             var market = current.Element("Market");
             var officerManagerEvent = current.Element("OfficerManagerEvent");
+            var personBountyManager = current.Element("PersonBountyManager");
             var rtSegs = current.Elements("RtSeg");
             var warSimScript = current.Element("WarSimScript");
 
@@ -47,6 +49,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (officerManagerEvent is not null)
             {
                 officerReader.Read(officerManagerEvent, data);
+            }
+
+            if (personBountyManager is not null)
+            {
+                personBountyManagerReader.Read(personBountyManager, data);
             }
 
             if (rtSegs is not null && rtSegs.Any())
