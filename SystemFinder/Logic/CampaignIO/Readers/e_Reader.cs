@@ -28,6 +28,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var officerManagerEvent = current.Element("OfficerManagerEvent");
             var personBountyManager = current.Element("PersonBountyManager");
             var rtSegs = current.Elements("RtSeg");
+            var sharedDataE = current
+                .Element("SharedData")
+                ?.Element("playerActivityTracker")
+                ?.Element("lastVisit")
+                ?.Element("e");
             var warSimScript = current.Element("WarSimScript");
 
             if (abyssData is not null)
@@ -81,6 +86,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 {
                     rtSegReader.Read(element, data);
                 }
+            }
+
+            if (sharedDataE is not null)
+            {
+                Read(sharedDataE, data);
             }
 
             if (warSimScript is not null)
