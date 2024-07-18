@@ -16,6 +16,10 @@ namespace SystemFinder.Logic.CampaignIO
 
         public void FindSystems(XDocument root, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, "Counting expected Systems ...");
+            var sanityCheckSystemCount = root.Element("CampaignEngine")?.Element("starSystems")?.Elements("Sstm")?.Count() ?? 0;
+            logger.Log(LogLevel.Debug, $"Expecting {sanityCheckSystemCount} Systems!");
+
             logger.Log(LogLevel.Debug, "Searching for `Sstm` Systems ...");
             var sstm = root
                 .Descendants("Sstm")
@@ -44,6 +48,12 @@ namespace SystemFinder.Logic.CampaignIO
                     var uid = element.Attribute("z")!;  //already established above (line 25)
                     starSystemReader.Read(element, uid, data);
                 }
+            }
+
+            //exception if we don't have matching counts?
+            if (sanityCheckSystemCount != data.StarSystems.Count())
+            {
+                throw new ApplicationException($"Expected {sanityCheckSystemCount} star systems, but found {data.StarSystems.Count()}.");
             }
         }
     }
