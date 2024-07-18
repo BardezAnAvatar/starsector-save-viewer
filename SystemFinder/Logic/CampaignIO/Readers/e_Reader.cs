@@ -8,9 +8,10 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class e_Reader(ILogger<e_Reader> logger, IAbyssDataReader abyssDataReader,
         IGenericMissionManagerReader genericMissionManagerReader, IGenesisStationIntelReader genesisReader,
-        Lazy<IMarketReader> marketReader, IOfficerManagerEventReader officerReader, 
-        IPersonBountyManagerReader personBountyManagerReader, IPlanetaryShieldIntelReader planetaryShieldIntelReader,
-        IRtSegReader rtSegReader, IWarSimScriptReader warSimScriptReader, IWormholeManagerReader wormholeManagerReader)
+        IMagicBountyActiveBountyReader magicBountyActiveBountyReader, Lazy<IMarketReader> marketReader,
+        IOfficerManagerEventReader officerReader, IPersonBountyManagerReader personBountyManagerReader,
+        IPlanetaryShieldIntelReader planetaryShieldIntelReader, IRtSegReader rtSegReader,
+        IWarSimScriptReader warSimScriptReader, IWormholeManagerReader wormholeManagerReader)
         : Ie_Reader
     {
         public void Read(XElement current, GalaxyData data)
@@ -22,6 +23,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var comWormHoleReader = current.Element("com.fs.starfarer.api.impl.campaign.shared.WormholeManager");
             var genericMissionManager = current.Element("GenericMissionManager");
             var genesis = current.Element("kentington.diyplanets.GenesisStationIntel");
+            var magicBountyActiveBounty = current.Element("MagicBountyActiveBounty");
             var market = current.Element("Market");
             var officerManagerEvent = current.Element("OfficerManagerEvent");
             var personBountyManager = current.Element("PersonBountyManager");
@@ -56,6 +58,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (market is not null)
             {
                 marketReader.Value.Read(market, data);
+            }
+
+            if (magicBountyActiveBounty is not null)
+            {
+                magicBountyActiveBountyReader.Read(magicBountyActiveBounty, data);
             }
 
             if (officerManagerEvent is not null)
