@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using Microsoft.Extensions.Logging;
-using SystemFinder.Logic.CampaignIO.Abstractions;
-using SystemFinder.Logic.CampaignIO.Readers.Abstractions.Model;
+using SystemFinder.Abstractions.Logic.CampaignIO;
+using SystemFinder.Abstractions.Logic.CampaignIO.Readers;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO

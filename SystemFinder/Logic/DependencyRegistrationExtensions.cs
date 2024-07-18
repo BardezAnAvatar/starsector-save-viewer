@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using SystemFinder.Logic.Abstractions;
+using SystemFinder.Abstractions.Logic;
+using SystemFinder.Abstractions.Logic.CampaignIO;
+using SystemFinder.Abstractions.Logic.CampaignIO.Readers;
 using SystemFinder.Logic.CampaignIO;
-using SystemFinder.Logic.CampaignIO.Abstractions;
-using SystemFinder.Logic.CampaignIO.Readers.Abstractions.Model;
 using SystemFinder.Logic.CampaignIO.Readers.Model;
 
 namespace SystemFinder.Logic

@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
-using SystemFinder.Logic.Abstractions;
-using SystemFinder.Logic.CampaignIO.Abstractions;
+using SystemFinder.Abstractions.Logic;
+using SystemFinder.Abstractions.Logic.CampaignIO;
 using SystemFinder.Model;
 using SystemFinder.Model.Data;
 

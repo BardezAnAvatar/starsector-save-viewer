@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.CampaignIO.Abstractions
+namespace SystemFinder.Abstractions.Logic.CampaignIO
 {
     public interface ICampaignEngineReader
     {

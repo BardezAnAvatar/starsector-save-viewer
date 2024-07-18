@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 using Microsoft.Extensions.Logging;
-using SystemFinder.Logic.CampaignIO.Readers.Abstractions.Model;
+using SystemFinder.Abstractions.Logic.CampaignIO.Readers;
 using SystemFinder.Model;
 using SystemFinder.Model.Data;
 using SystemFinder.Shared;

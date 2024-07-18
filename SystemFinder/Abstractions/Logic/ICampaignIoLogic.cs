@@ -1,6 +1,6 @@
 ﻿using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.Abstractions
+namespace SystemFinder.Abstractions.Logic
 {
     public interface ICampaignIoLogic
     {

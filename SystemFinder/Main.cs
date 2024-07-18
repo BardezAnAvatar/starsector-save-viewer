@@ -1,6 +1,6 @@
 using System.Reflection;
+using SystemFinder.Abstractions.Logic;
 using SystemFinder.Logic;
-using SystemFinder.Logic.Abstractions;
 using SystemFinder.Model.Data;
 using SystemFinder.View;
 using MethodInvoker = System.Windows.Forms.MethodInvoker;

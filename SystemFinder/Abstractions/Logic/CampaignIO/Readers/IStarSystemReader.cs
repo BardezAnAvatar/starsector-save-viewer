@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using SystemFinder.Model.Data;
 
-namespace SystemFinder.Logic.CampaignIO.Readers.Abstractions.Model
+namespace SystemFinder.Abstractions.Logic.CampaignIO.Readers
 {
     public interface IStarSystemReader
     {
