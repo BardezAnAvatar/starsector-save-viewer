@@ -1,7 +1,9 @@
 using System.Reflection;
 using SystemFinder.Logic;
 using SystemFinder.Logic.Abstractions;
+using SystemFinder.Model.Data;
 using SystemFinder.View;
+using MethodInvoker = System.Windows.Forms.MethodInvoker;
 
 namespace SystemFinder
 {
@@ -15,40 +17,64 @@ namespace SystemFinder
             _campaignIo = campaignIo;
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var dialogResult = openFileDialog1.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
                 toolStripStatusLabel2.Text = openFileDialog1.FileName;
-                statusStrip1.Visible = true;
 
                 try
                 {
                     using Stream file = openFileDialog1.OpenFile();
-                    var results = _campaignIo.ReadSave(file);
-                    treeViewSystems.Nodes.Clear();
-                    treeViewSystems.ImageList?.Images?.Clear();
-                    AddImagesToTreeView();
 
-                    //since we are handling star systems, use that
-                    foreach (var starSystem in results.StarSystems)
+                    var cancelSource = new CancellationTokenSource();
+                    var token = cancelSource.Token;
+                    var results = await _campaignIo.ReadSave(file, token).ConfigureAwait(false);
+
+                    // after we've done all the processing, load the control with the appropriate data.
+                    // Do this to avoid exception:
+                    //      `Cross-thread operation not valid: Control 'treeViewSystems' accessed from a thread other than the thread it was created on.`
+                    this.Invoke(new MethodInvoker(delegate
                     {
-                        TreeNode system = new TreeNode(starSystem.Value.Name, 0, 0);
-                        treeViewSystems.Nodes.Add(system);
-                    }
+                        UpdateTreeView(results);
+                    }));
                 }
-                catch (Exception ex)
+                //catch (Exception ex)
+                //{
+                //}
+                finally
                 {
-
                 }
             }
+        }
+
+        private void UpdateTreeView(GalaxyData results)
+        {
+            statusStrip1.Visible = true;
+            treeViewSystems.SuspendLayout();
+            treeViewSystems.Nodes.Clear();
+            treeViewSystems.ImageList?.Images?.Clear();
+            AddImagesToTreeView();
+
+            //since we are handling star systems, use that
+            foreach (var starSystem in results.StarSystems)
+            {
+                TreeNode system = new TreeNode(starSystem.Value.Name, 0, 0);
+                treeViewSystems.Nodes.Add(system);
+            }
+            treeViewSystems.ResumeLayout();
         }
 
         private void AddImagesToTreeView()
         {
             treeViewSystems.ImageList = new ImageList();
-            treeViewSystems.ImageList.Images.Add(EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), "star-system.png"));
+            var starSystem = EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), "star-system.png");
+
+            if (starSystem is not null)
+            {
+                treeViewSystems.ImageList.Images.Add(starSystem);
+            }
         }
     }
 }

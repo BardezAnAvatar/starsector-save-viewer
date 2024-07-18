@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemFinder", "SystemFinder\SystemFinder.csproj", "{2CDE5014-F060-4F98-85F0-493A77FBBC74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemFinder.Utilities", "SystemFinder.Utilities\SystemFinder.Utilities.csproj", "{F78C4930-10C3-42BE-B205-1B00B1FAA09D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemFinder.Utilities", "SystemFinder.Utilities\SystemFinder.Utilities.csproj", "{F78C4930-10C3-42BE-B205-1B00B1FAA09D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemFinder.Shared", "SystemFinder.Shared\SystemFinder.Shared.csproj", "{026EAC15-A990-4D10-84E6-5CDDF6AE8DC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F78C4930-10C3-42BE-B205-1B00B1FAA09D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F78C4930-10C3-42BE-B205-1B00B1FAA09D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F78C4930-10C3-42BE-B205-1B00B1FAA09D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{026EAC15-A990-4D10-84E6-5CDDF6AE8DC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{026EAC15-A990-4D10-84E6-5CDDF6AE8DC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{026EAC15-A990-4D10-84E6-5CDDF6AE8DC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{026EAC15-A990-4D10-84E6-5CDDF6AE8DC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

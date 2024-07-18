@@ -4,6 +4,6 @@ namespace SystemFinder.Logic.Abstractions
 {
     public interface ICampaignIoLogic
     {
-        GalaxyData ReadSave(Stream file);
+        Task<GalaxyData> ReadSave(Stream file, CancellationToken cancellation);
     }
 }

@@ -8,7 +8,21 @@ namespace SystemFinder.Utilities
 
         internal static void WriteSstm(XDocument document)
         {
-            var outFile = "Sstm.xml";
+            var outFile = "Systems_Sstm.xml";
+            var outFilePath = Path.Combine(_outPath, outFile);
+            document.Save(outFilePath);
+        }
+
+        internal static void WriteNonSstmSystems(XDocument document)
+        {
+            var outFile = "Systems_NonSstm.xml";
+            var outFilePath = Path.Combine(_outPath, outFile);
+            document.Save(outFilePath);
+        }
+
+        internal static void WriteXPathsForSystems(XDocument document)
+        {
+            var outFile = "Systems_XPath.xml";
             var outFilePath = Path.Combine(_outPath, outFile);
             document.Save(outFilePath);
         }

@@ -3,8 +3,8 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO.Readers.Abstractions
 {
-    public interface ICampaignEngineReader
+    public interface IActiveReader
     {
-        void Read(XDocument root, GalaxyData data);
+        void Read(XElement current, GalaxyData data);
     }
 }

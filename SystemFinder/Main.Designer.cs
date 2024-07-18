@@ -66,8 +66,8 @@
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeyDisplayString = "";
-            openToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.O;
-            openToolStripMenuItem.Size = new Size(218, 34);
+            openToolStripMenuItem.ShortcutKeys = Keys.Control | Keys.O;
+            openToolStripMenuItem.Size = new Size(270, 34);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.ToolTipText = "Open a file";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
@@ -126,7 +126,7 @@
             openFileDialog1.ReadOnlyChecked = true;
             openFileDialog1.ShowPreview = true;
             // 
-            // Form1
+            // Main
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -136,8 +136,8 @@
             Controls.Add(menuStrip1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
-            Text = "Form1";
+            Name = "Main";
+            Text = "Starsector Save Viewer";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);

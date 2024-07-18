@@ -1,13 +1,19 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class ScriptReader(Ie_Reader eReader) : IScriptReader
+    public class ScriptReader(ILogger<ScriptReader> logger, Lazy<Ie_Reader> eReader,
+        IResearchFleetRouteManagerReader researchFleetRouteManagerReader) : IScriptReader
     {
         public void Read(XElement current, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+
+            var dataResearchFleetRouteManager = current.Element("data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager");
             var e = current
                 .Element("MissionFleetAutoDespawn")
                 ?.Element("mission")
@@ -20,11 +26,16 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 ?.Elements("e")
                 ;
 
+            if (dataResearchFleetRouteManager is not null)
+            {
+                researchFleetRouteManagerReader.Read(dataResearchFleetRouteManager, data);
+            }
+
             if (e is not null && e.Any())
             {
                 foreach (var element in e)
                 {
-                    eReader.Read(element, data);
+                    eReader.Value.Read(element, data);
                 }
             }
         }

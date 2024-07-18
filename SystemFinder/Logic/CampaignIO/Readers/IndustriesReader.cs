@@ -1,23 +1,33 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class IndustriesReader(IFleetReader fleetReader) : IIndustriesReader
+    public class IndustriesReader(ILogger<IndustriesReader> logger, ICryosanctumReader cryosanctumReader,
+        IOrbitalStationReader orbitalStationReader)
+        : IIndustriesReader
     {
         public void Read(XElement current, GalaxyData data)
         {
-            var fleet = current
-                .Element("boggled.campaign.econ.industries.Boggled__Cryosanctum")
-                ?.Element("thisIndustry")
-                ?.Element("ctx")
-                ?.Element("fleet")
-                ;
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
-            if (fleet is not null)
+            var cryosanctum = current
+                .Element("boggled.campaign.econ.industries.Boggled__Cryosanctum");
+
+            var orbitalStation = current
+                .Element("OrbitalStation");
+
+            if (cryosanctum is not null)
             {
-                fleetReader.Read(fleet, data);
+                cryosanctumReader.Read(cryosanctum, data);
+            }
+
+            if (orbitalStation is not null)
+            {
+                orbitalStationReader.Read(orbitalStation, data);
             }
         }
     }

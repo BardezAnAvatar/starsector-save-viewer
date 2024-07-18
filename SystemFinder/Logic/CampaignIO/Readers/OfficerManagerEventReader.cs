@@ -1,13 +1,19 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class OfficerManagerEventReader(IPersonReader personReader) : IOfficerManagerEventReader
+    public class OfficerManagerEventReader(ILogger<OfficerManagerEventReader> logger,
+        IAvailableOfficerReader availableOfficerReader)
+        : IOfficerManagerEventReader
     {
         public void Read(XElement current, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+
             var available =
                 current
                 .Element("available")
@@ -17,11 +23,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             {
                 var officers = available.Elements("AvailableOfficer");
 
-                if (officers.Any())
+                if (officers is not null && officers.Any())
                 {
                     foreach (var element in officers)
                     {
-                        personReader.Read(element, data);
+                        availableOfficerReader.Read(element, data);
                     }
                 }
             }

@@ -1,15 +1,19 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions.Model;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class cL_Reader(IConReader conReader, Lazy<ISavedObjectReader> osavedReader, IStarSystemReader sstmReader)
-        : IcL_Reader
+    public class cL_Reader(ILogger<cL_Reader> logger, IConReader conReader, Lazy<ISavedObjectReader> osavedReader,
+        IStarSystemReader sstmReader) : IcL_Reader
     {
         public void Read(XElement current, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+
             var uid = current.Attribute("z");
             var cl = current.Attribute("cl");
 

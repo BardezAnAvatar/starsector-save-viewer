@@ -205,30 +205,97 @@
 --------------------------------------------------------
 
 
-## `me` Expansion
-./me/d/*
-
-
-## `d` Reader
-./d/e[n]/*
-
-
 ## Market Expansion
 ./market/conditions/MCon[14]/p/i/s
 ------------------------------
 ./market/conditions/*
 
 
-## Market Expansion
+## conditions
 ./conditions/MCon[14]/p/i/s
 ------------------------------
 ./conditions/MCon[n]/p/*
+
+
+## `p` Reader
+./p/i/s
+./p/commander/fl/iT/orbit/sP/orbit/s
+./p/commander/stats/fleet/cL
+./p/commander/stats/fleet/cL/o/saved/CCEnt[1]/market/conditions/MCon[15]/p/raids/NexRaidIntl/stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
+./p/commander/stats/fleet/iT/orbit/sP/orbit/s
+./p/commander/stats/fleet/orbit/focus/orbit/f/cL
+./p/stages/NexTrvlStg/to/orbit/f/cL
+------------------------------
+./p/i/s
+./p/commander/*
+./p/stages/*
+
+
+## `commander` Reader
+./commander/fl/iT/orbit/sP/orbit/s
+./commander/stats/fleet/cL
+./commander/stats/fleet/cL/o/saved/CCEnt[1]/market/conditions/MCon[15]/p/raids/NexRaidIntl/stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
+./commander/stats/fleet/iT/orbit/sP/orbit/s
+./commander/stats/fleet/orbit/focus/orbit/f/cL
+------------------------------
+./commander/stats/fleet/cL
+
+
+## stats reader
+MISSED:
+    ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
+New:
+    ./commander/stats/fleet/cL
+------------------------------
+    ./stats/fleet/*
+
+
+## `stages` Reader
+./stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
+./stages/NexTrvlStg/to/orbit/f/cL
+./stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
+./stages/NexTrvlStg/to/orbit/f/cL
+---------------------------------
+./stages/NexOrgStg/*
+./stages/NexTrvlStg/to/*
+
+
+## `target` Reader
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Plnt[3]/market/conditions/MCon[15]/p/i/sm/m/primaryEntity/orbit/f/orbit/f/cL
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
+/Systems/Sstm[n]/o/saved/CCEnt[n]/market/industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
+---------------------------------
+./target/o/saved/*
+./target
+
+
+## `where` Reader
+./where
+./where
+---------------------------------
+./where
+./where/*
+
+
+## `t` Expansion
+./t/orbit/f/cL
+./t/orbit/f/orbit/f/cL
+./t/orbit/f/cL
+./t/orbit/f/orbit/f/cL
+./t/where
+--------------------------------------
+./t/orbit*
+./t/where*
 
 
 ## Industries Expansion
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
 ./industries/OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Plnt[3]/market/conditions/MCon[15]/p/i/sm/m/primaryEntity/orbit/f/orbit/f/cL
+--------------------------------------
+./industries/OrbitalStation/*
 
 
 ## `OrbitalStation`
@@ -237,13 +304,13 @@
 ./OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Flt[3]/sc/data.kaysaar.aotd.vok.scripts.research.ResearchFleetRouteManager/target/orbit/f/cL
 ./OrbitalStation/sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target/o/saved/Plnt[3]/market/conditions/MCon[15]/p/i/sm/m/primaryEntity/orbit/f/orbit/f/cL
 ------------------------------
-./OrbitalStation/sF/*
+./OrbitalStation/sF/dL*
 
 
-## `sF` Reader
-./sF/dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
+## `dL` Reader Extension
+./dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 ------------------------------
-./sF/dL/*
+./dL/exerelin.campaign.intel.bases.NexPirateBaseIntel/target
 
 
 ## `exerelin.campaign.intel.bases.NexPirateBaseIntel` Reader
@@ -264,49 +331,16 @@
 ./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/planet/*
 
 
-## `p` Reader
-./p/i/s
-./p/commander/fl/iT/orbit/sP/orbit/s
-./p/commander/stats/fleet/cL
-./p/commander/stats/fleet/cL/o/saved/CCEnt[1]/market/conditions/MCon[15]/p/raids/NexRaidIntl/stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
-./p/commander/stats/fleet/iT/orbit/sP/orbit/s
-./p/commander/stats/fleet/orbit/focus/orbit/f/cL
-./p/stages/NexTrvlStg/to/orbit/f/cL
-------------------------------
-./p/i/s
-./p/commander/*
-./p/stages/*
-
-
-## `commander` Reader
-./p/commander/fl/iT/orbit/sP/orbit/s
-./p/commander/stats/fleet/cL
-./p/commander/stats/fleet/cL/o/saved/CCEnt[1]/market/conditions/MCon[15]/p/raids/NexRaidIntl/stages/NexOrgStg/market/primaryEntity/orbit/f/orbit/f/cL
-./p/commander/stats/fleet/iT/orbit/sP/orbit/s
-./p/commander/stats/fleet/orbit/focus/orbit/f/cL
-------------------------------
-./p/commander/stats/fleet/cL
-
-
 ## entryData reader
 MISSED:
     ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
-	./Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved/*
 New:
 	./Systems/Sstm[n]/o/saved/CCEnt[n]/market/commDirectory/entries/CommDirectoryEntry[4]/entryData/m/d/e[5]/com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/event/shownAt/primaryEntity/orbit/f/cL
 	./Systems/Sstm[n]/o/saved/CCEnt[n]/market/commDirectory/entries/CommDirectoryEntry[4]/entryData/m/d/e[5]/com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/planet/orbit/f/cL
 ------------------------------
-    ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
-	./Plnt[2]/market/industries/boggled.campaign.econ.industries.Boggled__Cryosanctum/thisIndustry/ctx/fleet/cL/o/saved/*
+    ./entryData/stats/*
+	./entryData/m/*
 
-
-## stats reader
-MISSED:
-    ./Plnt[7]/market/commDirectory/entries/CommDirectoryEntry[1]/entryData/stats/fleet/dL/RouteManager/r/RouteData[49]/e/RtSeg[2]/t/cL/con/systems/Sstm[4]/@bN
-New:
-    ./commander/stats/fleet/cL
-------------------------------
-    ./stats/fleet/*
 	
 	
 ## `CommDirectoryEntry`
@@ -316,6 +350,12 @@ New:
     ./CommDirectoryEntry[n]/entryData/*
 ------------------------------
 ./CommDirectoryEntry/entryData/*
+
+
+## `event` Reader
+./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/event/shownAt/primaryEntity/orbit/f/cL
+------------------------------
+./event/shownAt/primaryEntity*
 
 
 ## `RouteData` Expansion
@@ -353,24 +393,7 @@ New:
 ./RtSeg/f/*
 
 
-## `t` Expansion
-./t/orbit/f/cL
-./t/orbit/f/orbit/f/cL
-./t/orbit/f/cL
-./t/orbit/f/orbit/f/cL
-./t/where
---------------------------------------
-./t/orbit*
-./t/where*
-
-
-## `target` Reader
-
-
 ## `s` Reader
-
-
-## `where` Reader
 
 
 
@@ -378,25 +401,24 @@ New:
 
 --------------------------------------
 # Checklist
-- [ ] `./d/*`
-- [ ] `./p/*`
-- [ ] `./t/*`
-- [ ] `./me/*`
-- [ ] `./CommDirectoryEntry/*`
-- [ ] `./conditions/*`
-- [ ] `./commander/*`
-- [ ] `./entryData/*`
-- [ ] `./stats/*`
-- [ ] `./market/conditions/*`
-- [ ] `./event/*`
-- [ ] `./industries/OrbitalStation/*`
-- [ ] `./OrbitalStation/*`
-- [ ] `./RouteData/*`
-- [ ] `./RtSeg/*`
-- [ ] `./sF/*`
-- [ ] `./dL/*`
-- [ ] `./exerelin.campaign.intel.bases.NexPirateBaseIntel/*`
-- [ ] `./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/*`
-- [ ] `./target`
-- [ ] `./s`
-- [ ] `./where`
+- [X] `./market/conditions/*`
+- [X] `./conditions/*`
+- [X] `./p/*`
+- [X] `./commander/*`
+- [X] `./stats/*`
+- [X] `./stages/*`
+- [X] `./where`
+- [X] `./target`
+- [X] `./industries/OrbitalStation/*`
+- [X] `./t/*`
+- [X] `./OrbitalStation/*`
+- [X] `./dL/*`
+- [X] `./exerelin.campaign.intel.bases.NexPirateBaseIntel/*`
+- [X] `./e/exerelin.campaign.intel.bases.NexPirateBaseIntel*`
+- [X] `./entryData/*`
+- [X] `./CommDirectoryEntry/*`
+- [X] `./event/*`
+- [X] `./RouteData/*`
+- [X] `./RtSeg/*`
+- [X] `./com.fs.starfarer.api.impl.campaign.intel.bar.events.PlanetaryShieldIntel/*`
+- [X] `./s`

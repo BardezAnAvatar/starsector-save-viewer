@@ -1,16 +1,23 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class MarketReader(ICommDirectoryReader commReader, IEconomyReader economyReader,
+    public class MarketReader(ILogger<MarketReader> logger, ICommDirectoryReader commReader,
+        IConditionsReader conditionsReader, IEconomyReader economyReader,
         IImmigrationModifiersReader immigrationModifiersReader, IIndustriesReader industriesReader,
-        IPrimaryEntityReader primaryEntityReader) : IMarketReader
+        IPrimaryEntityReader primaryEntityReader)
+        : IMarketReader
     {
         public void Read(XElement current, GalaxyData data)
         {
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
+
             var commDirectory = current.Element("commDirectory");
+            var conditions = current.Element("conditions");
             var economy = current.Element("economy");
             var immigrationModifiers = current.Element("immigrationModifiers");
             var industries = current.Element("industries");
@@ -19,6 +26,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             if (commDirectory is not null)
             {
                 commReader.Read(commDirectory, data);
+            }
+
+            if (conditions is not null)
+            {
+                conditionsReader.Read(conditions, data);
             }
 
             if (economy is not null)

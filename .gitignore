@@ -270,3 +270,5 @@ Assemblies/0Harmony.dll
 
 # Ignore test data:
 /Data/**/*.xml
+/Data/**/*.txt
+/Data/**/*.ps1

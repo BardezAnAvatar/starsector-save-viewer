@@ -1,9 +1,18 @@
 ﻿using System.Xml.Linq;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Utilities
 {
     internal static class XDocumentCreator
     {
+        internal static int CountUniqueElements(XDocument root)
+        {
+            var distinct = root.Descendants().Select(e => e.Name).Distinct();
+
+            return distinct.Count();
+        }
+
+
         internal static XDocument IsolateSstm(XDocument root)
         {
             var sstm = root.Descendants("Sstm");
@@ -15,6 +24,7 @@ namespace SystemFinder.Utilities
             foreach (var element in actual)
             {
                 container.Add(element);
+                XPaths.Paths.Add(element.GetAbsoluteXPath());
             }
             foreach (var element in reference)
             {
@@ -22,7 +32,55 @@ namespace SystemFinder.Utilities
             }
 
             var newDoc = new XDocument();
-            newDoc.Add(container);
+
+            var containerMain = new XElement("Snippets");
+            containerMain.Add(container);
+            newDoc.Add(containerMain);
+
+            return newDoc;
+        }
+        
+        internal static XDocument IsolateNonSstmSystems(XDocument root)
+        {
+            var container = new XElement("SystemsButNotExactly");
+
+            var filter = root
+                .Descendants()
+                .Where(d => d.Attribute("z") is not null && d.Attribute("cl")?.Value == "Sstm")
+                ;
+
+            var count = filter.Count();
+            foreach (var element in filter)
+            {
+                container.Add(element);
+                XPaths.Paths.Add(element.GetAbsoluteXPath());
+            }
+
+            var newDoc = new XDocument();
+
+            var containerMain = new XElement("Snippets");
+            containerMain.Add(container);
+            newDoc.Add(containerMain);
+
+            return newDoc;
+        }
+
+        internal static XDocument IsolateXPaths()
+        {
+            var container = new XElement("XPaths");
+
+            var count = XPaths.Paths.Count;
+            foreach (var xpath in XPaths.Paths)
+            {
+                var node = new XElement("system", xpath);
+                container.Add(node);
+            }
+
+            var newDoc = new XDocument();
+
+            var containerMain = new XElement("Snippets");
+            containerMain.Add(container);
+            newDoc.Add(containerMain);
 
             return newDoc;
         }

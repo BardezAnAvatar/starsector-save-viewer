@@ -1,30 +1,24 @@
 ﻿using System.Xml.Linq;
+using Microsoft.Extensions.Logging;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Model.Data;
+using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class SavedObjectReader(ILocationTokenReader locReader, ICentReader centReader,
-        IFleetReader fltReader, IPlanetReader plntReader) : ISavedObjectReader
+    public class SavedObjectReader(ILogger<SavedObjectReader> logger, ILocationTokenReader locReader,
+        ICentReader centReader, Lazy<IFleetReader> fltReader, IPlanetReader plntReader) : ISavedObjectReader
     {
         public void Read(XElement current, GalaxyData data)
         {
-            var saved = current
-                .Element("saved")
-                ;
+            logger.Log(LogLevel.Debug, current.GetAbsoluteXPath());
 
-            var locationTokens = saved?.Elements("LocationToken");
+            var saved = current.Element("saved");
+
             var cents = saved?.Elements("CCEnt");
             var fleets = saved?.Elements("Flt");
+            var locationTokens = saved?.Elements("LocationToken");
             var planets = saved?.Elements("Plnt");
-
-            if (locationTokens is not null && locationTokens.Any())
-            {
-                foreach (var element in locationTokens)
-                {
-                    locReader.Read(element, data);
-                }
-            }
 
             if (cents is not null && cents.Any())
             {
@@ -36,15 +30,23 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (fleets is not null && fleets.Any())
             {
-                foreach (var element in cents)
+                foreach (var element in fleets)
                 {
-                    fltReader.Read(element, data);
+                    fltReader.Value.Read(element, data);
+                }
+            }
+
+            if (locationTokens is not null && locationTokens.Any())
+            {
+                foreach (var element in locationTokens)
+                {
+                    locReader.Read(element, data);
                 }
             }
 
             if (planets is not null && planets.Any())
             {
-                foreach (var element in cents)
+                foreach (var element in planets)
                 {
                     plntReader.Read(element, data);
                 }
