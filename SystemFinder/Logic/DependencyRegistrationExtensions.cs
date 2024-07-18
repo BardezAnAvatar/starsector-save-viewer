@@ -48,6 +48,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<IiT_Reader, iT_Reader>();
             services.AddSingleton<ILocationTokenReader, LocationTokenReader>();
             services.AddSingleton<Im_Reader, m_Reader>();
+            services.AddSingleton<IMagicBountyActiveBountyReader, MagicBountyActiveBountyReader>();
             services.AddSingleton<IMarketReader, MarketReader>();
             services.AddSingleton<IMetadataReader, MetadataReader>();
             services.AddSingleton<IOfficerManagerEventReader, OfficerManagerEventReader>();
