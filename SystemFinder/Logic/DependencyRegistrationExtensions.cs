@@ -76,6 +76,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<ITargetReader, TargetReader>();
             services.AddSingleton<IWarSimScriptReader, WarSimScriptReader>();
             services.AddSingleton<IWhereReader, WhereReader>();
+            services.AddSingleton<IWormholeManagerReader, WormholeManagerReader>();
 
             services.AddSingleton<IStarSystemReader, StarSystemReader>();
         }
