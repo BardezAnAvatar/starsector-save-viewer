@@ -70,6 +70,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<IStagesReader, StagesReader>();
             services.AddSingleton<IStarSystemsReader, StarSystemsReader>();
             services.AddSingleton<IStatsReader, StatsReader>();
+            services.AddSingleton<ISurveyPlanetMissionIntelReader, SurveyPlanetMissionIntelReader>();
             services.AddSingleton<It_Reader, t_Reader>();
             services.AddSingleton<ITargetReader, TargetReader>();
             services.AddSingleton<IWarSimScriptReader, WarSimScriptReader>();
