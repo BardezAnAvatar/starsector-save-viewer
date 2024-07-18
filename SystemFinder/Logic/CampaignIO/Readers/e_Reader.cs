@@ -24,6 +24,9 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var genericMissionManager = current.Element("GenericMissionManager");
             var genesis = current.Element("kentington.diyplanets.GenesisStationIntel");
             var magicBountyActiveBounty = current.Element("MagicBountyActiveBounty");
+            var mapE = current
+                .Element("map")
+                ?.Element("e");
             var market = current.Element("Market");
             var officerManagerEvent = current.Element("OfficerManagerEvent");
             var personBountyManager = current.Element("PersonBountyManager");
@@ -65,6 +68,11 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 marketReader.Value.Read(market, data);
             }
 
+            if (mapE is not null)
+            {
+                Read(mapE, data);
+            }
+
             if (magicBountyActiveBounty is not null)
             {
                 magicBountyActiveBountyReader.Read(magicBountyActiveBounty, data);
@@ -88,9 +96,9 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 }
             }
 
-            if (sharedDataE is not null)
+            if (mapE is not null)
             {
-                Read(sharedDataE, data);
+                Read(mapE, data);
             }
 
             if (warSimScript is not null)
