@@ -7,7 +7,8 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO
 {
-    public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IHyperspaceReader hyperspaceReader,
+    public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, Ie_Reader eReader,
+        IHyperspaceReader hyperspaceReader,
         IStarSystemsReader starSystemsReader)
         : ICampaignEngineReader
     {
@@ -16,11 +17,23 @@ namespace SystemFinder.Logic.CampaignIO
             var campaign = root.Element("CampaignEngine")!;
 
             var hyperspace = campaign.Element("hyperspace");
+            var modE = campaign
+                .Element("modAndPluginData")
+                ?.Element("persistentData")
+                ?.Elements("e");
             var starSystems = campaign.Element("starSystems");
 
             if (hyperspace is not null)
             {
                 hyperspaceReader.Read(hyperspace, data);
+            }
+
+            if (modE is not null && modE.Any())
+            {
+                foreach (var element in modE)
+                {
+                    eReader.Read(element, data);
+                }
             }
 
             if (starSystems is not null)
