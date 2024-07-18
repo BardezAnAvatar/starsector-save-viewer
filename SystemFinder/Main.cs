@@ -51,15 +51,19 @@ namespace SystemFinder
 
         private void SetUpTreeViewImages()
         {
+            treeViewSystems.BeginUpdate();
             treeViewSystems.SuspendLayout();
             treeViewSystems.ImageList?.Images?.Clear();
             AddImagesToTreeView();
+            treeViewSystems.EndUpdate();
+            treeViewSystems.ResumeLayout();
         }
 
         private void UpdateTreeView(GalaxyData results)
         {
             statusStrip1.Visible = true;
             treeViewSystems.SuspendLayout();
+            treeViewSystems.BeginUpdate();
             treeViewSystems.Nodes.Clear();
 
             //since we are handling star systems, use that
@@ -68,6 +72,7 @@ namespace SystemFinder
                 TreeNode system = new TreeNode(starSystem.Value.Name, 0, 0);
                 treeViewSystems.Nodes.Add(system);
             }
+            treeViewSystems.EndUpdate();
             treeViewSystems.ResumeLayout();
         }
 
