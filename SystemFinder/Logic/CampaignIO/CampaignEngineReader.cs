@@ -51,9 +51,9 @@ namespace SystemFinder.Logic.CampaignIO
             }
 
             //exception if we don't have matching counts?
-            if (sanityCheckSystemCount != data.StarSystems.Count())
+            if (data.StarSystems.Count() < sanityCheckSystemCount)
             {
-                throw new ApplicationException($"Expected {sanityCheckSystemCount} star systems, but found {data.StarSystems.Count()}.");
+                throw new ApplicationException($"Expected at least {sanityCheckSystemCount} star systems, but found {data.StarSystems.Count()}.");
             }
         }
     }
