@@ -49,13 +49,18 @@ namespace SystemFinder
             }
         }
 
+        private void SetUpTreeViewImages()
+        {
+            treeViewSystems.SuspendLayout();
+            treeViewSystems.ImageList?.Images?.Clear();
+            AddImagesToTreeView();
+        }
+
         private void UpdateTreeView(GalaxyData results)
         {
             statusStrip1.Visible = true;
             treeViewSystems.SuspendLayout();
             treeViewSystems.Nodes.Clear();
-            treeViewSystems.ImageList?.Images?.Clear();
-            AddImagesToTreeView();
 
             //since we are handling star systems, use that
             foreach (var starSystem in results.StarSystems)
@@ -75,6 +80,11 @@ namespace SystemFinder
             {
                 treeViewSystems.ImageList.Images.Add(starSystem);
             }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            SetUpTreeViewImages();
         }
     }
 }
