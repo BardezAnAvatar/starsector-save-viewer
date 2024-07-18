@@ -33,6 +33,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<IdL_Reader, dL_Reader>();
             services.AddSingleton<Ie_Reader, e_Reader>();
             services.AddSingleton<IEconomyReader, EconomyReader>();
+            services.AddSingleton<IEntityReader, EntityReader>();
             services.AddSingleton<IEntryDataReader, EntryDataReader>();
             services.AddSingleton<IEntryReader, EntryReader>();
             services.AddSingleton<IEventReader, EventReader>();
