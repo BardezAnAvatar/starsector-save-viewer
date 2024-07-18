@@ -35,7 +35,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 .Element("SharedData")
                 ?.Element("playerActivityTracker")
                 ?.Element("lastVisit")
-                ?.Element("e");
+                ?.Elements("e");
             var warSimScript = current.Element("WarSimScript");
 
             if (abyssData is not null)
@@ -99,9 +99,12 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 }
             }
 
-            if (sharedDataE is not null)
+            if (sharedDataE is not null && sharedDataE.Any())
             {
-                Read(sharedDataE, data);
+                foreach (var element in sharedDataE)
+                {
+                    Read(element, data);
+                }
             }
 
             if (warSimScript is not null)
