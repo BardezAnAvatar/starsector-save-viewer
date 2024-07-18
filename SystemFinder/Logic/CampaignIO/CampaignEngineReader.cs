@@ -56,5 +56,7 @@ namespace SystemFinder.Logic.CampaignIO
                 throw new ApplicationException($"Expected at least {sanityCheckSystemCount} star systems, but found {data.StarSystems.Count()}.");
             }
         }
+
+        public void FindStars
     }
 }
