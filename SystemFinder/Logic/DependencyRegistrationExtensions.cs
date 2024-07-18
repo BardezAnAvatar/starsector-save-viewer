@@ -19,6 +19,7 @@ namespace SystemFinder.Logic
 
             services.AddSingleton<IAbyssDataReader, AbyssDataReader>();
             services.AddSingleton<IActiveReader, ActiveReader>();
+            services.AddSingleton<IAnalyzeEntityMissionIntelReader, AnalyzeEntityMissionIntelReader>();
             services.AddSingleton<IAvailableOfficerReader, AvailableOfficerReader>();
             services.AddSingleton<ICentReader, CentReader>();
             services.AddSingleton<IcL_Reader, cL_Reader>();
