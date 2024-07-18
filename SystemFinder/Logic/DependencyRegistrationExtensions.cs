@@ -51,6 +51,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<IOrbitReader, OrbitReader>();
             services.AddSingleton<Ip_Reader, p_Reader>();
             services.AddSingleton<IPersonReader, PersonReader>();
+            services.AddSingleton<IPersonBountyIntelReader, PersonBountyIntelReader>();
             services.AddSingleton<IPlanetReader, PlanetReader>();
             services.AddSingleton<IPlanetaryShieldIntelReader, PlanetaryShieldIntelReader>();
             services.AddSingleton<IPrimaryEntityReader, PrimaryEntityReader>();
