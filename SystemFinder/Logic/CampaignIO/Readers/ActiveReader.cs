@@ -8,7 +8,8 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class ActiveReader(ILogger<ActiveReader> logger,
         IAnalyzeEntityMissionIntelReader analyzeEntityMissionIntelReader,
-        IPersonBountyIntelReader personBountyIntelReader)
+        IPersonBountyIntelReader personBountyIntelReader,
+        ISurveyPlanetMissionIntelReader surveyPlanetMissionIntelReader)
         : IActiveReader
     {
         public void Read(XElement current, GalaxyData data)
@@ -17,6 +18,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             var analyzeEntityMissionIntel = current.Elements("AnalyzeEntityMissionIntel");
             var personBountyIntel = current.Elements("PersonBountyIntel");
+            var surveyPlanetMissionIntel = current.Elements("SurveyPlanetMissionIntel");
 
             if (analyzeEntityMissionIntel is not null && analyzeEntityMissionIntel.Any())
             {
@@ -31,6 +33,14 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 foreach (var element in personBountyIntel)
                 {
                     personBountyIntelReader.Read(element, data);
+                }
+            }
+
+            if (surveyPlanetMissionIntel is not null && surveyPlanetMissionIntel.Any())
+            {
+                foreach (var element in surveyPlanetMissionIntel)
+                {
+                    surveyPlanetMissionIntelReader.Read(element, data);
                 }
             }
         }
