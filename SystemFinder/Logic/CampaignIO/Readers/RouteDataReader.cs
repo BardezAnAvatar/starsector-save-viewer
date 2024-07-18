@@ -6,7 +6,7 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class RouteDataReader(ILogger<RouteDataReader> logger, Ie_Reader eReader, Im_Reader mReader,
+    public class RouteDataReader(ILogger<RouteDataReader> logger, Lazy<Ie_Reader> eReader, Im_Reader mReader,
         Ip_Reader pReader) : IRouteDataReader
     {
         public void Read(XElement current, GalaxyData data)
@@ -19,7 +19,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (e is not null)
             {
-                eReader.Read(e, data);
+                eReader.Value.Read(e, data);
             }
 
             if (m is not null)

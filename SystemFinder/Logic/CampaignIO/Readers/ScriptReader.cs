@@ -6,7 +6,7 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
-    public class ScriptReader(ILogger<ScriptReader> logger, Ie_Reader eReader,
+    public class ScriptReader(ILogger<ScriptReader> logger, Lazy<Ie_Reader> eReader,
         IResearchFleetRouteManagerReader researchFleetRouteManagerReader) : IScriptReader
     {
         public void Read(XElement current, GalaxyData data)
@@ -35,7 +35,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             {
                 foreach (var element in e)
                 {
-                    eReader.Read(element, data);
+                    eReader.Value.Read(element, data);
                 }
             }
         }
