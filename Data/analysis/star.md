@@ -9064,3 +9064,31 @@ Star XML:
 	<layers z="107211" enum-type="CaEnLa">PLANETS,ABOVE</layers>
 </f>
 ```
+
+
+
+----------------------------------------------------
+
+
+Missing stars:
+[0]		{{ Name: Gamma Madron; Id: 94756 }}	SystemFinder.Model.StarSystem
+[1]		{{ Name: Alpha Madron; Id: 100213 }}	SystemFinder.Model.StarSystem
+[2]		{{ Name: Gamma Zendar; Id: 371271 }}	SystemFinder.Model.StarSystem
+[3]		{{ Name: Deep Space; Id: 14009 }}	SystemFinder.Model.StarSystem
+[4]		{{ Name: Sea of Twilight; Id: 14138 }}	SystemFinder.Model.StarSystem
+[5]		{{ Name: Sea of Dreams; Id: 14805 }}	SystemFinder.Model.StarSystem
+[6]		{{ Name: Sea of Trust; Id: 15118 }}	SystemFinder.Model.StarSystem
+[7]		{{ Name: Sea of Decay; Id: 15478 }}	SystemFinder.Model.StarSystem
+[8]		{{ Name: Sea of Clouds; Id: 15761 }}	SystemFinder.Model.StarSystem
+[9]		{{ Name: Sea of Time; Id: 16084 }}	SystemFinder.Model.StarSystem
+[10]	{{ Name: Sea of Hope; Id: 16424 }}	SystemFinder.Model.StarSystem
+[11]	{{ Name: Sea of Hatred; Id: 16797 }}	SystemFinder.Model.StarSystem
+[12]	{{ Name: Sea of Sorrow; Id: 17173 }}	SystemFinder.Model.StarSystem
+[13]	{{ Name: Sea of Serenity; Id: 18433 }}	SystemFinder.Model.StarSystem
+[14]	{{ Name: Sea of Storms; Id: 18762 }}	SystemFinder.Model.StarSystem
+[15]	{{ Name: Sea of Tranquilility; Id: 19118 }}	SystemFinder.Model.StarSystem
+[16]	{{ Name: Sea of Luxury; Id: 22756 }}	SystemFinder.Model.StarSystem
+[17]	{{ Name: Sea of Epidemics; Id: 23045 }}	SystemFinder.Model.StarSystem
+[18]	{{ Name: Unknown Location; Id: 356534 }}	SystemFinder.Model.StarSystem
+[19]	{{ Name: Delta Site; Id: 378945 }}	SystemFinder.Model.StarSystem
+[20]	{{ Name: Deep Space; Id: 418488 }}	SystemFinder.Model.StarSystem
