@@ -37,6 +37,7 @@ namespace SystemFinder.Logic
             services.AddSingleton<IEventReader, EventReader>();
             services.AddSingleton<If_Reader, f_Reader>();
             services.AddSingleton<IFleetReader, FleetReader>();
+            services.AddSingleton<IGenericMissionManagerReader, GenericMissionManagerReader>();
             services.AddSingleton<IGenesisStationIntelReader, GenesisStationIntelReader>();
             services.AddSingleton<IHyperspaceReader, HyperspaceReader>();
             services.AddSingleton<Ii_Reader, i_Reader>();
