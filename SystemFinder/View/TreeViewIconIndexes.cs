@@ -2,12 +2,12 @@
 {
     internal enum TreeViewIconIndexes
     {
-        None = 0,
-        StarSystem = 1,
-        Star = 2,
-        Planet = 3,
-        GateInactive = 4,
-        GateActive = 5,
-        Station = 6,
+        None = -1,
+        StarSystem = 0,
+        Star = 1,
+        Planet = 2,
+        GateInactive = 3,
+        GateActive = 4,
+        Station = 5,
     }
 }
