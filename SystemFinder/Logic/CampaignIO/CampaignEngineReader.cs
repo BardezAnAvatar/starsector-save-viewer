@@ -2,11 +2,13 @@
 using Microsoft.Extensions.Logging;
 using SystemFinder.Abstractions.Logic.CampaignIO;
 using SystemFinder.Abstractions.Logic.CampaignIO.Readers;
+using SystemFinder.Exceptions;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO
 {
-    public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IStarSystemReader starSystemReader)
+    public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IStarReader starReader,
+        IStarSystemReader starSystemReader)
         : ICampaignEngineReader
     {
         public void Read(XDocument root, GalaxyData data)
@@ -18,7 +20,7 @@ namespace SystemFinder.Logic.CampaignIO
         {
             logger.Log(LogLevel.Debug, "Counting expected Systems ...");
             var sanityCheckSystemCount = root.Element("CampaignEngine")?.Element("starSystems")?.Elements("Sstm")?.Count() ?? 0;
-            logger.Log(LogLevel.Debug, $"Expecting {sanityCheckSystemCount} Systems!");
+            logger.Log(LogLevel.Debug, $"Expecting {sanityCheckSystemCount} Systems");
 
             logger.Log(LogLevel.Debug, "Searching for `Sstm` Systems ...");
             var sstm = root
@@ -57,6 +59,46 @@ namespace SystemFinder.Logic.CampaignIO
             }
         }
 
-        public void FindStars
+        public void FindStars(XDocument root, GalaxyData data)
+        {
+            logger.Log(LogLevel.Debug, "Counting expected Systems ...");
+            var sanityCheckSystemCount = root.Element("CampaignEngine")?.Element("starSystems")?.Elements("Sstm")?.Count() ?? 0;
+            logger.Log(LogLevel.Debug, $"Expecting {sanityCheckSystemCount} Systems");
+
+            logger.Log(LogLevel.Debug, "Searching for Stars ...");
+            var stars = root
+                .Descendants()
+                .Where(d => d.Attribute("cl")?.Value == "Plnt" && d.Attribute("z") is not null) //Planets because of course
+                .Where(d =>
+                {
+                    var star = false;
+                    var tags = d.Element("tags");
+                    if (tags is not null)
+                    {
+                        var st = tags.Elements("st");
+                        star = (st is not null && st.Any(tag => tag.Value == "star"));
+                    }
+
+                    return star;
+                });
+
+            var starCount = stars?.Count() ?? 0;
+
+            logger.Log(LogLevel.Debug, "Parsing Stars ...");
+            if (stars is not null && stars.Any())
+            {
+                foreach (var element in stars)
+                {
+                    var uid = element.Attribute("z")!;  //already established above (line 25)
+                    starReader.Read(element, uid, data);
+                }
+            }
+
+            //exception if we don't have matching counts?
+            if (data.Stars.Count() < sanityCheckSystemCount)
+            {
+                throw new StarParsingException($"Expected at least {sanityCheckSystemCount} stars, but found {data.Stars.Count()}.");
+            }
+        }
     }
 }
