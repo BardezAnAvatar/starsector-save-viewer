@@ -7,7 +7,7 @@ using SystemFinder.Shared;
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public class AnalyzeEntityMissionIntelReader(ILogger<AnalyzeEntityMissionIntelReader> logger,
-        IEntryReader entryReader) : IAnalyzeEntityMissionIntelReader
+        IEntityReader entityReader) : IAnalyzeEntityMissionIntelReader
     {
         public void Read(XElement current, GalaxyData data)
         {
@@ -17,7 +17,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
 
             if (entity is not null)
             {
-                entryReader.Read(entity, data);
+                entityReader.Read(entity, data);
             }
         }
     }
