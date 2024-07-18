@@ -2,10 +2,13 @@
 using SystemFinder.Abstractions.Logic;
 using SystemFinder.Abstractions.Logic.CampaignIO;
 using SystemFinder.Abstractions.Logic.CampaignIO.Readers;
+using SystemFinder.Abstractions.View;
+using SystemFinder.Logic;
 using SystemFinder.Logic.CampaignIO;
 using SystemFinder.Logic.CampaignIO.Readers.Model;
+using SystemFinder.View;
 
-namespace SystemFinder.Logic
+namespace SystemFinder.DependencyRegistration
 {
     internal static class DependencyRegistrationExtensions
     {
@@ -16,6 +19,11 @@ namespace SystemFinder.Logic
             services.AddSingleton<ICampaignEngineReader, CampaignEngineReader>();
 
             services.AddSingleton<IStarSystemReader, StarSystemReader>();
+        }
+
+        public static void AddViewSupport(this IServiceCollection services)
+        {
+            services.AddSingleton<ITreeViewIconLoader, TreeViewIconLoader>();
         }
     }
 }
