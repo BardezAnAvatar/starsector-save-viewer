@@ -2,8 +2,6 @@
 using SystemFinder.Logic.Abstractions;
 using SystemFinder.Logic.CampaignIO;
 using SystemFinder.Logic.CampaignIO.Abstractions;
-using SystemFinder.Logic.CampaignIO.Readers;
-using SystemFinder.Logic.CampaignIO.Readers.Abstractions;
 using SystemFinder.Logic.CampaignIO.Readers.Abstractions.Model;
 using SystemFinder.Logic.CampaignIO.Readers.Model;
 
