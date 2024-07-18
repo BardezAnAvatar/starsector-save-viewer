@@ -4,6 +4,7 @@
     {
         public Dictionary<string, Planet> Planets = new();
         public Dictionary<string, StarSystem> StarSystems = new();
+        public Dictionary<string, Star> Stars = new();
         public Dictionary<string, Fleet> Fleets = new();
         public Dictionary<string, Station> Stations = new();
     }
