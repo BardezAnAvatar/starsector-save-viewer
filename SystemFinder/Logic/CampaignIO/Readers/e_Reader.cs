@@ -26,7 +26,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers
             var magicBountyActiveBounty = current.Element("MagicBountyActiveBounty");
             var mapE = current
                 .Element("map")
-                ?.Element("e");
+                ?.Elements("e");
             var market = current.Element("Market");
             var officerManagerEvent = current.Element("OfficerManagerEvent");
             var personBountyManager = current.Element("PersonBountyManager");
@@ -68,9 +68,12 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 marketReader.Value.Read(market, data);
             }
 
-            if (mapE is not null)
+            if (mapE is not null && mapE.Any())
             {
-                Read(mapE, data);
+                foreach (var element in mapE)
+                {
+                    Read(element, data);
+                }
             }
 
             if (magicBountyActiveBounty is not null)
@@ -96,9 +99,9 @@ namespace SystemFinder.Logic.CampaignIO.Readers
                 }
             }
 
-            if (mapE is not null)
+            if (sharedDataE is not null)
             {
-                Read(mapE, data);
+                Read(sharedDataE, data);
             }
 
             if (warSimScript is not null)
