@@ -3,7 +3,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 using SystemFinder.DependencyRegistration;
-using SystemFinder.Logic;
 
 namespace SystemFinder
 {
@@ -32,6 +31,7 @@ namespace SystemFinder
                 {
                     services.AddLazyResolution();   //used to avoid circular references during construction
                     services.AddXmlReaders();
+                    services.AddViewSupport();
                     services.AddTransient<Main>();
                 });
 

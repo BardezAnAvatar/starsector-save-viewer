@@ -22,7 +22,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
 
                 var system = new StarSystem
                 {
-                    Ref = uid.Value,
+                    Id = uid.Value,
                     Name = shortName!.Value,
                 };
 

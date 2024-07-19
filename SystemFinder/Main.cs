@@ -1,8 +1,6 @@
-using System.Reflection;
 using SystemFinder.Abstractions.Logic;
-using SystemFinder.Logic;
+using SystemFinder.Abstractions.View;
 using SystemFinder.Model.Data;
-using SystemFinder.View;
 using MethodInvoker = System.Windows.Forms.MethodInvoker;
 
 namespace SystemFinder
@@ -10,11 +8,15 @@ namespace SystemFinder
     public partial class Main : Form
     {
         private ICampaignIoLogic _campaignIo;
+        private ITreeViewIconLoader _treeViewIconLoader;
+        private ITreeViewPopulator _treeViewPopulator;
 
-        public Main(ICampaignIoLogic campaignIo)
+        public Main(ICampaignIoLogic campaignIo, ITreeViewIconLoader treeViewIconLoader, ITreeViewPopulator treeViewPopulator)
         {
             InitializeComponent();
             _campaignIo = campaignIo;
+            _treeViewIconLoader = treeViewIconLoader;
+            _treeViewPopulator = treeViewPopulator;
         }
 
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -37,6 +39,7 @@ namespace SystemFinder
                     //      `Cross-thread operation not valid: Control 'treeViewSystems' accessed from a thread other than the thread it was created on.`
                     this.Invoke(new MethodInvoker(delegate
                     {
+                        statusStrip1.Visible = true;
                         UpdateTreeView(results);
                     }));
                 }
@@ -51,40 +54,30 @@ namespace SystemFinder
 
         private void SetUpTreeViewImages()
         {
-            treeViewSystems.BeginUpdate();
             treeViewSystems.SuspendLayout();
+            treeViewSystems.BeginUpdate();
+            
             treeViewSystems.ImageList?.Images?.Clear();
-            AddImagesToTreeView();
+            var imageList = _treeViewIconLoader.LoadTreeViewIcons();
+            treeViewSystems.ImageList = imageList;
+
             treeViewSystems.EndUpdate();
             treeViewSystems.ResumeLayout();
         }
 
         private void UpdateTreeView(GalaxyData results)
         {
-            statusStrip1.Visible = true;
             treeViewSystems.SuspendLayout();
             treeViewSystems.BeginUpdate();
+
             treeViewSystems.Nodes.Clear();
 
-            //since we are handling star systems, use that
-            foreach (var starSystem in results.StarSystems)
-            {
-                TreeNode system = new TreeNode(starSystem.Value.Name, 0, 0);
-                treeViewSystems.Nodes.Add(system);
-            }
+            var nodes = _treeViewPopulator.BuildNodes(results);
+            treeViewSystems.Nodes.AddRange([.. nodes]);
+            treeViewSystems.ExpandAll();
+
             treeViewSystems.EndUpdate();
             treeViewSystems.ResumeLayout();
-        }
-
-        private void AddImagesToTreeView()
-        {
-            treeViewSystems.ImageList = new ImageList();
-            var starSystem = EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), "star-system.png");
-
-            if (starSystem is not null)
-            {
-                treeViewSystems.ImageList.Images.Add(starSystem);
-            }
         }
 
         private void Main_Load(object sender, EventArgs e)

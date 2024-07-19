@@ -18,6 +18,7 @@
     <None Remove="assets\star-system.png" />
     <None Remove="assets\star.png" />
     <None Remove="assets\station.png" />
+    <None Remove="assets\sun.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,7 @@
     <EmbeddedResource Include="assets\star-system.png" />
     <EmbeddedResource Include="assets\star.png" />
     <EmbeddedResource Include="assets\station.png" />
+    <EmbeddedResource Include="assets\sun.png" />
   </ItemGroup>
 
   <ItemGroup>
