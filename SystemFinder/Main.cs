@@ -1,7 +1,6 @@
 using SystemFinder.Abstractions.Logic;
 using SystemFinder.Abstractions.View;
 using SystemFinder.Model.Data;
-using SystemFinder.View;
 using MethodInvoker = System.Windows.Forms.MethodInvoker;
 
 namespace SystemFinder
@@ -75,6 +74,7 @@ namespace SystemFinder
 
             var nodes = _treeViewPopulator.BuildNodes(results);
             treeViewSystems.Nodes.AddRange([.. nodes]);
+            treeViewSystems.ExpandAll();
 
             treeViewSystems.EndUpdate();
             treeViewSystems.ResumeLayout();

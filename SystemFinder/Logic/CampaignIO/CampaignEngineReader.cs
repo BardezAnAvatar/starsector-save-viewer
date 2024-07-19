@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Logging;
 using SystemFinder.Abstractions.Logic.CampaignIO;
 using SystemFinder.Abstractions.Logic.CampaignIO.Readers;
-using SystemFinder.Exceptions;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO
