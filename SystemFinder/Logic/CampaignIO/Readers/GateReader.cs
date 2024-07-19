@@ -47,11 +47,13 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
                 }
             }
 
-            throw new StarParsingException($"Could not locate gate name for node `{xPath}`");
+            throw new GateParsingException($"Could not locate gate name for node `{xPath}`");
         }
 
-        private string ExtractStarSystemReference(XElement current, string xPath)
+        private string? ExtractStarSystemReference(XElement current, string xPath)
         {
+            string? uid = null;
+
             var sstm = current
                 .Elements()
                 .Where(e => e.Attribute("cl")?.Value == "Sstm")
@@ -60,14 +62,12 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             if (sstm is not null)
             {
                 //could be a definition or a reference
-                var uid = sstm.Attribute("z")?.Value ?? sstm.Attribute("ref")?.Value;
-                if (uid is not null)
-                {
-                    return uid;
-                }
+                uid = sstm.Attribute("z")?.Value ?? sstm.Attribute("ref")?.Value;
             }
 
-            throw new GateParsingException($"Could not locate star name for node `{xPath}`");
+            return uid;
+
+            //throw new GateParsingException($"Could not locate gate system reference for `{name}`; xPath `{xPath}`");
         }
     }
 }
