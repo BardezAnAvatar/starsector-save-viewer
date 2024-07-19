@@ -68,6 +68,7 @@ namespace SystemFinder.Logic.CampaignIO
             logger.Log(LogLevel.Debug, "Searching for Stars ...");
             var stars = root
                 .Descendants()
+                //planets
                 .Where(d =>
                 {
                     //Stars are Planets because of course
@@ -76,6 +77,7 @@ namespace SystemFinder.Logic.CampaignIO
 
                     return planet || nonPlanet;
                 })
+                //type == star
                 .Where(d =>
                 {
                     var star = false;
