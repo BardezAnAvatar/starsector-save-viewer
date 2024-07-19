@@ -44,8 +44,21 @@ namespace SystemFinder.View
 
                 //find children for the star system
                 FindAndAttachStars(data, starSystem, system);
+                FindAndAttachGates(data, starSystem, system);
 
                 nodes.Add(system);
+            }
+
+            //Exception case: add free-floating gate(s) (See: Abyssal Gate)
+            var hyperspaceGates = data.Gates.Values
+                .Where(g => g.StarSystemId is null);
+
+            foreach (var gate in hyperspaceGates!)
+            {
+                var gateIcon = (int)(gate.Scanned ? TreeViewIconIndexes.GateActive : TreeViewIconIndexes.GateInactive);
+                TreeNode gateNode = new TreeNode(gate.Name, gateIcon, gateIcon);
+
+                nodes.Add(gateNode);
             }
 
             return nodes;
@@ -60,6 +73,20 @@ namespace SystemFinder.View
                 {
                     TreeNode starNode = new TreeNode(star.Name, (int)TreeViewIconIndexes.Star, (int)TreeViewIconIndexes.Star);
                     system.Nodes.Add(starNode);
+                }
+            }
+        }
+
+        private static void FindAndAttachGates(GalaxyData data, StarSystem starSystem, TreeNode system)
+        {
+            var gates = data.Gates.Values.Where(gate => gate.StarSystemId == starSystem.Id);
+            if (gates.Any())
+            {
+                foreach (var gate in gates)
+                {
+                    var gateIcon = (int)(gate.Scanned ? TreeViewIconIndexes.GateActive : TreeViewIconIndexes.GateInactive);
+                    TreeNode gateNode = new TreeNode(gate.Name, gateIcon, gateIcon);
+                    system.Nodes.Add(gateNode);
                 }
             }
         }
