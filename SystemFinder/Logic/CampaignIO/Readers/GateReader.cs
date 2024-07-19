@@ -87,7 +87,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
                     {
                         foreach (var eElement in e)
                         {
-                            var st = eElement.Elements("st");
+                            var st = eElement.Elements();
                             if (st is not null && st.Any(xe => xe.Value == "$gateScanned"))
                             {
                                 var val = st.Skip(1).FirstOrDefault();
