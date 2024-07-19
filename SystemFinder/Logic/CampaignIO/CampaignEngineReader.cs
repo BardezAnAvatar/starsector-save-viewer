@@ -6,14 +6,15 @@ using SystemFinder.Model.Data;
 
 namespace SystemFinder.Logic.CampaignIO
 {
-    public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IStarReader starReader,
-        IStarSystemReader starSystemReader)
+    public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IGateReader gateReader,
+        IStarReader starReader, IStarSystemReader starSystemReader)
         : ICampaignEngineReader
     {
         public void Read(XDocument root, GalaxyData data)
         {
             FindSystems(root, data);
             FindStars(root, data);
+            FindGates(root, data);
         }
 
         public void FindSystems(XDocument root, GalaxyData data)
@@ -116,6 +117,67 @@ namespace SystemFinder.Logic.CampaignIO
             var missingStars = data.StarSystems
                 .Where(
                     ss => data.Stars
+                        .Where(s => s.Value.StarSystemId == ss.Key)
+                        .Count() == 0
+                )
+                .Select(kvp => kvp.Value);
+        }
+
+        public void FindGates(XDocument root, GalaxyData data)
+        {
+            logger.Log(LogLevel.Debug, "Counting expected Systems ...");
+            var sanityCheckSystemCount = root.Element("CampaignEngine")?.Element("starSystems")?.Elements("Sstm")?.Count() ?? 0;
+            logger.Log(LogLevel.Debug, $"Expecting {sanityCheckSystemCount} Systems");
+
+            logger.Log(LogLevel.Debug, "Searching for Gates ...");
+            var gates = root
+                .Descendants()
+                //stations
+                .Where(d =>
+                {
+                    var station = d.Attribute("fL")?.Value == "STATIONS" && d.Attribute("z") is not null;
+
+                    return station;
+                })
+                //type == gate
+                .Where(d =>
+                {
+                    var gate = false;
+                    var tags = d.Element("tags");
+                    if (tags is not null)
+                    {
+                        var st = tags.Elements("st");
+                        gate = (st is not null && st.Any(tag => tag.Value == "gate"));
+                    }
+
+                    return gate;
+                });
+
+            var gateCount = gates?.Count() ?? 0;
+
+            logger.Log(LogLevel.Debug, "Parsing Gates ...");
+            if (gates is not null && gates.Any())
+            {
+                foreach (var element in gates)
+                {
+                    var uid = element.Attribute("z")!;  //already established above (line 25)
+                    gateReader.Read(element, uid, data);
+                }
+            }
+
+            /*
+            //exception if we don't have matching counts?
+            if (data.Gates.Count() >= sanityCheckSystemCount)
+            {
+                throw new StarParsingException($"Expected fewer than {sanityCheckSystemCount} gates, but found {data.Gates.Count()}.");
+            }
+            */
+
+            var sorted = data.Gates
+                .OrderBy(x => x.Value.ToString());
+            var missingGates = data.StarSystems
+                .Where(
+                    ss => data.Gates
                         .Where(s => s.Value.StarSystemId == ss.Key)
                         .Count() == 0
                 )
