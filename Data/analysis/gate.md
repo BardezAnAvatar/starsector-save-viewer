@@ -42,3 +42,43 @@ CCEnt z, fL="STATIONS"
 		<gF z="106048" b="0.0" i="1.0" o="1.0" s="IDLE" d="true" u="true"></gF>
 	</p>
 </CCEnt>
+
+
+
+<CCEnt z="150717" fL="STATIONS">
+	<loc z="150718">-4079.6382|-2890.77</loc>
+	<vel z="150719">0.0|0.0</vel>
+	<j0>{"f6":215.3208,"f0":"Ittir Gate","f2":[255,255,255,255],"f3":"active_gate","f4":"ittir_gate"}</j0>
+	<ow ref="13"></ow>
+	<orbit cl="COrbtPD" z="150720" r="5000.0" op="145.0" ca="215.3208">
+		<e cl="CCEnt" ref="150717"></e>
+		<f cl="Plnt" ref="147114"></f>
+	</orbit>
+	<cL cl="Sstm" ref="147117"></cL>
+	<ls cl="Plnt" ref="147114"></ls>
+	<me z="150721">
+		<d z="150722">
+			<e>
+				<st>$gateScanned</st>
+				<st>true</st>
+			</e>
+			<e>
+				<st>$importance</st>
+				<st>VERY_HIGH</st>
+			</e>
+		</d>
+	</me>
+	<sc z="150723"></sc>
+	<cV z="150724" sn="graphics/illustrations/active_gate.jpg" sIW="480.0" sIH="300.0" sRSI="true" sIX="0.0" sIY="0.0" sIDW="480.0" sIWH="300.0"></cV>
+	<tags z="150725">
+		<st>neutrino_high</st>
+		<st>gate</st>
+	</tags>
+	<j1>{"f0":192,"f1":192,"f2":120,"f3":-1,"f4":-1,"f5":"inactive_gate"}</j1>
+	<la z="150726" enum-type="CaEnLa">BELOW_STATIONS,STATIONS</la>
+	<p cl="GateEntityPlugin" z="150727" mA="true" aI="true" sBUD="0.0" aTDLY="0.0" iUA="0.0">
+		<e cl="CCEnt" ref="150717"></e>
+		<bUF z="150728" b="0.0" i="1.0" o="1.0" s="IDLE" d="true" u="false"></bUF>
+		<gF z="150729" b="0.0" i="1.0" o="1.0" s="IDLE" d="true" u="true"></gF>
+	</p>
+</CCEnt>
