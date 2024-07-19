@@ -10,7 +10,7 @@
 
         public bool Colonized { get; init; } = false;
 
-        public bool Surveyed { get; init; } = false;
+        public string Surveyed { get; init; } = string.Empty;
 
         public int Size { get; init; } = 0;
 
