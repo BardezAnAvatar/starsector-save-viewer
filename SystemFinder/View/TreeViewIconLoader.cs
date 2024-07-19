@@ -4,7 +4,7 @@ using SystemFinder.Exceptions;
 
 namespace SystemFinder.View
 {
-    public class TreeViewIconLoader : ITreeViewIconLoader
+    public class TreeViewIconLoader(IEmbeddedBitmapLoader embeddedBitmapLoader) : ITreeViewIconLoader
     {
         public ImageList LoadTreeViewIcons()
         {
@@ -23,7 +23,7 @@ namespace SystemFinder.View
 
         private void AddIconToImageList(ImageList imageList, string assetName)
         {
-            var starSystem = EmbeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), assetName);
+            var starSystem = embeddedBitmapLoader.ResourceImage(Assembly.GetExecutingAssembly(), assetName);
 
             if (starSystem is null)
             {

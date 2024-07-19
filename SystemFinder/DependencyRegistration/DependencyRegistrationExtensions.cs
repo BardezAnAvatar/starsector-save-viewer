@@ -24,6 +24,7 @@ namespace SystemFinder.DependencyRegistration
 
         public static void AddViewSupport(this IServiceCollection services)
         {
+            services.AddSingleton<IEmbeddedBitmapLoader, EmbeddedBitmapLoader>();
             services.AddSingleton<ITreeViewIconLoader, TreeViewIconLoader>();
             services.AddSingleton<ITreeViewPopulator, TreeViewPopulator>();
         }
