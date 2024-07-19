@@ -8,6 +8,8 @@
 
         public string Name { get; init; } = string.Empty;
 
-        public override string ToString() => $"{{ Name: {Name}; Id: {Id}; StarSystemId: {StarSystemId ?? "null"} }}";
+        public bool Scanned { get; init; } = default;
+
+        public override string ToString() => $"{{ Name: {Name}; Id: {Id}; StarSystemId: {StarSystemId ?? "null"}; Scanned: {Scanned} }}";
     }
 }
