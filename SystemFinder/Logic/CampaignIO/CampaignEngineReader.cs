@@ -7,7 +7,7 @@ using SystemFinder.Model.Data;
 namespace SystemFinder.Logic.CampaignIO
 {
     public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IGateReader gateReader,
-        IStarReader starReader, IStarSystemReader starSystemReader)
+        IPlanetReader planetReader, IStarReader starReader, IStarSystemReader starSystemReader)
         : ICampaignEngineReader
     {
         public void Read(XDocument root, GalaxyData data)
@@ -15,6 +15,7 @@ namespace SystemFinder.Logic.CampaignIO
             FindSystems(root, data);
             FindStars(root, data);
             FindGates(root, data);
+            FindPlanets(root, data);
         }
 
         public void FindSystems(XDocument root, GalaxyData data)
@@ -99,7 +100,7 @@ namespace SystemFinder.Logic.CampaignIO
             {
                 foreach (var element in stars)
                 {
-                    var uid = element.Attribute("z")!;  //already established above (line 25)
+                    var uid = element.Attribute("z")!;  //already established above
                     starReader.Read(element, uid, data);
                 }
             }
@@ -160,7 +161,7 @@ namespace SystemFinder.Logic.CampaignIO
             {
                 foreach (var element in gates)
                 {
-                    var uid = element.Attribute("z")!;  //already established above (line 25)
+                    var uid = element.Attribute("z")!;  //already established above
                     gateReader.Read(element, uid, data);
                 }
             }
@@ -192,7 +193,7 @@ namespace SystemFinder.Logic.CampaignIO
 
             logger.Log(LogLevel.Debug, "Searching for Planets ...");
 
-            var stars = root
+            var planets = root
                 .Descendants()
                 //planets
                 .Where(d =>
@@ -216,15 +217,15 @@ namespace SystemFinder.Logic.CampaignIO
                     return planet;
                 });
 
-            var starCount = stars?.Count() ?? 0;
+            var planetCount = planets?.Count() ?? 0;
 
-            logger.Log(LogLevel.Debug, "Parsing Stars ...");
-            if (stars is not null && stars.Any())
+            logger.Log(LogLevel.Debug, "Parsing Planets ...");
+            if (planets is not null && planets.Any())
             {
-                foreach (var element in stars)
+                foreach (var element in planets)
                 {
-                    var uid = element.Attribute("z")!;  //already established above (line 25)
-                    starReader.Read(element, uid, data);
+                    var uid = element.Attribute("z")!;  //already established above
+                    planetReader.Read(element, uid, data);
                 }
             }
 
