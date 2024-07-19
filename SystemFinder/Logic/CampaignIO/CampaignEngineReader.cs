@@ -183,5 +183,68 @@ namespace SystemFinder.Logic.CampaignIO
                 )
                 .Select(kvp => kvp.Value);
         }
+
+        public void FindPlanets(XDocument root, GalaxyData data)
+        {
+            logger.Log(LogLevel.Debug, "Counting expected Systems ...");
+            var sanityCheckSystemCount = root.Element("CampaignEngine")?.Element("starSystems")?.Elements("Sstm")?.Count() ?? 0;
+            logger.Log(LogLevel.Debug, $"Expecting {sanityCheckSystemCount} Systems");
+
+            logger.Log(LogLevel.Debug, "Searching for Planets ...");
+
+            var stars = root
+                .Descendants()
+                //planets
+                .Where(d =>
+                {
+                    var planet = d.Name == "Plnt" && d.Attribute("z") is not null;
+                    var nonPlanet = d.Attribute("cl")?.Value == "Plnt" && d.Attribute("z") is not null;
+
+                    return planet || nonPlanet;
+                })
+                //type == planet
+                .Where(d =>
+                {
+                    var planet = false;
+                    var tags = d.Element("tags");
+                    if (tags is not null)
+                    {
+                        var st = tags.Elements("st");
+                        planet = (st is not null && st.Any(tag => tag.Value == "planet"));
+                    }
+
+                    return planet;
+                });
+
+            var starCount = stars?.Count() ?? 0;
+
+            logger.Log(LogLevel.Debug, "Parsing Stars ...");
+            if (stars is not null && stars.Any())
+            {
+                foreach (var element in stars)
+                {
+                    var uid = element.Attribute("z")!;  //already established above (line 25)
+                    starReader.Read(element, uid, data);
+                }
+            }
+
+            /*
+            //exception if we don't have matching counts?
+            if (data.Planets.Count() < sanityCheckSystemCount)
+            {
+                throw new StarParsingException($"Expected at least {sanityCheckSystemCount * 3} planets, but found {data.Planets.Count()}.");
+            }
+            */
+
+            var sorted = data.Planets
+                .OrderBy(x => x.Value.ToString());
+            var missingStars = data.StarSystems
+                .Where(
+                    ss => data.Planets
+                        .Where(s => s.Value.StarSystemId == ss.Key)
+                        .Count() == 0
+                )
+                .Select(kvp => kvp.Value);
+        }
     }
 }
