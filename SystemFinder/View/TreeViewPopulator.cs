@@ -41,7 +41,16 @@ namespace SystemFinder.View
             {
                 TreeNode system = new TreeNode(starSystem.Name, (int)TreeViewIconIndexes.StarSystem, (int)TreeViewIconIndexes.StarSystem);
 
-                //TODO: find children for the star system
+                //find children for the star system
+                var stars = data.Stars.Values.Where(star => star.StarSystemId == starSystem.Id);
+                if (stars.Any())
+                {
+                    foreach (var star in stars)
+                    {
+                        TreeNode starNode = new TreeNode(star.Name, (int)TreeViewIconIndexes.Star, (int)TreeViewIconIndexes.Star);
+                        system.Nodes.Add(starNode);
+                    }
+                }
 
                 nodes.Add(system);
             }
