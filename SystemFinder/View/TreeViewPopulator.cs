@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using SystemFinder.Abstractions.View;
+using SystemFinder.Model;
 using SystemFinder.Model.Data;
 
 namespace SystemFinder.View
@@ -37,25 +38,30 @@ namespace SystemFinder.View
                 .OrderBy(x => _headlessSystems.Contains(x.Name) ? 1 : 0)
                 .ThenBy(x => x.Name);
 
-            foreach (var starSystem in systems)
+            foreach (var starSystem in systems!)
             {
                 TreeNode system = new TreeNode(starSystem.Name, (int)TreeViewIconIndexes.StarSystem, (int)TreeViewIconIndexes.StarSystem);
 
                 //find children for the star system
-                var stars = data.Stars.Values.Where(star => star.StarSystemId == starSystem.Id);
-                if (stars.Any())
-                {
-                    foreach (var star in stars)
-                    {
-                        TreeNode starNode = new TreeNode(star.Name, (int)TreeViewIconIndexes.Star, (int)TreeViewIconIndexes.Star);
-                        system.Nodes.Add(starNode);
-                    }
-                }
+                FindAndAttachStars(data, starSystem, system);
 
                 nodes.Add(system);
             }
 
             return nodes;
+        }
+
+        private static void FindAndAttachStars(GalaxyData data, StarSystem starSystem, TreeNode system)
+        {
+            var stars = data.Stars.Values.Where(star => star.StarSystemId == starSystem.Id);
+            if (stars.Any())
+            {
+                foreach (var star in stars)
+                {
+                    TreeNode starNode = new TreeNode(star.Name, (int)TreeViewIconIndexes.Star, (int)TreeViewIconIndexes.Star);
+                    system.Nodes.Add(starNode);
+                }
+            }
         }
     }
 }
