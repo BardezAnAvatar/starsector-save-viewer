@@ -17,7 +17,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             logger.Log(LogLevel.Information, $"Reading Star: {xPath}");
 
             //NOTE: Be careful of duplication. Seems some things duplicate with mods, etc.
-            if (!data.StarSystems.ContainsKey(uid.Value))
+            if (!data.Stars.ContainsKey(uid.Value))
             {
                 var name = ExtractStarName(current, xPath);
                 var systemId = ExtractStarSystemReference(current, xPath);
