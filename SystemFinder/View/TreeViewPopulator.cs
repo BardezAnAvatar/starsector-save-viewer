@@ -62,6 +62,14 @@ namespace SystemFinder.View
                 nodes.Add(gateNode);
             }
 
+            var groupedPlanets = data.Planets.Values.GroupBy(x => x.StarSystemId);
+            var joinSystems = groupedPlanets.Select(x =>
+            {
+                var system = data.StarSystems.SingleOrDefault(y => y.Value.Id == x.Key).Value.Name;
+                return  new { System = system, Count = x.Count() };
+            });
+            var sortedSystems = joinSystems.OrderByDescending(ss => ss.Count).ThenBy(ss => ss.System);
+
             return nodes;
         }
 
