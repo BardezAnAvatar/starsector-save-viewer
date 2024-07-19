@@ -7,7 +7,7 @@ using SystemFinder.Model.Data;
 namespace SystemFinder.Logic.CampaignIO
 {
     public class CampaignEngineReader(ILogger<CampaignEngineReader> logger, IGateReader gateReader,
-        IStarReader starReader, IStarSystemReader starSystemReader)
+        IPlanetReader planetReader, IStarReader starReader, IStarSystemReader starSystemReader)
         : ICampaignEngineReader
     {
         public void Read(XDocument root, GalaxyData data)
@@ -15,6 +15,7 @@ namespace SystemFinder.Logic.CampaignIO
             FindSystems(root, data);
             FindStars(root, data);
             FindGates(root, data);
+            FindPlanets(root, data);
         }
 
         public void FindSystems(XDocument root, GalaxyData data)
@@ -99,7 +100,7 @@ namespace SystemFinder.Logic.CampaignIO
             {
                 foreach (var element in stars)
                 {
-                    var uid = element.Attribute("z")!;  //already established above (line 25)
+                    var uid = element.Attribute("z")!;  //already established above
                     starReader.Read(element, uid, data);
                 }
             }
@@ -160,7 +161,7 @@ namespace SystemFinder.Logic.CampaignIO
             {
                 foreach (var element in gates)
                 {
-                    var uid = element.Attribute("z")!;  //already established above (line 25)
+                    var uid = element.Attribute("z")!;  //already established above
                     gateReader.Read(element, uid, data);
                 }
             }
@@ -178,6 +179,69 @@ namespace SystemFinder.Logic.CampaignIO
             var missingGates = data.StarSystems
                 .Where(
                     ss => data.Gates
+                        .Where(s => s.Value.StarSystemId == ss.Key)
+                        .Count() == 0
+                )
+                .Select(kvp => kvp.Value);
+        }
+
+        public void FindPlanets(XDocument root, GalaxyData data)
+        {
+            logger.Log(LogLevel.Debug, "Counting expected Systems ...");
+            var sanityCheckSystemCount = root.Element("CampaignEngine")?.Element("starSystems")?.Elements("Sstm")?.Count() ?? 0;
+            logger.Log(LogLevel.Debug, $"Expecting {sanityCheckSystemCount} Systems");
+
+            logger.Log(LogLevel.Debug, "Searching for Planets ...");
+
+            var planets = root
+                .Descendants()
+                //planets
+                .Where(d =>
+                {
+                    var planet = d.Name == "Plnt" && d.Attribute("z") is not null;
+                    var nonPlanet = d.Attribute("cl")?.Value == "Plnt" && d.Attribute("z") is not null;
+
+                    return planet || nonPlanet;
+                })
+                //type == planet
+                .Where(d =>
+                {
+                    var planet = false;
+                    var tags = d.Element("tags");
+                    if (tags is not null)
+                    {
+                        var st = tags.Elements("st");
+                        planet = (st is not null && st.Any(tag => tag.Value == "planet"));
+                    }
+
+                    return planet;
+                });
+
+            var planetCount = planets?.Count() ?? 0;
+
+            logger.Log(LogLevel.Debug, "Parsing Planets ...");
+            if (planets is not null && planets.Any())
+            {
+                foreach (var element in planets)
+                {
+                    var uid = element.Attribute("z")!;  //already established above
+                    planetReader.Read(element, uid, data);
+                }
+            }
+
+            /*
+            //exception if we don't have matching counts?
+            if (data.Planets.Count() < sanityCheckSystemCount)
+            {
+                throw new StarParsingException($"Expected at least {sanityCheckSystemCount * 3} planets, but found {data.Planets.Count()}.");
+            }
+            */
+
+            var sorted = data.Planets
+                .OrderBy(x => x.Value.ToString());
+            var missingStars = data.StarSystems
+                .Where(
+                    ss => data.Planets
                         .Where(s => s.Value.StarSystemId == ss.Key)
                         .Count() == 0
                 )

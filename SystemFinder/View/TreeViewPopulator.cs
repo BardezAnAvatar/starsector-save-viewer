@@ -45,6 +45,7 @@ namespace SystemFinder.View
                 //find children for the star system
                 FindAndAttachStars(data, starSystem, system);
                 FindAndAttachGates(data, starSystem, system);
+                FindAndAttachPlanets(data, starSystem, system);
 
                 nodes.Add(system);
             }
@@ -60,6 +61,14 @@ namespace SystemFinder.View
 
                 nodes.Add(gateNode);
             }
+
+            var groupedPlanets = data.Planets.Values.GroupBy(x => x.StarSystemId);
+            var joinSystems = groupedPlanets.Select(x =>
+            {
+                var system = data.StarSystems.SingleOrDefault(y => y.Value.Id == x.Key).Value.Name;
+                return  new { System = system, Count = x.Count() };
+            });
+            var sortedSystems = joinSystems.OrderByDescending(ss => ss.Count).ThenBy(ss => ss.System);
 
             return nodes;
         }
@@ -87,6 +96,19 @@ namespace SystemFinder.View
                     var gateIcon = (int)(gate.Scanned ? TreeViewIconIndexes.GateActive : TreeViewIconIndexes.GateInactive);
                     TreeNode gateNode = new TreeNode(gate.Name, gateIcon, gateIcon);
                     system.Nodes.Add(gateNode);
+                }
+            }
+        }
+
+        private static void FindAndAttachPlanets(GalaxyData data, StarSystem starSystem, TreeNode system)
+        {
+            var planets = data.Planets.Values.Where(planet => planet.StarSystemId == starSystem.Id);
+            if (planets.Any())
+            {
+                foreach (var planet in planets)
+                {
+                    TreeNode planetNode = new TreeNode(planet.Name, (int)TreeViewIconIndexes.Planet, (int)TreeViewIconIndexes.Planet);
+                    system.Nodes.Add(planetNode);
                 }
             }
         }
