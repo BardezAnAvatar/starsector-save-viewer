@@ -21,12 +21,14 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             {
                 var name = ExtractName(current, xPath);
                 var systemId = ExtractStarSystemReference(current, xPath);
+                var scanned = ExtractScannedState(current, xPath);
 
                 var gate = new Gate
                 {
                     Id = uid.Value,
                     Name = name,
                     StarSystemId = systemId,
+                    Scanned = scanned,
                 };
 
                 data.Gates.Add(uid.Value, gate);
@@ -68,6 +70,38 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             return uid;
 
             //throw new GateParsingException($"Could not locate gate system reference for `{name}`; xPath `{xPath}`");
+        }
+
+        private bool ExtractScannedState(XElement current, string xPath)
+        {
+            var scanned = false;
+
+            var me = current.Elements("me");
+
+            if (me is not null && me.Any())
+            {
+                foreach (var element in me)
+                {
+                    var e = element.Element("d")?.Elements("e");
+                    if (e is not null && e.Any())
+                    {
+                        foreach (var eElement in e)
+                        {
+                            var st = eElement.Elements("st");
+                            if (st is not null && st.Any(xe => xe.Value == "$gateScanned"))
+                            {
+                                var val = st.Skip(1).FirstOrDefault();
+                                if (val is not null)
+                                {
+                                    scanned = bool.Parse(val.Value!);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            return scanned;
         }
     }
 }
