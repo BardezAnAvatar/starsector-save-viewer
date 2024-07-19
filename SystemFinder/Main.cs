@@ -10,12 +10,14 @@ namespace SystemFinder
     {
         private ICampaignIoLogic _campaignIo;
         private ITreeViewIconLoader _treeViewIconLoader;
+        private ITreeViewPopulator _treeViewPopulator;
 
-        public Main(ICampaignIoLogic campaignIo, ITreeViewIconLoader treeViewIconLoader)
+        public Main(ICampaignIoLogic campaignIo, ITreeViewIconLoader treeViewIconLoader, ITreeViewPopulator treeViewPopulator)
         {
             InitializeComponent();
             _campaignIo = campaignIo;
             _treeViewIconLoader = treeViewIconLoader;
+            _treeViewPopulator = treeViewPopulator;
         }
 
         private async void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -38,6 +40,7 @@ namespace SystemFinder
                     //      `Cross-thread operation not valid: Control 'treeViewSystems' accessed from a thread other than the thread it was created on.`
                     this.Invoke(new MethodInvoker(delegate
                     {
+                        statusStrip1.Visible = true;
                         UpdateTreeView(results);
                     }));
                 }
@@ -52,8 +55,8 @@ namespace SystemFinder
 
         private void SetUpTreeViewImages()
         {
-            treeViewSystems.BeginUpdate();
             treeViewSystems.SuspendLayout();
+            treeViewSystems.BeginUpdate();
             
             treeViewSystems.ImageList?.Images?.Clear();
             var imageList = _treeViewIconLoader.LoadTreeViewIcons();
@@ -65,17 +68,14 @@ namespace SystemFinder
 
         private void UpdateTreeView(GalaxyData results)
         {
-            statusStrip1.Visible = true;
             treeViewSystems.SuspendLayout();
             treeViewSystems.BeginUpdate();
 
             treeViewSystems.Nodes.Clear();
-            //since we are handling star systems, use that
-            foreach (var starSystem in results.StarSystems)
-            {
-                TreeNode system = new TreeNode(starSystem.Value.Name, (int)TreeViewIconIndexes.StarSystem, (int)TreeViewIconIndexes.StarSystem);
-                treeViewSystems.Nodes.Add(system);
-            }
+
+            var nodes = _treeViewPopulator.BuildNodes(results);
+            treeViewSystems.Nodes.AddRange([.. nodes]);
+
             treeViewSystems.EndUpdate();
             treeViewSystems.ResumeLayout();
         }
