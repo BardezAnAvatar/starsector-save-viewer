@@ -70,6 +70,15 @@ namespace SystemFinder.View
             });
             var sortedSystems = joinSystems.OrderByDescending(ss => ss.Count).ThenBy(ss => ss.System);
 
+
+            var inactiveGateSystems = data.Gates.Values.Where(g => !g.Scanned);
+            var joinGateSystems = inactiveGateSystems.Select(x =>
+            {
+                var system = data.StarSystems.SingleOrDefault(y => y.Value.Id == x.StarSystemId).Value?.Name;
+                return system;
+            });
+            var sortedGates = joinGateSystems.OrderBy(gs => gs);
+
             return nodes;
         }
 
