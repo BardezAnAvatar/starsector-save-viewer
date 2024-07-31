@@ -93,7 +93,9 @@ namespace SystemFinder.View
 
         private static void FindAndAttachNonOrbitingStars(GalaxyData data, string parentId, TreeNode system)
         {
-            var stars = data.Stars.Values.Where(star => star.StarSystemId == parentId && star.Orbit?.ParentId is null);
+            var stars = data.Stars.Values
+                .Where(star => star.StarSystemId == parentId && star.Orbit?.ParentId is null)
+                .OrderBy(star => star?.Orbit?.Radius);
             if (stars.Any())
             {
                 foreach (var star in stars)
@@ -105,7 +107,9 @@ namespace SystemFinder.View
 
         private static void FindAndAttachOrbitingStars(GalaxyData data, string parentId, TreeNode system)
         {
-            var stars = data.Stars.Values.Where(star => star.Orbit?.ParentId == parentId);
+            var stars = data.Stars.Values
+                .Where(star => star.Orbit?.ParentId == parentId)
+                .OrderBy(star => star?.Orbit?.Radius);
             if (stars.Any())
             {
                 foreach (var star in stars)
@@ -117,7 +121,9 @@ namespace SystemFinder.View
 
         private static void FindAndAttachNonOrbitingPlanets(GalaxyData data, string parentId, TreeNode system)
         {
-            var planets = data.Planets.Values.Where(planet => planet.StarSystemId == parentId && planet.Orbit?.ParentId is null);
+            var planets = data.Planets.Values
+                .Where(planet => planet.StarSystemId == parentId && planet.Orbit?.ParentId is null)
+                .OrderBy(star => star?.Orbit?.Radius);
             if (planets.Any())
             {
                 foreach (var planet in planets)
@@ -129,7 +135,9 @@ namespace SystemFinder.View
 
         private static void FindAndAttachOrbitingPlanets(GalaxyData data, string parentId, TreeNode system)
         {
-            var planets = data.Planets.Values.Where(planet => planet.Orbit?.ParentId == parentId);
+            var planets = data.Planets.Values
+                .Where(planet => planet.Orbit?.ParentId == parentId)
+                .OrderBy(star => star?.Orbit?.Radius);
             if (planets.Any())
             {
                 foreach (var planet in planets)
@@ -141,7 +149,9 @@ namespace SystemFinder.View
 
         private static void FindAndAttachOrbitingGates(GalaxyData data, string parentId, TreeNode system)
         {
-            var gates = data.Gates.Values.Where(gate => gate.Orbit?.ParentId == parentId);
+            var gates = data.Gates.Values
+                .Where(gate => gate.Orbit?.ParentId == parentId)
+                .OrderBy(star => star?.Orbit?.Radius);
             if (gates.Any())
             {
                 foreach (var gate in gates)
@@ -153,7 +163,9 @@ namespace SystemFinder.View
 
         private static void FindAndAttachNonOrbitingGates(GalaxyData data, string parentId, TreeNode system)
         {
-            var gates = data.Gates.Values.Where(gate => gate.StarSystemId == parentId && gate.Orbit?.ParentId is null);
+            var gates = data.Gates.Values
+                .Where(gate => gate.StarSystemId == parentId && gate.Orbit?.ParentId is null)
+                .OrderBy(star => star?.Orbit?.Radius);
             if (gates.Any())
             {
                 foreach (var gate in gates)
