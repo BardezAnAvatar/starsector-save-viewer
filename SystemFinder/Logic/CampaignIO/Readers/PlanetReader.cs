@@ -9,7 +9,7 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers.Model
 {
-    public class PlanetReader(ILogger<PlanetReader> logger) : IPlanetReader
+    public class PlanetReader(ILogger<PlanetReader> logger, IOrbitReader orbitReader) : IPlanetReader
     {
         public void Read(XElement current, XAttribute uid, GalaxyData data)
         {
@@ -21,7 +21,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             {
                 var name = ExtractName(current, xPath);
                 var systemId = ExtractStarSystemReference(current, xPath);
-                var orbitParent = ExtractOrbitReference(current, xPath);
+                var orbitParent = orbitReader.ExtractOrbitReference(current, xPath);
                 var colonized = ExtractColonized(current);
                 var surveyLevel = ExtractSurveyLevel(current);
 
@@ -74,29 +74,6 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             }
 
             throw new StarParsingException($"Could not locate star name for node `{xPath}`");
-        }
-
-        private string? ExtractOrbitReference(XElement current, string xPath)
-        {
-            string? uid = null;
-
-            var orbitParent = current
-                .Elements("orbit")
-                ?.Where(o => o?.Attribute("cl")?.Value is not null && o?.Elements()?.Count() == 2)
-                ?.Elements()
-                ?.Skip(1)
-                ?.SingleOrDefault()
-                ;
-
-            if (orbitParent is not null)
-            {
-                //could be a definition or a reference
-                uid = orbitParent.Attribute("z")?.Value ?? orbitParent.Attribute("ref")?.Value;
-            }
-
-            return uid;
-
-            //throw new GateParsingException($"Could not locate parent orbit body reference for `{name}`; xPath `{xPath}`");
         }
 
         private bool ExtractColonized(XElement current)
