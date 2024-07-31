@@ -2,5 +2,6 @@
 {
     public class Station
     {
+        public string? OrbitParentId { get; init; } = null;
     }
 }

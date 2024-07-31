@@ -6,6 +6,8 @@
 
         public string StarSystemId { get; init; } = string.Empty;
 
+        public string? OrbitParentId { get; init; } = null;
+
         public string Name { get; init; } = string.Empty;
 
         public bool Colonized { get; init; } = false;

@@ -2,5 +2,6 @@
 {
     public class Fleet
     {
+        public string? OrbitParentId { get; init; } = null;
     }
 }
