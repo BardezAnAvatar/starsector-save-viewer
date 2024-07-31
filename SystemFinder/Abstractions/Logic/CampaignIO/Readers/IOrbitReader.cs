@@ -1,9 +1,10 @@
 ﻿using System.Xml.Linq;
+using SystemFinder.Model;
 
 namespace SystemFinder.Logic.CampaignIO.Readers
 {
     public interface IOrbitReader
     {
-        string? ExtractOrbitReference(XElement current, string xPath);
+        Orbit? Read(XElement current, string xPath);
     }
 }

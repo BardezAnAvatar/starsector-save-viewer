@@ -2,6 +2,6 @@
 {
     public class Station
     {
-        public string? OrbitParentId { get; init; } = null;
+        public Orbit? Orbit { get; init; } = null;
     }
 }

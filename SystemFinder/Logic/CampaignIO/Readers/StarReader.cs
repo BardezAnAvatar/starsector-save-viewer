@@ -21,13 +21,14 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             {
                 var name = ExtractStarName(current, xPath);
                 var systemId = ExtractStarSystemReference(current, xPath);
-                var orbitParent = orbitReader.ExtractOrbitReference(current, xPath);
+                var orbit = orbitReader.Read(current, xPath);
 
                 var star = new Star
                 {
                     Id = uid.Value,
                     Name = name,
                     StarSystemId = systemId,
+                    Orbit = orbit,
                 };
 
                 data.Stars.Add(uid.Value, star);

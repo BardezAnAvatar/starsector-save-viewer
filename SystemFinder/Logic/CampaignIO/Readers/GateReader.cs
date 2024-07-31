@@ -21,7 +21,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             {
                 var name = ExtractName(current, xPath);
                 var systemId = ExtractStarSystemReference(current, xPath);
-                var orbitParent = orbitReader.ExtractOrbitReference(current, xPath);
+                var orbit = orbitReader.Read(current, xPath);
                 var scanned = ExtractScannedState(current, xPath);
 
                 var gate = new Gate
@@ -29,7 +29,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
                     Id = uid.Value,
                     Name = name,
                     StarSystemId = systemId,
-                    OrbitParentId = orbitParent,
+                    Orbit = orbit,
                     Scanned = scanned,
                 };
 
