@@ -9,7 +9,7 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers.Model
 {
-    public class StarReader(ILogger<StarReader> logger) : IStarReader
+    public class StarReader(ILogger<StarReader> logger, IOrbitReader orbitReader) : IStarReader
     {
         public void Read(XElement current, XAttribute uid, GalaxyData data)
         {
@@ -21,12 +21,14 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             {
                 var name = ExtractStarName(current, xPath);
                 var systemId = ExtractStarSystemReference(current, xPath);
+                var orbit = orbitReader.Read(current, xPath);
 
                 var star = new Star
                 {
                     Id = uid.Value,
                     Name = name,
                     StarSystemId = systemId,
+                    Orbit = orbit,
                 };
 
                 data.Stars.Add(uid.Value, star);

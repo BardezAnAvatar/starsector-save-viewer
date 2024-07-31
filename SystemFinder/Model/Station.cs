@@ -2,5 +2,6 @@
 {
     public class Station
     {
+        public Orbit? Orbit { get; init; } = null;
     }
 }

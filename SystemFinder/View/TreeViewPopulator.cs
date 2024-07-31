@@ -2,6 +2,7 @@
 using SystemFinder.Abstractions.View;
 using SystemFinder.Model;
 using SystemFinder.Model.Data;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SystemFinder.View
 {
@@ -43,9 +44,9 @@ namespace SystemFinder.View
                 TreeNode system = new TreeNode(starSystem.Name, (int)TreeViewIconIndexes.StarSystem, (int)TreeViewIconIndexes.StarSystem);
 
                 //find children for the star system
-                FindAndAttachStars(data, starSystem, system);
-                FindAndAttachGates(data, starSystem, system);
-                FindAndAttachPlanets(data, starSystem, system);
+                FindAndAttachNonOrbitingStars(data, starSystem.Id, system);
+                FindAndAttachNonOrbitingGates(data, starSystem.Id, system);
+                FindAndAttachNonOrbitingPlanets(data, starSystem.Id, system);
 
                 nodes.Add(system);
             }
@@ -70,47 +71,139 @@ namespace SystemFinder.View
             });
             var sortedSystems = joinSystems.OrderByDescending(ss => ss.Count).ThenBy(ss => ss.System);
 
+
+            var inactiveGateSystems = data.Gates.Values.Where(g => !g.Scanned);
+            var joinGateSystems = inactiveGateSystems.Select(x =>
+            {
+                var system = data.StarSystems.SingleOrDefault(y => y.Value.Id == x.StarSystemId).Value?.Name ?? x.Name;
+                return system;
+            });
+            var sortedGates = joinGateSystems.OrderBy(gs => gs);
+
             return nodes;
         }
 
-        private static void FindAndAttachStars(GalaxyData data, StarSystem starSystem, TreeNode system)
+        private static void AttachChildren(GalaxyData data, string parentId, TreeNode parentNode)
         {
-            var stars = data.Stars.Values.Where(star => star.StarSystemId == starSystem.Id);
+            //find children for the star system
+            FindAndAttachOrbitingStars(data, parentId, parentNode);
+            FindAndAttachOrbitingGates(data, parentId, parentNode);
+            FindAndAttachOrbitingPlanets(data, parentId, parentNode);
+        }
+
+        private static void FindAndAttachNonOrbitingStars(GalaxyData data, string parentId, TreeNode system)
+        {
+            var stars = data.Stars.Values
+                .Where(star => star.StarSystemId == parentId && star.Orbit?.ParentId is null)
+                .OrderBy(star => star?.Orbit?.Radius);
             if (stars.Any())
             {
                 foreach (var star in stars)
                 {
-                    TreeNode starNode = new TreeNode(star.Name, (int)TreeViewIconIndexes.Star, (int)TreeViewIconIndexes.Star);
-                    system.Nodes.Add(starNode);
+                    AttachStarNode(data, system, star);
                 }
             }
         }
 
-        private static void FindAndAttachGates(GalaxyData data, StarSystem starSystem, TreeNode system)
+        private static void FindAndAttachOrbitingStars(GalaxyData data, string parentId, TreeNode system)
         {
-            var gates = data.Gates.Values.Where(gate => gate.StarSystemId == starSystem.Id);
-            if (gates.Any())
+            var stars = data.Stars.Values
+                .Where(star => star.Orbit?.ParentId == parentId)
+                .OrderBy(star => star?.Orbit?.Radius);
+            if (stars.Any())
             {
-                foreach (var gate in gates)
+                foreach (var star in stars)
                 {
-                    var gateIcon = (int)(gate.Scanned ? TreeViewIconIndexes.GateActive : TreeViewIconIndexes.GateInactive);
-                    TreeNode gateNode = new TreeNode(gate.Name, gateIcon, gateIcon);
-                    system.Nodes.Add(gateNode);
+                    AttachStarNode(data, system, star);
                 }
             }
         }
 
-        private static void FindAndAttachPlanets(GalaxyData data, StarSystem starSystem, TreeNode system)
+        private static void FindAndAttachNonOrbitingPlanets(GalaxyData data, string parentId, TreeNode system)
         {
-            var planets = data.Planets.Values.Where(planet => planet.StarSystemId == starSystem.Id);
+            var planets = data.Planets.Values
+                .Where(planet => planet.StarSystemId == parentId && planet.Orbit?.ParentId is null)
+                .OrderBy(star => star?.Orbit?.Radius);
             if (planets.Any())
             {
                 foreach (var planet in planets)
                 {
-                    TreeNode planetNode = new TreeNode(planet.Name, (int)TreeViewIconIndexes.Planet, (int)TreeViewIconIndexes.Planet);
-                    system.Nodes.Add(planetNode);
+                    AttachPlanetNode(data, system, planet);
                 }
             }
+        }
+
+        private static void FindAndAttachOrbitingPlanets(GalaxyData data, string parentId, TreeNode system)
+        {
+            var planets = data.Planets.Values
+                .Where(planet => planet.Orbit?.ParentId == parentId)
+                .OrderBy(star => star?.Orbit?.Radius);
+            if (planets.Any())
+            {
+                foreach (var planet in planets)
+                {
+                    AttachPlanetNode(data, system, planet);
+                }
+            }
+        }
+
+        private static void FindAndAttachOrbitingGates(GalaxyData data, string parentId, TreeNode system)
+        {
+            var gates = data.Gates.Values
+                .Where(gate => gate.Orbit?.ParentId == parentId)
+                .OrderBy(star => star?.Orbit?.Radius);
+            if (gates.Any())
+            {
+                foreach (var gate in gates)
+                {
+                    AttachGateNode(data, system, gate);
+                }
+            }
+        }
+
+        private static void FindAndAttachNonOrbitingGates(GalaxyData data, string parentId, TreeNode system)
+        {
+            var gates = data.Gates.Values
+                .Where(gate => gate.StarSystemId == parentId && gate.Orbit?.ParentId is null)
+                .OrderBy(star => star?.Orbit?.Radius);
+            if (gates.Any())
+            {
+                foreach (var gate in gates)
+                {
+                    AttachGateNode(data, system, gate);
+                }
+            }
+        }
+
+        private static void AttachStarNode(GalaxyData data, TreeNode system, Star star)
+        {
+            TreeNode starNode = new TreeNode(star.Name, (int)TreeViewIconIndexes.Star, (int)TreeViewIconIndexes.Star);
+
+            //find children for the star
+            AttachChildren(data, star.Id, starNode);
+
+            system.Nodes.Add(starNode);
+        }
+
+        private static void AttachPlanetNode(GalaxyData data, TreeNode system, Planet planet)
+        {
+            TreeNode planetNode = new TreeNode(planet.Name, (int)TreeViewIconIndexes.Planet, (int)TreeViewIconIndexes.Planet);
+
+            //find children for the planet
+            AttachChildren(data, planet.Id, planetNode);
+
+            system.Nodes.Add(planetNode);
+        }
+
+        private static void AttachGateNode(GalaxyData data, TreeNode system, Gate gate)
+        {
+            var gateIcon = (int)(gate.Scanned ? TreeViewIconIndexes.GateActive : TreeViewIconIndexes.GateInactive);
+            TreeNode gateNode = new TreeNode(gate.Name, gateIcon, gateIcon);
+
+            //find children for the gate
+            AttachChildren(data, gate.Id, gateNode);
+
+            system.Nodes.Add(gateNode);
         }
     }
 }

@@ -5,6 +5,7 @@ using SystemFinder.Abstractions.Logic.CampaignIO.Readers;
 using SystemFinder.Abstractions.View;
 using SystemFinder.Logic;
 using SystemFinder.Logic.CampaignIO;
+using SystemFinder.Logic.CampaignIO.Readers;
 using SystemFinder.Logic.CampaignIO.Readers.Model;
 using SystemFinder.View;
 
@@ -19,6 +20,7 @@ namespace SystemFinder.DependencyRegistration
             services.AddSingleton<ICampaignEngineReader, CampaignEngineReader>();
 
             services.AddSingleton<IGateReader, GateReader>();
+            services.AddSingleton<IOrbitReader, OrbitReader>();
             services.AddSingleton<IPlanetReader, PlanetReader>();
             services.AddSingleton<IStarReader, StarReader>();
             services.AddSingleton<IStarSystemReader, StarSystemReader>();

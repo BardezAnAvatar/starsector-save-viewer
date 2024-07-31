@@ -9,7 +9,7 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers.Model
 {
-    public class GateReader(ILogger<GateReader> logger) : IGateReader
+    public class GateReader(ILogger<GateReader> logger, IOrbitReader orbitReader) : IGateReader
     {
         public void Read(XElement current, XAttribute uid, GalaxyData data)
         {
@@ -21,6 +21,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             {
                 var name = ExtractName(current, xPath);
                 var systemId = ExtractStarSystemReference(current, xPath);
+                var orbit = orbitReader.Read(current, xPath);
                 var scanned = ExtractScannedState(current, xPath);
 
                 var gate = new Gate
@@ -28,6 +29,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
                     Id = uid.Value,
                     Name = name,
                     StarSystemId = systemId,
+                    Orbit = orbit,
                     Scanned = scanned,
                 };
 

@@ -6,6 +6,8 @@
 
         public string? StarSystemId { get; init; } = string.Empty;
 
+        public Orbit? Orbit { get; init; } = null;
+
         public string Name { get; init; } = string.Empty;
 
         public bool Scanned { get; init; } = default;

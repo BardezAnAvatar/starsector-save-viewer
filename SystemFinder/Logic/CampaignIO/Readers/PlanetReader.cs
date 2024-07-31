@@ -9,7 +9,7 @@ using SystemFinder.Shared;
 
 namespace SystemFinder.Logic.CampaignIO.Readers.Model
 {
-    public class PlanetReader(ILogger<PlanetReader> logger) : IPlanetReader
+    public class PlanetReader(ILogger<PlanetReader> logger, IOrbitReader orbitReader) : IPlanetReader
     {
         public void Read(XElement current, XAttribute uid, GalaxyData data)
         {
@@ -21,6 +21,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
             {
                 var name = ExtractName(current, xPath);
                 var systemId = ExtractStarSystemReference(current, xPath);
+                var orbit = orbitReader.Read(current, xPath);
                 var colonized = ExtractColonized(current);
                 var surveyLevel = ExtractSurveyLevel(current);
 
@@ -29,6 +30,7 @@ namespace SystemFinder.Logic.CampaignIO.Readers.Model
                     Id = uid.Value,
                     Name = name,
                     StarSystemId = systemId,
+                    Orbit = orbit,
                     Colonized = colonized,
                     Surveyed = surveyLevel,
                 };
